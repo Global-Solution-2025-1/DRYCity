@@ -1,15 +1,320 @@
-:root{
+:root {
   --preto: #000;
   --preto-1: #242325;
-  --preto-2: #1E1E1E;
+  --preto-2: #1e1e1e;
   --branco: #fff;
-  --branco-1: #F5F4F5;
-  --cinza-claro: #D9D9D9;
-  --cinza-escuro: #6C6C6C;
-  --azul: #4190C8;
+  --branco-1: #f5f4f5;
+  --cinza-claro: #d9d9d9;
+  --cinza-escuro: #6c6c6c;
+  --azul: #4190c8;
 }
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  font-family: "Inter", serif;
+  overflow-x: hidden; /* Para evitar overflow horizontal global */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que o body ocupe pelo menos a altura da viewport */
+}
+
+section {
+  height: 100vh;
+  position: relative;
+}
+img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+}
+main {
+  background-color: var(--branco-1);
+  flex-grow: 1; /* Faz o main se expandir para ocupar o espaço vertical disponível */
+}
+footer {
+  position: relative; /* Mantido para o posicionamento de .footer-bg */
+  /* bottom: 0; Esta propriedade com position: relative não ajuda a "colar" o footer no fundo da viewport */
+  background-color: var(--branco);
+  height: 50vh;
+  width: 100%;
+}
+footer .footer-bg {
+  /* Aninhamento corrigido */
+  /* font-size: 70px;
+  font-weight: bold;
+  opacity: 0.1;
+  letter-spacing: 12px;
+  line-height: 60px; */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Adicione width: 100%; e text-align: center; se quiser que o texto ocupe toda a largura e seja centralizado */
+  width: 100%;
+  /* text-align: center; */
+}
+.linha {
+  display: block;
+  height: 5px;
+  width: 100%;
+  background-color: var(--azul);
+}
+.proxima-secao{
+  width: fit-content;
+  position: relative;
+  bottom: 35px;
+  left: 50%;
+  display: flex;
+  gap: 15px;
+  font-size: 16px;
+  color: var(--cinza-escuro);
+  align-items: center;
+  justify-content: center;
+}
+.proxima-secao img{
+  transform: rotate(-90deg);
+  width: 35px;
+  height: 15px;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  width: 100%;
+  height: 92px;
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+.logo {
+  mix-blend-mode: difference;
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  display: flex;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+}
+.menu-hamb {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.header-right > nav > ul {
+  list-style: none;
+  text-align: center;
+}
+.menu-opt.inactive {
+  display: none;
+}
+.menu-opt.active {
+  display: block;
+  color: var(--cinza-escuro);
+  background-color: #e2dfe2;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+.menu-opt {
+  font-size: 14px;
+  font-weight: 300;
+}
+.header-right > a {
+  border-radius: 50%;
+  height: 30px;
+}
+.avatar {
+  mix-blend-mode: difference;
+}
+
+/* HOME */
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 150px;
+  padding-bottom: 80px;
+}
+.home-bg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 560px;
+  opacity: 0.25;
+}
+.home-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-text-group h2 {
+  font-size: 10px;
+  font-weight: normal;
+  width: 170px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.home-text-group h1 {
+  font-size: 70px;
+  font-weight: 900;
+}
+
+.saiba-mais {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--cinza-escuro);
+}
+
+/* VIDEO */
+.video {
+  width: 100%;
+  background-color: var(--preto-1);
+  z-index: 10;
+}
+.video-bg {
+  opacity: 0.35;
+  width: 100%;
+  height: 100vh;
+}
+.video-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 150px;
+  padding-bottom: 80px;
+  padding-left: 32px;
+  padding-right: 32px;
+  position: absolute;
+  top: 0;
+  color: #e2dfe2;
+  mix-blend-mode: difference;
+  text-align: center;
+  font-weight: bold;
+}
+.video-text-group .video-text-1 {
+  /* Aninhamento corrigido */
+  font-size: 32px;
+}
+.video-text-group .inner-video-text-group {
+  /* Aninhamento corrigido */
+  width: 312px;
+}
+.video-text-group .inner-video-text-group .video-text-2 {
+  /* Aninhamento corrigido */
+  letter-spacing: 1px;
+  font-size: 48px;
+}
+.video-text-group .inner-video-text-group .video-text-3 {
+  /* Aninhamento corrigido */
+  font-size: 19px;
+}
+.video-text-group .inner-video-text-group .video-text-4 {
+  /* Aninhamento corrigido */
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+/* DESCRIÇÃO DO PROBLEMA */
+.descricao-problema {
+  background-color: var(--cinza-escuro);
+}
+.slide {
+  height: 100vh;
+}
+.image-bg {
+  height: 100vh;
+  width: 100%;
+  opacity: 0.6;
+  position: absolute;
+}
+.problem-content {
+  height: 100%;
+  padding: 150px 15px 80px 15px;
+}
+.content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  background-color: var(--branco-1);
+  width: 300px;
+  height: 245px;
+  border-radius: 10px;
+}
+.subtitulo {
+  font-size: 24px;
+  color: var(--cinza-escuro);
+  font-weight: bold;
+  width: fit-content;
+}
+.content-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 15px;
+  color: var(--cinza-escuro);
+}
+.slide-nav {
+  color: var(--branco-1);
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.slide-nav .slide-status {
+  /* Aninhamento corrigido */
+  display: flex;
+  flex-direction: row;
+}
+.slide-nav .slide-status p {
+  /* Aninhamento corrigido */
+  font-size: 16px;
+}
+.slide-nav img {
+  /* Aninhamento corrigido */
+  width: 15px;
+  height: 20px;
+}
+.slide-nav img:nth-child(1) {
+  /* Aninhamento corrigido */
+  rotate: 180deg;
+}
+
+/* OUTROS */
+.others {
+  height: fit-content;
+  padding: 110px 15px 80px 15px;
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+  align-items: center;
+}
+.others .card {
+  /* Aninhamento corrigido (assumindo que .card é sempre filho de .others aqui) */
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
+  -webkit-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
 }

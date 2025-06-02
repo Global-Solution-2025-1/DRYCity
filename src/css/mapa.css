@@ -1,0 +1,26 @@
+@import "../css/style.css";
+
+main{
+  padding: 100px 15px 15px 15px;
+}
+
+.sobre{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: transparent;
+}
+.sobre-text{
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 15px;
+  color: var(--cinza-escuro);
+}
+.mapa{
+  margin-top: 25px;
+  height: 690px;
+  border: 2px solid var(--azul);
+  border-radius: 10px;
+  background-color: rgba(35, 35, 37, 5%);
+}

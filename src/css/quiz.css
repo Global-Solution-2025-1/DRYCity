@@ -26,7 +26,7 @@ b{
 }
 .opcoes-grupo{
   display: flex;
-  height: 100%;
+  height: 50px;
   text-align: center;
   font-size: 10px;
   color: var(--preto-2);

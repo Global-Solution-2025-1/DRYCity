@@ -7,6 +7,9 @@
   --cinza-claro: #d9d9d9;
   --cinza-escuro: #6c6c6c;
   --azul: #4190c8;
+  --sb-track-color: #f5f4f5;
+  --sb-thumb-color: #4190c8;
+  --sb-size: 10px;
 }
 * {
   margin: 0;
@@ -21,6 +24,29 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+  
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
 }
 
 section {
@@ -44,17 +70,23 @@ main {
 }
 footer {
   position: relative;
-  position: relative;
   background-color: var(--branco);
   height: 50vh;
-  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 footer .footer-bg {
+  font-size: 70px;
+  font-weight: bold;
+  letter-spacing: 10px;
+  text-align: center;
+  align-self: flex-end;
+  width: 100%;
+  color: var(--preto);
+  opacity: .1;
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
 }
 .linha {
   display: block;
@@ -62,11 +94,11 @@ footer .footer-bg {
   width: 100%;
   background-color: var(--azul);
 }
-.proxima-secao{
+.proxima-secao {
   width: fit-content;
   position: relative;
-  bottom: 35px;
-  left: 50%;
+  bottom: 50px;
+  left: 52%;
   display: flex;
   gap: 15px;
   font-size: 16px;
@@ -74,7 +106,7 @@ footer .footer-bg {
   align-items: center;
   justify-content: center;
 }
-.proxima-secao img{
+.proxima-secao img {
   transform: rotate(-90deg);
   width: 35px;
   height: 15px;
@@ -150,16 +182,23 @@ header {
 .home-bg {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: fit-content;
+  overflow: hidden;
   height: 560px;
   opacity: 0.25;
+  display: flex;
+  z-index: 9999;
+  /* background-blend-mode: difference; */
 }
-.home-text-group, .home-text-group-tech {
+.home-text-group,
+.home-text-group-tech {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 999;
 }
-.home-text-group h2, .home-text-group-tech h2 {
+.home-text-group h2,
+.home-text-group-tech h2 {
   font-size: 10px;
   font-weight: normal;
   width: 170px;
@@ -167,7 +206,6 @@ header {
   text-transform: uppercase;
 }
 .home-text-group h1 {
-
   font-size: 70px;
   font-weight: 900;
 }
@@ -179,6 +217,7 @@ header {
   gap: 10px;
   font-size: 12px;
   color: var(--cinza-escuro);
+  z-index: 999;
 }
 
 /* VIDEO */
@@ -211,24 +250,19 @@ header {
   font-weight: bold;
 }
 .video-text-group .video-text-1 {
-  /* Aninhamento corrigido */
   font-size: 32px;
 }
 .video-text-group .inner-video-text-group {
-  /* Aninhamento corrigido */
   width: 312px;
 }
 .video-text-group .inner-video-text-group .video-text-2 {
-  /* Aninhamento corrigido */
   letter-spacing: 1px;
   font-size: 48px;
 }
 .video-text-group .inner-video-text-group .video-text-3 {
-  /* Aninhamento corrigido */
   font-size: 19px;
 }
 .video-text-group .inner-video-text-group .video-text-4 {
-  /* Aninhamento corrigido */
   font-size: 12px;
   letter-spacing: 0.3px;
 }
@@ -245,6 +279,9 @@ header {
   width: 100%;
   opacity: 0.6;
   position: absolute;
+}
+.problema{
+  position: relative;
 }
 .problem-content {
   height: 100%;
@@ -285,43 +322,45 @@ header {
   transform: translateX(-50%);
 }
 .slide-nav .slide-status {
-  /* Aninhamento corrigido */
   display: flex;
   flex-direction: row;
 }
 .slide-nav .slide-status p {
-  /* Aninhamento corrigido */
   font-size: 16px;
 }
 .slide-nav img {
-  /* Aninhamento corrigido */
   width: 15px;
   height: 20px;
 }
 .slide-nav img:nth-child(1) {
-  /* Aninhamento corrigido */
   rotate: 180deg;
 }
 
 /* OUTROS */
 .others {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: fit-content;
   padding: 110px 15px 80px 15px;
-  display: flex;
-  gap: 25px;
-  flex-direction: column;
-  align-items: center;
+  background-color: var(--branco-1);
 }
-.others .card {
-  /* Aninhamento corrigido (assumindo que .card é sempre filho de .others aqui) */
-  width: 300px;
+.others .card-group{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  align-items: center;
+  justify-content: center;
+}
+.others .card-group .card {
+  align-self: center;
+  width: 90vw;
   height: 300px;
   border-radius: 10px;
   box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
   -webkit-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
   -moz-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
 }
-
 
 /* TECNOLOGIAS */
 .tecnologias .home-text-group > h1 {
@@ -330,12 +369,12 @@ header {
   line-height: 35px;
   margin-bottom: 15px;
 }
-.tech-card-image{
+.tech-card-image {
   height: 280px;
   width: 100%;
   background-color: var(--cinza-escuro);
 }
-.tech-cards .content{
+.tech-cards .content {
   width: 100%;
   height: calc(100% - 280px);
   text-align: center;
@@ -343,11 +382,10 @@ header {
   padding: 50px 35px;
 }
 
-.tech-cards .content > .content-text{
+.tech-cards .content > .content-text {
   margin-top: 25px;
   font-size: 16px;
 }
-
 
 /* OBJETIVOS */
 .objetivos .home-text-group > h1 {
@@ -356,27 +394,27 @@ header {
   line-height: 35px;
   margin-bottom: 15px;
 }
-.objetivos .home > .home-bg{
+.objetivos .home > .home-bg {
   bottom: 40%;
   transform: translateY(40%);
   width: 350px;
   height: 350px;
 }
-.objetivos-main{
+.objetivos-main {
   background-color: var(--branco-1);
   height: 100%;
 }
-.objetivos-main .content{
+.objetivos-main .content {
   position: relative;
   padding: 100px 15px 15px 15px;
 }
-.slide-card-container{
+.slide-card-container {
   display: flex;
   flex-direction: column;
   gap: 25px;
   margin-top: 25px;
 }
-.slide-card-container .slide-card{
+.slide-card-container .slide-card {
   background-color: var(--branco);
   height: 125px;
   width: 300px;
@@ -384,22 +422,21 @@ header {
   -webkit-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
   -moz-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
 }
-.slide-card-container .slide-card:nth-child(odd){
+.slide-card-container .slide-card:nth-child(odd) {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   align-self: flex-end;
 }
-.slide-card-container .slide-card:nth-child(even){
+.slide-card-container .slide-card:nth-child(even) {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
-.objetivos-main .proxima-secao{
+.objetivos-main .proxima-secao {
   margin-top: 30px;
   margin-bottom: 30px;
   bottom: 0;
 }
-
 
 /* PÚBLICO-ALVO */
 .publico-alvo .home-text-group {
@@ -411,7 +448,7 @@ header {
   line-height: 35px;
   margin-bottom: 15px;
 }
-.pb-alvo-content{
+.pb-alvo-content {
   height: fit-content;
   padding-top: 100px;
   padding-bottom: 60px;
@@ -420,7 +457,7 @@ header {
   background-color: var(--branco-1);
   overflow: hidden;
 }
-.pb-alvo-content .pb-alvo-image{
+.pb-alvo-content .pb-alvo-image {
   position: relative;
   left: -10px;
   height: 80vh;
@@ -428,50 +465,48 @@ header {
   border-radius: 10px;
   background-color: var(--cinza-escuro);
 }
-.pb-alvo-content .content{
+.pb-alvo-content .content {
   position: relative;
   background-color: transparent;
   border-radius: 0;
   width: 80%;
 }
-.pb-alvo-content:nth-child(3){
+.pb-alvo-content:nth-child(3) {
   background-color: var(--branco);
 }
-.pb-alvo-content .pb-alvo-image:nth-child(2){
+.pb-alvo-content .pb-alvo-image:nth-child(2) {
   left: 10px;
 }
-.pb-alvo-content:nth-child(2) .content{
+.pb-alvo-content:nth-child(2) .content {
   padding-left: 15px;
 }
-.pb-alvo-content .proxima-secao{
+.pb-alvo-content .proxima-secao {
   position: absolute;
   bottom: 65px;
   left: 55%;
 }
-
 
 /* BENEFÍCIOS */
 .beneficios .home-text-group > h1 {
   font-size: 40px;
   text-align: center;
 }
-.beneficios .home-text-group > h2{
+.beneficios .home-text-group > h2 {
   width: 160px;
 }
-.beneficios .home > .home-bg{
+.beneficios .home > .home-bg {
   bottom: 40%;
   transform: translateY(40%);
   width: 350px;
   height: 350px;
 }
-.beneficios .others{
+.beneficios .others {
   background-color: var(--branco-1);
 }
-.beneficios .proxima-secao{
+.beneficios .proxima-secao {
   bottom: -25px;
   left: 20%;
 }
-
 
 /* USO DIÁRIO */
 .uso-diario .home-text-group > h1 {
@@ -480,17 +515,125 @@ header {
   font-size: 40px;
   text-align: center;
 }
-.uso-diario .home-text-group > h2{
+.uso-diario .home-text-group > h2 {
   margin-top: 5px;
   width: 160px;
 }
-.uso-diario .home > .home-bg{
+.uso-diario .home > .home-bg {
   bottom: 40%;
   transform: translateY(40%);
   width: 350px;
   height: 350px;
 }
-.uso-diario .proxima-secao{
+.uso-diario .proxima-secao {
   position: relative;
   top: 55%;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 48rem) {
+  header {
+    height: 72px;
+  }
+
+  /* HOME */
+  .home-text-group {
+    background-color: white;
+    width: 290px;
+    /* height: 175px; */
+  }
+  .home-text-group h1{
+    font-size: 225px;
+  }
+  .home-text-group h2{
+    position: absolute;
+    top: 42%;
+    mix-blend-mode: difference;
+    width: 290px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-blend-mode: difference;
+    transform: translateY(-100%);
+  }
+  .home-bg {
+    height: 100%;
+  }
+  .video .video-bg {
+    width: 100%;
+  }
+  .video-text-group .video-text-1 {
+    align-self: flex-start;
+    font-size: 48px;
+  }
+  .video-text-group .inner-video-text-group {
+    align-self: flex-end;
+    width: 620px;
+  }
+  .video-text-group .inner-video-text-group .video-text-2  {
+    font-size: 96px;
+  }
+  .video-text-group .inner-video-text-group .video-text-3  {
+    font-size: 38px;
+  }
+  .video-text-group .inner-video-text-group .video-text-4  {
+    font-size: 25px;
+  }
+
+  .problem-content .content{
+    width: 370px;
+    height: 315px;
+  }
+  .problem-content .content .content-text{
+    font-size: 16px;
+  }
+
+  .descricao-problema .slide{
+    padding: 0 25px;
+  }
+
+  .others .card-group{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+  }
+  .others .card-group .card{
+    width: 40vw;
+    height: 330px;
+  }
+  .problema .proxima-secao{
+    position: absolute;
+    bottom: 25px;
+    left: 84%;
+  }
+
+
+  /* TECNOLOGIAS */
+  .home .home-bg{
+    width: 100%;
+  }
+  .tecnologias .home-text-group h1{
+    font-size: 96px;
+    line-height: 85%;
+  }
+  .tecnologias .home-text-group h2{
+    position: relative;
+    top: 15%;
+    height: 50px;
+  }
+
+  /* FOOTER */
+
+  footer{
+    height: 657px;
+    overflow: hidden;
+  }
+  footer .footer-bg{
+    line-height: 160px;
+    font-size: 225px;
+    letter-spacing: 100px;
+  }
 }

@@ -1,125 +1,139 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="./src/assets/images/logo.png"
+      type="image/x-icon"
+    />
+    <title>DRYCity</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./src/css/style.css">
-  <link rel="shortcut icon" href="./src/assets/images/logo.png" type="image/x-icon">
-  <title>DRYCity</title>
-</head>
+  <body>
+    <header>
+      <p class="logo">DRYCITY</p>
 
-<body>
-  <header>
-    <p class="logo">DRYCITY</p>
+      <div class="header-right">
+        <nav class="menu-hamb">
+          <ul>
+            <li class="menu-opt active">HOME</li>
+            <li class="menu-opt inactive">TECNOLOGIAS</li>
+            <li class="menu-opt inactive">OBJETIVOS</li>
+            <li class="menu-opt inactive">PÚBLICO-ALVO</li>
+            <li class="menu-opt inactive">BENEFÍCIOS</li>
+            <li class="menu-opt inactive">USO DIÁRIO</li>
+          </ul>
+        </nav>
 
-    <div class="header-right">
-      <nav class="menu-hamb">
-        <ul>
-          <li class="menu-opt active">HOME</li>
-          <li class="menu-opt inactive">TECNOLOGIAS</li>
-          <li class="menu-opt inactive">OBJETIVOS</li>
-          <li class="menu-opt inactive">PÚBLICO-ALVO</li>
-          <li class="menu-opt inactive">BENEFÍCIOS</li>
-          <li class="menu-opt inactive">USO DIÁRIO</li>
-        </ul>
-      </nav>
-
-      <a href="./src/pages/cadastro.html">
-        <img class="avatar" src="./src/assets/images/avatar.svg" alt="Avatar de Usuário">
-      </a>
-    </div>
-  </header>
-
-  <!-- <main class="problema">
-    <section class="home">
-      <img class="home-bg" src="./src/assets/images/home-bg.png" alt="">
-
-      <div class="home-text-group">
-        <h2>
-          Salvando e transformando o mundo por meio da tecnologia
-        </h2>
-
-        <h1>DRYCITY</h1>
+        <a href="./src/pages/cadastro.html">
+          <img
+            class="avatar"
+            src="./src/assets/images/avatar.svg"
+            alt="Avatar de Usuário"
+          />
+        </a>
       </div>
+    </header>
 
-      <div class="saiba-mais">
-        <p>SAIBA MAIS</p>
-        <img src="./src/assets/images/arrow.svg" alt="">
-      </div>
-    </section>
+    <!-- <main class="problema">
+      <section class="home">
+        <img
+          class="home-bg"
+          src="./src/assets/images/home/home-bg-desktop.png"
+          alt=""
+        />
 
-    <section class="video">
-      <img class="video-bg" src="./src/assets/images/video-bg-placeholder.png" alt="">
+        <div class="home-text-group">
+          <h2>Salvando e transformando o mundo por meio da tecnologia</h2>
 
-      <div class="video-text-group">
-        <p class="video-text-1">MAIS DE</p>
-        <div class="inner-video-text-group">
-          <p class="video-text-2">110 MILHÕES</p>
-          <p class="video-text-3">DE PESSOAS FORAM AFETADAS</p>
-          <p class="video-text-4">POR ENCHENTES NO BRASIL ENTRE 1991 E 2022</p>
+          <h1>DRYCITY</h1>
         </div>
-      </div>
-    </section>
 
-    <section class="descricao-problema">
-      <div class="slide">
-        <img class="image-bg" src="./src/assets/images/slide1.png" alt="">
+        <div class="saiba-mais">
+          <p>SAIBA MAIS</p>
+          <img src="./src/assets/images/arrow.svg" alt="" />
+        </div>
+      </section>
 
-        <div class="problem-content">
-          <div class="content">
-            <div class="subtitulo">
-              <h3>SUBTÍTULO 1</h3>
-              <span class="linha"></span>
-            </div>
-            <div class="content-text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
-            </div>
+      <section class="video">
+        <img class="video-bg" src="./src/assets/images/home/Hero.png" alt="" />
+
+        <div class="video-text-group">
+          <p class="video-text-1">MAIS DE</p>
+          <div class="inner-video-text-group">
+            <p class="video-text-2">110 MILHÕES</p>
+            <p class="video-text-3">DE PESSOAS FORAM AFETADAS</p>
+            <p class="video-text-4">
+              POR ENCHENTES NO BRASIL ENTRE 1991 E 2022
+            </p>
           </div>
         </div>
-        <div class="slide-nav">
-          <img src="./src/assets/images/slide-nav.svg" alt="">
-          <div class="slide-status">
-            <p>X</p>
-            <p>/</p>
-            <p>X</p>
+      </section>
+
+      <section class="descricao-problema">
+        <img
+          class="image-bg"
+          src="./src/assets/images/home/slide1.png"
+          alt=""
+        />
+        <div class="slide">
+          <div class="problem-content">
+            <div class="content">
+              <div class="subtitulo">
+                <h3>SUBTÍTULO 1</h3>
+                <span class="linha"></span>
+              </div>
+              <div class="content-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Aenean in felis finibus, bibendum leo eget, condimentum eros.
+                  Duis nec lobortis.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Aenean in felis finibus, bibendum leo eget, condimentum eros.
+                  Duis nec lobortis.
+                </p>
+              </div>
+            </div>
           </div>
-          <img src="./src/assets/images/slide-nav.svg" alt="">
+          <div class="slide-nav">
+            <img src="./src/assets/images/slide-nav.svg" alt="" />
+            <div class="slide-status">
+              <p>X</p>
+              <p>/</p>
+              <p>X</p>
+            </div>
+            <img src="./src/assets/images/slide-nav.svg" alt="" />
+          </div>
         </div>
+      </section>
+
+      <section class="others">
+        <div class="card-group">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+        </div>
+      </section>
+
+      <div class="proxima-secao">
+        <p>TECNOLOGIAS</p>
+        <img src="./src/assets/images/arrow.svg" alt="" />
       </div>
-    </section>
+    </main> -->
 
-    <section class="others">
-      <div class="subtitulo">
-        <h3>SUBTÍTULO 1</h3>
-        <span class="linha"></span>
-      </div>
-
-      <div class="card">
-
-      </div>
-      <div class="card">
-
-      </div>
-      <div class="card">
-
-      </div>
-      <div class="card">
-
-      </div>
-    </section>
-
-    <div class="proxima-secao">
-      <p>TECNOLOGIAS</p>
-      <img src="./src/assets/images/arrow.svg" alt="">
-    </div>
-  </main> -->
-
-  <!-- <main class="tecnologias">
+    <main class="tecnologias">
     <section class="home">
       <img class="home-bg" src="./src/assets/images/linhas-tecnologicas-mobile.png" alt="">
 
@@ -151,6 +165,22 @@
         </div>
       </div>
     </section>
+
+    <section class="tech-cards">
+      
+      <div class="content">
+        <div class="subtitulo">
+          <h3>SUBTÍTULO 1</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
+        </div>
+      </div>
+      <img class="tech-card-image" src="" alt="">
+    </section>
+
     <section class="tech-cards">
       <img class="tech-card-image" src="" alt="">
 
@@ -165,9 +195,9 @@
         </div>
       </div>
     </section>
-    <section class="tech-cards">
-      <img class="tech-card-image" src="" alt="">
 
+    <section class="tech-cards">
+      
       <div class="content">
         <div class="subtitulo">
           <h3>SUBTÍTULO 1</h3>
@@ -178,24 +208,11 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
         </div>
       </div>
-    </section>
-    <section class="tech-cards">
       <img class="tech-card-image" src="" alt="">
-
-      <div class="content">
-        <div class="subtitulo">
-          <h3>SUBTÍTULO 1</h3>
-          <span class="linha"></span>
-        </div>
-        <div class="content-text">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
-        </div>
-      </div>
     </section>
-  </main> -->
+  </main>
 
-  <!-- <main class="objetivos">
+    <!-- <main class="objetivos">
     <section class="home">
       <img class="home-bg" src="./src/assets/images/objetivos-bg-mobile.png" alt="">
 
@@ -238,7 +255,7 @@
     </section>
   </main> -->
 
-  <!-- <main class="publico-alvo">
+    <!-- <main class="publico-alvo">
     <section class="home">
       <img class="home-bg" src="./src/assets/images/pb-alvo-mobile.png" alt="">
 
@@ -307,7 +324,7 @@
     </section>
   </main> -->
 
-  <!-- <main class="beneficios">
+    <!-- <main class="beneficios">
     <section class="home">
       <img class="home-bg" src="./src/assets/images/beneficios-bg-mobile.png" alt="">
 
@@ -351,7 +368,7 @@
 
   </main> -->
 
-  <main class="uso-diario">
+    <!-- <main class="uso-diario">
     <section class="home">
       <img class="home-bg" src="./src/assets/images/uso-diario-bg.png" alt="">
 
@@ -430,12 +447,18 @@
         <img src="./src/assets/images/arrow.svg" alt="">
       </div>
     </section>
-  </main>
+  </main> -->
 
-  <footer>
-    <img class="footer-bg" src="./src/assets/images/DRYCITY-footer.png" alt="">
-  </footer>
-  <script src="./src/js/script.js"></script>
-</body>
+    <footer>
+      <!-- <img
+        class="footer-bg"
+        src="./src/assets/images/DRYCITY-footer.png"
+        alt=""
+      /> -->
+      <div class="footer-content"></div>
 
+      <p class="footer-bg">DRYCITY</p>
+    </footer>
+    <script src="./src/js/script.js"></script>
+  </body>
 </html>

@@ -408,7 +408,7 @@ header {
   padding-top: 100px;
   padding-bottom: 60px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   background-color: var(--branco-1);
   overflow: hidden;
 }
@@ -424,7 +424,7 @@ header {
   position: relative;
   background-color: transparent;
   border-radius: 0;
-  width: 205px;
+  width: 80%;
 }
 .pb-alvo-content:nth-child(3){
   background-color: var(--branco);

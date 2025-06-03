@@ -15,10 +15,10 @@
 }
 body {
   font-family: "Inter", serif;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Para evitar overflow horizontal global */
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; /* Garante que o body ocupe pelo menos a altura da viewport */
 }
 
 section {
@@ -31,23 +31,30 @@ img {
   -webkit-user-drag: none;
 }
 main {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--branco);
-  height: fit-content;
+  background-color: var(--branco-1);
+  flex-grow: 1; /* Faz o main se expandir para ocupar o espaço vertical disponível */
 }
 footer {
-  position: relative;
+  position: relative; /* Mantido para o posicionamento de .footer-bg */
+  /* bottom: 0; Esta propriedade com position: relative não ajuda a "colar" o footer no fundo da viewport */
   background-color: var(--branco);
   height: 50vh;
   width: 100%;
 }
 footer .footer-bg {
+  /* Aninhamento corrigido */
+  /* font-size: 70px;
+  font-weight: bold;
+  opacity: 0.1;
+  letter-spacing: 12px;
+  line-height: 60px; */
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  /* Adicione width: 100%; e text-align: center; se quiser que o texto ocupe toda a largura e seja centralizado */
   width: 100%;
+  /* text-align: center; */
 }
 .linha {
   display: block;
@@ -135,7 +142,6 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   padding-top: 150px;
   padding-bottom: 80px;
 }
@@ -316,8 +322,9 @@ header {
 
 
 /* TECNOLOGIAS */
-.tecnologias .home-text-group > h1 {
+.home-text-group-tech h1 {
   font-size: 40px;
+  font-weight: 900;
   text-align: center;
   line-height: 35px;
   margin-bottom: 15px;
@@ -338,104 +345,4 @@ header {
 .tech-cards .content > .content-text{
   margin-top: 25px;
   font-size: 16px;
-}
-
-
-/* OBJETIVOS */
-.objetivos .home-text-group > h1 {
-  font-size: 40px;
-  text-align: center;
-  line-height: 35px;
-  margin-bottom: 15px;
-}
-.objetivos .home > .home-bg{
-  bottom: 40%;
-  transform: translateY(40%);
-  width: 350px;
-  height: 350px;
-}
-.objetivos-main{
-  background-color: var(--branco-1);
-  height: 100%;
-}
-.objetivos-main .content{
-  position: relative;
-  padding: 100px 15px 15px 15px;
-}
-.slide-card-container{
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  margin-top: 25px;
-}
-.slide-card-container .slide-card{
-  background-color: var(--branco);
-  height: 125px;
-  width: 300px;
-  box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
-  -webkit-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
-}
-.slide-card-container .slide-card:nth-child(odd){
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  align-self: flex-end;
-}
-.slide-card-container .slide-card:nth-child(even){
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.objetivos-main .proxima-secao{
-  margin-top: 30px;
-  margin-bottom: 30px;
-  bottom: 0;
-}
-
-
-/* PÚBLICO-ALVO */
-.publico-alvo .home-text-group {
-  width: 250px;
-}
-.publico-alvo .home-text-group > h1 {
-  font-size: 40px;
-  text-align: center;
-  line-height: 35px;
-  margin-bottom: 15px;
-}
-.pb-alvo-content{
-  height: fit-content;
-  padding-top: 100px;
-  padding-bottom: 60px;
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--branco-1);
-}
-.pb-alvo-content .pb-alvo-image{
-  position: relative;
-  left: -10px;
-  height: 80vh;
-  width: 160px;
-  border-radius: 10px;
-  background-color: var(--cinza-escuro);
-}
-.pb-alvo-content .content{
-  position: relative;
-  background-color: transparent;
-  border-radius: 0;
-  width: 205px;
-}
-.pb-alvo-content:nth-child(3){
-  background-color: var(--branco);
-}
-.pb-alvo-content .pb-alvo-image:nth-child(2){
-  left: 10px;
-}
-.pb-alvo-content:nth-child(2) .content{
-  padding-left: 15px;
-}
-.pb-alvo-content .proxima-secao{
-  position: absolute;
-  bottom: 65px;
-  left: 55%;
 }

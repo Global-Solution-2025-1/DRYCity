@@ -440,3 +440,26 @@ header {
   bottom: 65px;
   left: 55%;
 }
+
+
+/* BENEFÍCIOS */
+.beneficios .home-text-group > h1 {
+  font-size: 40px;
+  text-align: center;
+}
+.beneficios .home-text-group > h2{
+  width: 160px;
+}
+.beneficios .home > .home-bg{
+  bottom: 40%;
+  transform: translateY(40%);
+  width: 350px;
+  height: 350px;
+}
+.beneficios .others{
+  background-color: var(--branco-1);
+}
+.beneficios .proxima-secao{
+  bottom: -25px;
+  left: 20%;
+}

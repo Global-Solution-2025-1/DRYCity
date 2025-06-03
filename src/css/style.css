@@ -16,8 +16,10 @@
 body {
   font-family: "Inter", serif;
   overflow-x: hidden;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   min-height: 100vh;
 }
 
@@ -35,8 +37,13 @@ main {
   flex-direction: column;
   background-color: var(--branco);
   height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--branco);
+  height: fit-content;
 }
 footer {
+  position: relative;
   position: relative;
   background-color: var(--branco);
   height: 50vh;
@@ -135,6 +142,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   align-items: center;
   padding-top: 150px;
   padding-bottom: 80px;
@@ -316,6 +324,7 @@ header {
 
 
 /* TECNOLOGIAS */
+.tecnologias .home-text-group > h1 {
 .tecnologias .home-text-group > h1 {
   font-size: 40px;
   text-align: center;

@@ -208,7 +208,7 @@ header {
 .home-bg {
   position: absolute;
   bottom: 0;
-  max-width: fit-content;
+  min-width: max-content;
   width: 100%;
   height: 100%;
   opacity: 0.25;
@@ -233,7 +233,7 @@ header {
 }
 .home-text-group h1 {
   text-align: center;
-  font-size: 40px;
+  font-size: 70px;
   font-weight: 900;
 }
 .saiba-mais {
@@ -311,21 +311,20 @@ header {
   position: absolute;
 }
 .problema {
-  height: auto; /* Em vez de 100vh */
   min-height: 100vh;
   position: relative;
   overflow: hidden;
 }
 .problem-content {
   height: 100%;
-  /* padding: 150px 15px 80px 15px; */
+  padding: 25px;
 }
 .content {
   position: absolute;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  /* padding: 15px; */
+  padding: 15px;
   background-color: var(--branco-1);
   width: 300px;
   height: 245px;
@@ -378,7 +377,7 @@ header {
   align-items: center;
   justify-content: center;
   height: fit-content;
-  padding: 50px 15px 0;
+  padding: 50px 15px 75px;
   text-align: center;
   background-color: var(--branco-1);
 }
@@ -674,7 +673,6 @@ header {
 
   .home .home-text-group {
     position: relative;
-    top: 25%;
     background-color: white;
   }
   .home .home-text-group h1 {
@@ -713,17 +711,21 @@ header {
   .video-text-group .inner-video-text-group .video-text-2 {
     font-size: 96px;
   }
-  .video-text_group .inner-video-text-group .video-text-3 {
+  .video-text-group .inner-video-text-group .video-text-3 {
     font-size: 38px;
   }
-  .video-text_group .inner-video-text-group .video-text-4 {
+  .video-text-group .inner-video-text-group .video-text-4 {
     font-size: 25px;
   }
 
   /* ===== DESCRIÇÃO PROBLEMA ===== */
+  .problem-content{
+    padding: 150px 15px 80px 15px;
+  }
   .problem-content .content {
     width: 370px;
     height: 315px;
+    padding: 15px;
   }
   .problem-content .content .content-text {
     font-size: 16px;
@@ -749,8 +751,8 @@ header {
   /* ===== PROXIMA SEÇÃO PROBLEMA ===== */
   .problema .proxima-secao {
     position: absolute;
-    bottom: 25px;
-    left: 84%;
+    bottom: 0;
+    left: 75%;
   }
 
   /* ===== TECNOLOGIAS ===== */

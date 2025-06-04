@@ -75,7 +75,7 @@ main {
 .sec {
   position: sticky;
   top: 0;
-  height: 100vh;
+  /* height: 100vh; */
   z-index: var(--z, 0); /* z-index individual por seção via style="--z:N" */
 }
 
@@ -295,7 +295,7 @@ header {
 .video {
   width: 100%;
   background-color: var(--preto-1);
-  z-index: 10;
+  /* z-index: 10; */
 }
 .video-bg {
   opacity: 0.35;
@@ -631,7 +631,58 @@ header {
 /* ========================= */
 /*         MEDIA QUERY       */
 /* ========================= */
+/* Adicione isso ao seu arquivo style.css */
+
+/* SCROLL SNAP APENAS PARA MOBILE */
+@media (max-width: 767px) {
+  main.problema {
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    -webkit-overflow-scrolling: touch; /* Suave no iOS */
+  }
+  
+  main.problema section.sec {
+    scroll-snap-align: start;
+    min-height: 100vh !important;
+    height: 100% !important;
+    overflow: hidden;
+  }
+  
+  /* Ajuste para garantir que o snap funcione corretamente */
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  body {
+    position: fixed;
+    width: 100%;
+  }
+  
+  /* Ajuste para o scroll tracker */
+  .tracker {
+    pointer-events: none;
+  }
+  
+  /* Suaviza a transição entre snaps */
+  main.problema {
+    scroll-behavior: smooth;
+  }
+  
+  /* Threshold de 40% para snap */
+  main.problema {
+    scroll-snap-stop: always;
+  }
+}
+
+/* Mantenha o comportamento normal para desktop */
 @media (min-width: 768px) {
+  main.problema {
+    scroll-snap-type: none;
+  }
   /* ===== HEADER ===== */
   header {
     height: 72px;

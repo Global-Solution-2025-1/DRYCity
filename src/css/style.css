@@ -312,7 +312,7 @@ header {
 }
 .problema {
   height: auto; /* Em vez de 100vh */
-  min-height: 100vh; /* Garante altura mínima */
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
 }

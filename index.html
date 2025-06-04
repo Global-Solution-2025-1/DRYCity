@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="./src/css/style.css" />
   <link rel="shortcut icon" href="./src/assets/images/logo.png" type="image/x-icon" />
   <title>DRYCity</title>
@@ -33,8 +35,10 @@
   </div>
 </header>
 
+<div class="tracker"></div>
+
 <main class="problema">
-      <section class="home">
+      <section class="sec home">
         <img
           class="home-bg"
           src="./src/assets/images/home/home-bg-desktop.png"
@@ -53,7 +57,7 @@
         </div>
       </section>
 
-      <section class="video">
+      <section class="sec video">
         <img class="video-bg" src="./src/assets/images/home/Hero.png" alt="" />
 
         <div class="video-text-group">
@@ -68,7 +72,7 @@
         </div>
       </section>
 
-      <section class="descricao-problema">
+      <section class="sec descricao-problema">
         <img
           class="image-bg"
           src="./src/assets/images/home/slide1.png"
@@ -107,31 +111,29 @@
         </div>
       </section>
 
-      <section class="others">
+      <section class="sec others">
         <div class="card-group">
           <div class="card"></div>
           <div class="card"></div>
           <div class="card"></div>
           <div class="card"></div>
         </div>
+
+        <div class="proxima-secao">
+          <p>TECNOLOGIAS</p>
+          <img src="./src/assets/images/arrow.svg" alt="" />
+        </div>
       </section>
 
-      <div class="proxima-secao">
-        <p>TECNOLOGIAS</p>
-        <img src="./src/assets/images/arrow.svg" alt="" />
-      </div>
     </main>
 
 <!-- <main class="tecnologias">
-  <section class="home">
+  <section class="sec sticky-page home" style="--z:0">
     <img class="home-bg" src="./src/assets/images/linhas-tecnologicas-mobile.png" alt="">
 
     <div class="home-text-group">
       <h1>TECNOLOGIAS UTILIZADAS</h1>
-
-      <h2>
-        saiba mais sobre o que nos torna diferenciados
-      </h2>
+      <h2>saiba mais sobre o que nos torna diferenciados</h2>
     </div>
 
     <div class="saiba-mais">
@@ -140,7 +142,7 @@
     </div>
   </section>
 
-  <section class="tech-cards">
+  <section class="sec sticky-page tech-cards" style="--z:1">
     <img class="tech-card-image" src="" alt="">
 
     <div class="content">
@@ -149,60 +151,51 @@
         <span class="linha"></span>
       </div>
       <div class="content-text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget,
+          condimentum eros. Duis nec lobortis.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget,
+          condimentum eros. Duis nec lobortis.</p>
       </div>
     </div>
   </section>
 
-  <section class="tech-cards">
+  <section class="sec sticky-page tech-cards" style="--z:2">
     <img class="tech-card-image" src="" alt="">
 
     <div class="content">
       <div class="subtitulo">
-        <h3>SUBTÍTULO 1</h3>
+        <h3>SUBTÍTULO 2</h3>
         <span class="linha"></span>
       </div>
       <div class="content-text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget,
+          condimentum eros. Duis nec lobortis.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget,
+          condimentum eros. Duis nec lobortis.</p>
       </div>
     </div>
   </section>
 
-  <section class="tech-cards">
+  <section class="sec sticky-page tech-cards" style="--z:3">
     <img class="tech-card-image" src="" alt="">
 
     <div class="content">
       <div class="subtitulo">
-        <h3>SUBTÍTULO 1</h3>
+        <h3>SUBTÍTULO 3</h3>
         <span class="linha"></span>
       </div>
       <div class="content-text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="tech-cards">
-    <img class="tech-card-image" src="" alt="">
-
-    <div class="content">
-      <div class="subtitulo">
-        <h3>SUBTÍTULO 1</h3>
-        <span class="linha"></span>
-      </div>
-      <div class="content-text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget,
+          condimentum eros. Duis nec lobortis.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget,
+          condimentum eros. Duis nec lobortis.</p>
       </div>
     </div>
   </section>
 </main> -->
 
 <!-- <main class="objetivos">
-    <section class="home">
+    <section class="sec home">
       <img class="home-bg" src="./src/assets/images/objetivos-bg.png" alt="">
 
       <div class="home-text-group">
@@ -219,7 +212,7 @@
       </div>
     </section>
 
-    <section class="objetivos-main">
+    <section class="sec objetivos-main">
 
       <div class="slide-card-container">
         <div class="content">
@@ -245,7 +238,7 @@
   </main> -->
 
 <!-- <main class="publico-alvo">
-    <section class="home">
+    <section class="sec home">
       <img class="home-bg" src="./src/assets/images/pb-alvo-mobile.png" alt="">
 
       <div class="home-text-group">
@@ -262,7 +255,7 @@
       </div>
     </section>
 
-    <section class="pb-alvo-content">
+    <section class="sec pb-alvo-content">
       <img class="pb-alvo-image" src="" alt="">
 
       <div class="content">
@@ -277,7 +270,7 @@
       </div>
     </section>
 
-    <section class="pb-alvo-content">
+    <section class="sec pb-alvo-content">
       <div class="content">
         <div class="subtitulo">
           <h3>SUBTÍTULO 1</h3>
@@ -292,7 +285,7 @@
       <img class="pb-alvo-image" src="" alt="">
     </section>
 
-    <section class="pb-alvo-content">
+    <section class="sec pb-alvo-content">
       <img class="pb-alvo-image" src="" alt="">
 
       <div class="content">
@@ -314,7 +307,7 @@
   </main> -->
 
 <!-- <main class="beneficios">
-  <section class="home">
+  <section class="sec home">
     <img class="home-bg" src="./src/assets/images/beneficios-bg-mobile.png" alt="">
 
     <div class="home-text-group">
@@ -331,7 +324,7 @@
     </div>
   </section>
 
-  <section class="others">
+  <section class="sec others">
     <div class="content">
       <div class="subtitulo">
         <h3>SUBTÍTULO 1</h3>
@@ -364,7 +357,7 @@
 </main> -->
 
 <!-- <main class="uso-diario">
-    <section class="home">
+    <section class="sec home">
       <img class="home-bg" src="./src/assets/images/uso-diario-bg.png" alt="">
 
       <div class="home-text-group">
@@ -380,7 +373,7 @@
       <img src="./src/assets/images/arrow.svg" alt="">
       </div>
     </section>
-    <section class="tech-cards">
+    <section class="sec tech-cards">
       <img class="tech-card-image" src="" alt="">
 
       <div class="content">
@@ -394,7 +387,7 @@
         </div>
       </div>
     </section>
-    <section class="tech-cards">
+    <section class="sec tech-cards">
       <img class="tech-card-image" src="" alt="">
 
       <div class="content">
@@ -409,7 +402,7 @@
       </div>
     </section>
 
-    <section class="tech-cards">
+    <section class="sec tech-cards">
       <img class="tech-card-image" src="" alt="">
 
       <div class="content">

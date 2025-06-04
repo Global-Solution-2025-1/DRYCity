@@ -203,12 +203,12 @@ header {
   align-items: center;
   padding-top: 150px;
   padding-bottom: 80px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .home-bg {
   position: absolute;
   bottom: 0;
-  min-width: fit-content;
+  max-width: fit-content;
   width: 100%;
   height: 100%;
   opacity: 0.25;
@@ -311,18 +311,21 @@ header {
   position: absolute;
 }
 .problema {
+  height: auto; /* Em vez de 100vh */
+  min-height: 100vh; /* Garante altura mínima */
   position: relative;
+  overflow: hidden;
 }
 .problem-content {
   height: 100%;
-  padding: 150px 15px 80px 15px;
+  /* padding: 150px 15px 80px 15px; */
 }
 .content {
   position: absolute;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 15px;
+  /* padding: 15px; */
   background-color: var(--branco-1);
   width: 300px;
   height: 245px;
@@ -422,7 +425,7 @@ header {
   width: 100%;
   height: calc(100% - 280px);
   text-align: center;
-  padding: 50px 35px;
+  /* padding: 50px 35px; */
 }
 .tech-cards .content .subtitulo {
   align-self: center;
@@ -571,7 +574,9 @@ header {
 }
 .uso-diario .proxima-secao {
   position: relative;
-  top: 55%;
+  top: -65px;
+  left: -50px;
+  /* bottom: -15px; */
 }
 
 /* ========================= */
@@ -886,11 +891,11 @@ header {
   }
   .uso-diario .tech-cards {
     display: flex;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
     width: 100%;
     height: 100vh;
-    padding: 0 50px;
+    padding: 50px 50px;
   }
   .uso-diario .tech-cards:nth-child(even) {
     background-color: var(--branco-1);
@@ -907,9 +912,14 @@ header {
   }
   .uso-diario .content {
     background-color: transparent;
+    max-width: max-content;
     width: 100%;
     position: relative;
     text-align: start;
+    max-height: max-content;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   .uso-diario .content .subtitulo {
     font-size: 36px;

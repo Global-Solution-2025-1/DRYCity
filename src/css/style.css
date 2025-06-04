@@ -31,7 +31,6 @@ body {
   min-height: 100vh;
   scroll-behavior: smooth;
 }
-/* ... */
 
 /* ========================= */
 /*        SCROLLBAR          */
@@ -57,26 +56,30 @@ body::-webkit-scrollbar-thumb {
 /*         SECTIONS          */
 /* ========================= */
 section {
-  height: 100vh;
+  height: fit-content;
   position: relative;
+  background-color: var(--branco-1);
 }
 img {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
 }
-main {
+main.main-problema {
   display: flex;
   flex-direction: column;
   background-color: var(--branco);
   height: fit-content;
+  scroll-snap-type: y mandatory; /* ou 'y proximity' */
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll; /* essencial para rolagem */
 }
 
+/* EXEMPLO: sticky para seções específicas (opcional) */
 .sec {
   position: sticky;
   top: 0;
-  /* height: 100vh; */
-  z-index: var(--z, 0); /* z-index individual por seção via style="--z:N" */
+  z-index: var(--z, 0);
 }
 
 /* ========================= */
@@ -85,22 +88,23 @@ main {
 footer {
   position: relative;
   background-color: var(--branco);
-  height: 50vh;
   max-width: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 50vh;
+  height: 100%;
+  align-items: flex-end;
+  justify-content: end;
 }
 footer .footer-bg {
-  font-size: 70px;
-  font-weight: bold;
-  letter-spacing: 10px;
-  text-align: center;
-  align-self: flex-end;
   width: 100%;
   color: var(--preto);
   opacity: 0.1;
-  position: absolute;
   bottom: 0;
+  height: 25%;
+}
+.footer-content {
+  /* Ajuste livre, se desejar */
 }
 
 .tracker {
@@ -113,7 +117,6 @@ footer .footer-bg {
   gap: 10px;
   z-index: 1000;
 }
-
 .dot {
   width: 12px;
   height: 12px;
@@ -121,7 +124,6 @@ footer .footer-bg {
   background: #ccc;
   transition: background 0.3s, transform 0.3s;
 }
-
 .dot.active {
   background: #333;
   transform: scale(1.4);
@@ -136,30 +138,32 @@ footer .footer-bg {
   align-items: center;
 }
 .section {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 .linha {
   display: block;
   height: 5px;
-  width: 0%; /* Inicia com 0% de largura */
+  width: 0%;
   background-color: var(--azul);
-  transition: width 1s linear; /* Substitui a animação por uma transição */
-  min-width: fit-content; /* Quando a classe animate for adicionada, a linha preenche */
+  transition: width 1s linear;
+  min-width: fit-content;
 }
 .linha.animate {
   width: 100%;
 }
 .proxima-secao {
-  width: fit-content;
+  width: 100%;
   align-self: flex-end;
   display: flex;
   gap: 15px;
-  font-size: 16px;
+  /*! font-size: 16px; */
   color: var(--cinza-escuro);
   align-items: center;
-  justify-content: center;
-  margin: 15px;
+  justify-content: end;
+  margin-bottom: 15px;
+  height: 35px;
+  position: relative;
 }
 .proxima-secao img {
   transform: rotate(-90deg);
@@ -170,7 +174,7 @@ footer .footer-bg {
 /* ========================= */
 /*          HEADER           */
 /* ========================= */
-header {
+.header {
   position: fixed;
   width: 100%;
   height: 92px;
@@ -181,27 +185,51 @@ header {
   align-items: center;
   z-index: 999;
 }
-.logo {
+.header__logo {
   mix-blend-mode: difference;
   font-weight: bold;
   font-size: 20px;
   position: relative;
   display: flex;
 }
-.header-right {
+.header__right {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 7px;
 }
+.header__nav > .header__list {
+  list-style: none;
+  text-align: center;
+}
+.header__list-item {
+  /* Ajuste se necessário */
+  display: none;
+}
+.header__list-item--active {
+  /* Ajuste se necessário */
+  display: block;
+  background-color: var(--cinza-claro);
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--cinza-escuro);
+  font-weight: normal;
+}
+.header__avatar-link {
+  border-radius: 50%;
+  height: 30px;
+}
+.header__avatar {
+  mix-blend-mode: difference;
+}
+
+/* ========================= */
+/*        MENU HAMBURGER     */
+/* ========================= */
 .menu-hamb {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-.header-right > nav > ul {
-  list-style: none;
-  text-align: center;
 }
 .menu-opt.inactive {
   display: none;
@@ -217,18 +245,11 @@ header {
   font-size: 14px;
   font-weight: 300;
 }
-.header-right > a {
-  border-radius: 50%;
-  height: 30px;
-}
-.avatar {
-  mix-blend-mode: difference;
-}
 
 /* ========================= */
 /*           HOME            */
 /* ========================= */
-.home {
+.section--home {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -238,36 +259,37 @@ header {
   position: relative;
   overflow: hidden;
 }
-.home-bg {
-  position: absolute; /* Alterado de absolute para fixed */
+.section--home__bg {
+  position: absolute;
   bottom: 0;
   min-width: max-content;
   width: 100%;
   height: 100%;
   opacity: 0.25;
-  z-index: 9999;
-  overflow: hidden;
-}
-.home-text-group {
-  position: relative;
   z-index: 999;
+}
+.section--home__text-group {
+  position: relative;
+  z-index: 998;
   max-width: fit-content;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.home-text-group h2 {
+.section--home__text-group h2 {
   font-size: 10px;
   font-weight: normal;
   width: 170px;
   text-align: center;
   text-transform: uppercase;
-  justify-self: center;
 }
-.home-text-group h1 {
+.section--home__text-group h1 {
   text-align: center;
   font-size: 70px;
   font-weight: 900;
 }
-.saiba-mais {
+.section--home__cta {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -276,33 +298,26 @@ header {
   color: var(--cinza-escuro);
   z-index: 999;
 }
-.saiba-mais img{
+.section--home__cta img {
   position: relative;
   animation: float 2s ease-in-out infinite;
-}
-@keyframes float {
-  50%{
-    top: 20px;
-  }
-  0%, 100%{
-    top: 0;
-  }
 }
 
 /* ========================= */
 /*           VIDEO           */
 /* ========================= */
-.video {
+.section--video {
   width: 100%;
   background-color: var(--preto-1);
-  /* z-index: 10; */
+  position: relative;
 }
-.video-bg {
+.section--video__bg {
   opacity: 0.35;
+  min-width: fit-content;
   width: 100%;
   height: 100vh;
 }
-.video-text-group {
+.section--video__text-group {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -315,25 +330,25 @@ header {
   padding-right: 32px;
   position: absolute;
   top: 0;
-  color: #e2dfe2;
   mix-blend-mode: difference;
   text-align: center;
   font-weight: bold;
+  color: #e2dfe2;
 }
-.video-text-group .video-text-1 {
+.section--video__text-1 {
   font-size: 32px;
 }
-.video-text-group .inner-video-text-group {
+.section--video__inner-texts {
   width: 312px;
 }
-.video-text-group .inner-video-text-group .video-text-2 {
+.section--video__text-2 {
   letter-spacing: 1px;
   font-size: 48px;
 }
-.video-text-group .inner-video-text-group .video-text-3 {
+.section--video__text-3 {
   font-size: 19px;
 }
-.video-text-group .inner-video-text-group .video-text-4 {
+.section--video__text-4 {
   font-size: 12px;
   letter-spacing: 0.3px;
 }
@@ -341,26 +356,24 @@ header {
 /* ========================= */
 /*     DESCRIÇÃO PROBLEMA    */
 /* ========================= */
-.descricao-problema {
+.section--descricao-problema {
   background-color: var(--cinza-escuro);
+}
+.section--descricao-problema__bg {
+  width: 100%;
+  height: 100vh;
+  opacity: 0.6;
+  position: absolute;
+  bottom: 0;
 }
 .slide {
   height: 100vh;
-}
-.image-bg {
-  height: 100vh;
-  width: 100%;
-  opacity: 0.6;
-  position: absolute;
-}
-.problema {
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
 }
 .problem-content {
   height: 100%;
-  padding: 25px;
 }
 .content {
   position: absolute;
@@ -377,7 +390,7 @@ header {
   font-size: 24px;
   color: var(--cinza-escuro);
   font-weight: bold;
-  min-width: max-content;
+  max-width: fit-content;
 }
 .content-text {
   display: flex;
@@ -387,23 +400,23 @@ header {
   color: var(--cinza-escuro);
 }
 .slide-nav {
+  position: relative;
   color: var(--branco-1);
   display: flex;
-  justify-content: center;
   gap: 25px;
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: fit-content;
+  align-self: center;
 }
-.slide-nav .slide-status {
+.slide-status {
   display: flex;
   flex-direction: row;
+  align-self: center;
 }
-.slide-nav .slide-status p {
+.slide-status p {
   font-size: 16px;
 }
 .slide-nav img {
+  cursor: pointer;
   width: 15px;
   height: 20px;
 }
@@ -412,7 +425,7 @@ header {
 }
 
 /* ========================= */
-/*          OTHERS           */
+/*           OTHERS          */
 /* ========================= */
 .others {
   display: flex;
@@ -445,43 +458,32 @@ header {
   height: 300px;
   border-radius: 10px;
   box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
-  -webkit-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
 }
 
 /* ========================= */
 /*        TECNOLOGIAS        */
 /* ========================= */
-/* .tecnologias{
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  position: relative;
-  -webkit-overflow-scrolling: touch;
-} */
-.tecnologias .home-text-group > h1 {
-  font-size: 40px;
-  text-align: center;
-  line-height: 35px;
-  margin-bottom: 15px;
+/* Exemplo para .section--tecnologias se quiser rolagem:*/
+.section--tecnologias {
+  padding: 0 15px;
 }
-.tech-card-image {
-  height: 280px;
-  width: 100%;
-  background-color: var(--cinza-escuro);
+.card-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  padding: 50px 0 25px;
 }
-.tech-cards .content {
-  width: 100%;
-  height: calc(100% - 280px);
-  text-align: center;
-  /* padding: 50px 35px; */
-}
-.tech-cards .content .subtitulo {
-  align-self: center;
-}
-.tech-cards .content > .content-text {
-  margin-top: 25px;
-  font-size: 16px;
+.card {
+  width: 90vw;
+  height: 23vh;
+  background-color: var(--branco-1);
+  border: 1px solid var(--cinza-claro);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  /* Ajuste livre se desejar */
 }
 
 /* ========================= */
@@ -508,20 +510,18 @@ header {
   gap: 50px;
   margin-top: 25px;
 }
-.slide-card-container .slide-card {
+.slide-card {
   background-color: var(--branco);
   height: 125px;
   width: 90vw;
   box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
-  -webkit-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
 }
-.slide-card-container .slide-card:nth-child(odd) {
+.slide-card:nth-child(odd) {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   align-self: flex-end;
 }
-.slide-card-container .slide-card:nth-child(even) {
+.slide-card:nth-child(even) {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -550,7 +550,7 @@ header {
   background-color: var(--branco-1);
   overflow: hidden;
 }
-.pb-alvo-content .pb-alvo-image {
+.pb-alvo-image {
   position: relative;
   left: -10px;
   height: 80vh;
@@ -568,7 +568,7 @@ header {
 .pb-alvo-content:nth-child(3) {
   background-color: var(--branco);
 }
-.pb-alvo-content .pb-alvo-image:nth-child(2) {
+.pb-alvo-image:nth-child(2) {
   left: 10px;
 }
 .pb-alvo-content:nth-child(2) .content {
@@ -631,80 +631,76 @@ header {
 /* ========================= */
 /*         MEDIA QUERY       */
 /* ========================= */
-/* Adicione isso ao seu arquivo style.css */
-
 /* SCROLL SNAP APENAS PARA MOBILE */
 @media (max-width: 767px) {
-  main.problema {
+  main.main-problema {
     display: flex;
     flex-direction: column;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
-    height: 100vh;
-    -webkit-overflow-scrolling: touch; /* Suave no iOS */
+    min-height: fit-content;
+    -webkit-overflow-scrolling: touch;
   }
-  
-  main.problema section.sec {
+  main.main-problema section.sec {
     scroll-snap-align: start;
-    min-height: 100vh !important;
-    height: 100% !important;
-    overflow: hidden;
-  }
-  
-  /* Ajuste para garantir que o snap funcione corretamente */
-  html, body {
+    min-height: 100vh;
     height: 100%;
     overflow: hidden;
   }
-  
+  html,
   body {
-    position: fixed;
+    /*! height: 100%; */
+    /*! overflow: hidden; */ /* Se quiser scroll normal, use "auto" ou "scroll" aqui */
+    /*! position: fixed; */ /* Remover esta linha */
     width: 100%;
   }
-  
-  /* Ajuste para o scroll tracker */
   .tracker {
     pointer-events: none;
   }
-  
-  /* Suaviza a transição entre snaps */
-  main.problema {
+  main.main-problema {
     scroll-behavior: smooth;
   }
-  
-  /* Threshold de 40% para snap */
-  main.problema {
+  main.main-problema {
     scroll-snap-stop: always;
   }
 }
 
-/* Mantenha o comportamento normal para desktop */
+/* Mantenha comportamento normal para desktop */
 @media (min-width: 768px) {
-  main.problema {
-    scroll-snap-type: none;
+  html,
+  body {
+    height: auto;
+    overflow: auto;
+    position: static;
   }
-  /* ===== HEADER ===== */
+
+  /* HEADER=========================================== */
   header {
     height: 72px;
     padding: 0 32px;
   }
-  header .logo {
+  .header {
+    padding: 25px;
+  }
+  .header__logo {
     font-size: 32px;
   }
-  header .header-right .menu-hamb {
-    width: 80px;
-    height: 30px;
-    margin-right: 15px;
+  .header__list-item--active{
+    padding: 10px 15px;
   }
-  header .header-right .menu-hamb .menu-opt {
-    font-size: 16px;
+  .header__right .header__nav{
+    margin-right: 25px;
   }
-  header .header-right a,
-  .avatar {
+  .header__right a,
+  .header__avatar {
     width: 40px;
     height: auto;
   }
 
+  /* MENU HAMB============================================================ */
+  .menu-hamb .menu-opt {
+    font-size: 16px;
+  }
   .saiba-mais {
     font-size: 24px;
   }
@@ -712,6 +708,8 @@ header {
     width: 110px;
     height: 45px;
   }
+
+  /* REUTILIZACAO============================================================= */
   .tecnologias .proxima-secao,
   .objetivos .proxima-secao,
   .publico-alvo .proxima-secao,
@@ -729,322 +727,98 @@ header {
     height: 95px;
   }
 
-  /* ===== HOME/SEÇÕES PRINCIPAIS ===== */
-  .content .subtitulo {
-    font-size: 36px;
-    align-self: self-start;
+  /* CARDS--------------------------------------- */
+  .section--tecnologias .card-group .card{
+    width: 40vw;
+    height: 40vh;
   }
-  .content > .content-text {
-    font-size: 24px;
-    max-width: 535px;
+  .section--tecnologias .proxima-secao{
+    padding-right: 75px;
+  }
+  .section--tecnologias .proxima-secao p{
+    font-size: 22px;
+  }
+  .section--tecnologias .proxima-secao img{
+    width: 40px;
+    height: auto;
   }
 
-  .tecnologias .home .home-text-group,
-  .objetivos .home .home-text-group,
-  .publico-alvo .home .home-text-group,
-  .beneficios .home .home-text-group,
-  .uso_diario .home .home-text-group {
-    background-color: transparent;
-  }
-  .tecnologias .home .home-text-group h2,
-  .objetivos .home .home-text-group h2,
-  .publico-alvo .home .home-text-group h2,
-  .beneficios .home .home-text-group h2,
-  .uso-diario .home .home-text-group h2 {
-    font-weight: normal;
-    position: relative;
-    top: 10%;
-    mix-blend-mode: normal;
-    color: #000;
-  }
-  .tecnologias .home .home-text-group h1,
-  .objetivos .home .home-text-group h1,
-  .publico-alvo .home .home-text-group h1,
-  .beneficios .home .home-text-group h1,
-  .uso-diario .home .home-text-group h1 {
-    position: relative;
+  /* LEAD=========================================================================== */
+  .main-problema .section--home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
-    max-width: min-content;
-    text-align: center;
-    width: 100%;
-    font-size: 96px;
-    line-height: 80px;
-    width: min-content;
   }
-
-  .home .home-text-group {
+  .main-problema .section--home__text-group {
     position: relative;
     background-color: white;
   }
-  .home .home-text-group h1 {
+  .main-problema .section--home__text-group h1 {
     font-size: 225px;
   }
-  .home-text-group h2 {
-    position: relative;
-    width: 290px;
-    font-size: 18px;
-    font-weight: bold;
+  .main-problema .section--home__text-group h2 {
     color: white;
-  }
-  .home .home-text-group h2 {
     position: absolute;
     top: 50%;
-    left: 50%;
+    transform: translateY(-40%);
+    font-size: 18px;
+    width: 290px;
+    font-weight: bold;
     mix-blend-mode: difference;
-    background-blend-mode: difference;
-    transform: translate(-50%, -50%);
-  }
-  .home-bg {
-    height: 100%;
   }
 
-  /* ===== VIDEO ===== */
-  .video .video-bg {
-    width: 100%;
+  .section--home__cta {
+    font-size: 16px;
   }
-  .video-text-group .video-text-1 {
-    align-self: flex-start;
+  .section--home__cta img {
+    height: 45px;
+    width: 110px;
+  }
+
+  .section--video__text-group{
+    padding: 75px;
+  }
+  .section--video__text-1{
     font-size: 48px;
+    align-self: flex-start;
   }
-  .video-text-group .inner-video-text-group {
+  .section--video__inner-texts {
+    width: fit-content;
     align-self: flex-end;
-    width: 620px;
   }
-  .video-text-group .inner-video-text-group .video-text-2 {
+  .section--video__inner-texts .section--video__text-2{
     font-size: 96px;
   }
-  .video-text-group .inner-video-text-group .video-text-3 {
+  .section--video__inner-texts .section--video__text-3{
     font-size: 38px;
   }
-  .video-text-group .inner-video-text-group .video-text-4 {
+  .section--video__inner-texts .section--video__text-4{
     font-size: 25px;
   }
 
-  /* ===== DESCRIÇÃO PROBLEMA ===== */
-  .problem-content{
-    padding: 150px 15px 80px 15px;
-  }
-  .problem-content .content {
-    width: 370px;
-    height: 315px;
-    padding: 15px;
-  }
-  .problem-content .content .content-text {
-    font-size: 16px;
-  }
-  .descricao-problema .slide {
-    padding: 0 25px;
-  }
 
-  /* ===== OTHERS ===== */
-  .others .card-group {
-    width: 90%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 35px;
-  }
-  .others .card-group .card {
-    width: 40vw;
-    height: 330px;
-  }
 
-  /* ===== PROXIMA SEÇÃO PROBLEMA ===== */
-  .problema .proxima-secao {
-    position: absolute;
-    bottom: 0;
-    left: 75%;
-  }
-
-  /* ===== TECNOLOGIAS ===== */
-  /* .tecnologias .home-text-group h1 {
-    font-size: 96px;
-    line-height: 85%;
-  } */
-  .tecnologias .home-text-group h2 {
-    position: relative;
-    top: 15%;
-    height: fit-content;
-  }
-  .tecnologias .tech-cards {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
+  .section--descricao-problema .slide {
     padding: 50px;
   }
-  .tecnologias .tech-cards:nth-child(odd) {
-    background-color: var(--branco-1);
-    justify-content: flex-end;
-  }
-  .tecnologias .tech-cards .tech-card-image {
-    min-width: 375px;
-    max-width: 950px;
-    width: 100%;
-    min-height: 75px;
-    max-height: 650px;
-    height: 100%;
-    border-radius: 10px;
-  }
-  .tecnologias .content {
-    background-color: transparent;
-    align-self: flex-start;
-    width: 100%;
-    position: relative;
-    text-align: start;
-  }
-  .tecnologias .content .subtitulo {
-    font-size: 36px;
-    align-self: self-start;
-  }
-  .tech-cards .content > .content-text {
+  .section--descricao-problema .slide-nav .slide-status p {
     font-size: 24px;
-    max-width: 535px;
   }
-  .tecnologias .tech-cards:nth-child(odd) .content {
-    order: 0;
+  .section--descricao-problema .slide-nav img {
+    width: 25px;
+    height: 35px;
   }
-  .tecnologias .tech-cards:nth-child(odd) .tech-card-image {
-    order: 1;
-  }
-
-  /* ===== OBJETIVOS ===== */
-  .objetivos .home-text-group h1 {
-    line-height: 80px;
-    width: min-content;
-  }
-  .objetivos .home .home-bg {
-    width: 630px;
-    height: 630px;
-  }
-  .objetivos .objetivos-main .slide-card-container {
-    padding: 100px 50px;
-    gap: 150px;
-  }
-  .objetivos .objetivos-main .slide-card-container .slide-card {
-    border-radius: 10px;
-    max-width: 90vw;
+  .problem-content .content {
+    max-width: 40vw;
     width: 100%;
-    height: 250px;
+    height: fit-content;
+    padding: 25px;
   }
-  .objetivos .objetivos-main .slide-card-container .content {
-    width: 100%;
-    padding: 0;
+  .problem-content .subtitulo h3 {
+    font-size: 32px;
   }
-
-  /* ===== PÚBLICO-ALVO ===== */
-  .publico-alvo .home .home-text-group h2 {
-    top: 30%;
-    color: var(--preto);
-    max-width: 410px;
-    width: 100%;
-  }
-  .publico-alvo .home .home-bg {
-    width: fit-content;
-  }
-  .publico-alvo .pb-alvo-content {
-    gap: 50px;
-    padding: 100px 0;
-  }
-  .publico-alvo .pb-alvo-content .content {
-    padding: 0 50px;
-  }
-  .publico-alvo .pb-alvo-content .pb-alvo-image {
-    width: 40vw;
-  }
-
-  /* ===== BENEFÍCIOS ===== */
-  .beneficios .home .home-bg {
-    width: 666px;
-    height: 608px;
-  }
-  .beneficios .home .home-text-group h2 {
-    margin-top: 5px;
-    max-width: 250px;
-    width: 100%;
-  }
-  .beneficios .others .content {
-    align-self: flex-start;
-    padding: 50px 50px;
-    max-width: 655px;
-  }
-  .beneficios .others .content .content-text {
-    text-align: start;
-  }
-  .beneficios .others .proxima-secao {
-    left: 30%;
-  }
-
-  /* ===== USO DIÁRIO ===== */
-  .uso-diario .home .home-bg {
-    width: 620px;
-    height: auto;
-  }
-  .uso-diario .home .home-text-group {
-    max-width: 575px;
-    width: 100%;
-  }
-  .uso-diario .home .home-text-group h1 {
-    max-width: max-content;
-    width: max-content;
-  }
-  .uso-diario .home .home-text-group h2 {
-    max-width: 400px;
-    width: 100%;
-  }
-  .uso-diario .tech-cards {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    padding: 50px 50px;
-  }
-  .uso-diario .tech-cards:nth-child(even) {
-    background-color: var(--branco-1);
-    justify-content: flex-end;
-  }
-  .uso-diario .tech-cards .tech-card-image {
-    min-width: 375px;
-    max-width: 950px;
-    width: 100%;
-    min-height: 75px;
-    max-height: 650px;
-    height: 100%;
-    border-radius: 10px;
-  }
-  .uso-diario .content {
-    background-color: transparent;
-    max-width: max-content;
-    width: 100%;
-    position: relative;
-    text-align: start;
-    max-height: max-content;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  .uso-diario .content .subtitulo {
-    font-size: 36px;
-    align-self: self-start;
-  }
-  .tech-cards .content > .content-text {
-    font-size: 24px;
-    max-width: 535px;
-  }
-  .uso-diario .tech-cards:nth-child(even) .content {
-    order: 0;
-  }
-  .uso-diario .tech-cards:nth-child(even) .tech-card-image {
-    order: 1;
-  }
-
-  /* ===== FOOTER ===== */
-  footer .footer-bg {
-    max-width: 100vw;
-    opacity: .05;
-    z-index: 9999;
+  .problem-content .content-text p {
+    font-size: 22px;
   }
 }

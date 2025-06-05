@@ -97,47 +97,47 @@ window.addEventListener("scroll", () => {
     dots[current].classList.add("active");
   }
 
-  if (window.innerWidth <= 767) {
-    let isScrolling = false;
-    let startY = 0;
-    let currentY = 0;
+  // if (window.innerWidth <= 767) {
+  //   let isScrolling = false;
+  //   let startY = 0;
+  //   let currentY = 0;
 
-    const main = document.querySelector(".main-problema");
+  //   const main = document.querySelector(".main-problema");
 
-    main.addEventListener("scroll", function (e) {
-      if (!isScrolling) return;
+  //   main.addEventListener("scroll", function (e) {
+  //     if (!isScrolling) return;
 
-      currentY = main.scrollTop;
-      const scrollHeight = main.scrollHeight;
-      const clientHeight = main.clientHeight;
-      const currentSection = Math.round(main.scrollTop / clientHeight);
-      const scrollPercentage = (currentY % clientHeight) / clientHeight;
+  //     currentY = main.scrollTop;
+  //     const scrollHeight = main.scrollHeight;
+  //     const clientHeight = main.clientHeight;
+  //     const currentSection = Math.round(main.scrollTop / clientHeight);
+  //     const scrollPercentage = (currentY % clientHeight) / clientHeight;
 
-      // Se o scroll passar de 40% da seção, forçar o snap para a próxima/anterior
-      if (scrollPercentage > 0.2 && scrollPercentage < 0.6) {
-        const direction = currentY > startY ? 1 : -1;
-        const targetSection = currentSection + direction;
+  //     // Se o scroll passar de 40% da seção, forçar o snap para a próxima/anterior
+  //     if (scrollPercentage > 0.2 && scrollPercentage < 0.6) {
+  //       const direction = currentY > startY ? 1 : -1;
+  //       const targetSection = currentSection + direction;
 
-        if (targetSection >= 0 && targetSection < main.children.length) {
-          main.scrollTo({
-            top: targetSection * clientHeight,
-            behavior: "smooth",
-          });
-        }
-      }
+  //       if (targetSection >= 0 && targetSection < main.children.length) {
+  //         main.scrollTo({
+  //           top: targetSection * clientHeight,
+  //           behavior: "smooth",
+  //         });
+  //       }
+  //     }
 
-      startY = currentY;
-    });
+  //     startY = currentY;
+  //   });
 
-    main.addEventListener("touchstart", function (e) {
-      isScrolling = true;
-      startY = main.scrollTop;
-    });
+  //   main.addEventListener("touchstart", function (e) {
+  //     isScrolling = true;
+  //     startY = main.scrollTop;
+  //   });
 
-    main.addEventListener("touchend", function () {
-      isScrolling = false;
-    });
-  }
+  //   main.addEventListener("touchend", function () {
+  //     isScrolling = false;
+  //   });
+  // }
 });
 
 // const container = document.querySelector('.tecnologias');

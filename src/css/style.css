@@ -65,7 +65,7 @@ img {
   -moz-user-select: none;
   -webkit-user-drag: none;
 }
-main.main-problema {
+main {
   display: flex;
   flex-direction: column;
   background-color: var(--branco);
@@ -73,6 +73,10 @@ main.main-problema {
   scroll-snap-type: y mandatory; /* ou 'y proximity' */
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll; /* essencial para rolagem */
+  justify-content: center;
+}
+main .section--home {
+  background-color: var(--branco);
 }
 
 /* EXEMPLO: sticky para seções específicas (opcional) */
@@ -99,9 +103,9 @@ footer {
 footer .footer-bg {
   width: 100%;
   color: var(--preto);
-  opacity: 0.1;
+  opacity: 0.05;
   bottom: 0;
-  height: 25%;
+  height: 10%;
 }
 .footer-content {
   /* Ajuste livre, se desejar */
@@ -110,7 +114,7 @@ footer .footer-bg {
 .tracker {
   position: fixed;
   top: 50%;
-  left: 20px;
+  left: 10px;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -118,8 +122,8 @@ footer .footer-bg {
   z-index: 1000;
 }
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #ccc;
   transition: background 0.3s, transform 0.3s;
@@ -154,12 +158,11 @@ footer .footer-bg {
 }
 .proxima-secao {
   width: 100%;
-  align-self: flex-end;
   display: flex;
   gap: 15px;
-  /*! font-size: 16px; */
   color: var(--cinza-escuro);
   align-items: center;
+  align-self: flex-end;
   justify-content: end;
   margin-bottom: 15px;
   height: 35px;
@@ -183,7 +186,7 @@ footer .footer-bg {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  z-index: 999;
+  z-index: 9999;
 }
 .header__logo {
   mix-blend-mode: difference;
@@ -201,6 +204,9 @@ footer .footer-bg {
 .header__nav > .header__list {
   list-style: none;
   text-align: center;
+}
+.header__list {
+  cursor: pointer;
 }
 .header__list-item {
   /* Ajuste se necessário */
@@ -221,29 +227,6 @@ footer .footer-bg {
 }
 .header__avatar {
   mix-blend-mode: difference;
-}
-
-/* ========================= */
-/*        MENU HAMBURGER     */
-/* ========================= */
-.menu-hamb {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.menu-opt.inactive {
-  display: none;
-}
-.menu-opt.active {
-  display: block;
-  color: var(--cinza-escuro);
-  background-color: #e2dfe2;
-  border-radius: 5px;
-  padding: 10px 15px;
-}
-.menu-opt {
-  font-size: 14px;
-  font-weight: 300;
 }
 
 /* ========================= */
@@ -286,9 +269,71 @@ footer .footer-bg {
 }
 .section--home__text-group h1 {
   text-align: center;
-  font-size: 70px;
   font-weight: 900;
+  margin-bottom: 5px;
 }
+
+/* REUTILIZAÇÃO===================================== */
+.main-tech .section--home .section--home__text-group h1,
+.main-objetivos .section--home .section--home__text-group h1,
+.main-publico-alvo .section--home .section--home__text-group h1,
+.main-beneficios .section--home .section--home__text-group h1,
+.main-uso-diario .section--home .section--home__text-group h1 {
+  font-size: 40px;
+  line-height: 34px;
+}
+.main-tech .section--home .section--home__text-group h2,
+.main-objetivos .section--home .section--home__text-group h2,
+.main-publico-alvo .section--home .section--home__text-group h2,
+.main-beneficios .section--home .section--home__text-group h2,
+.main-uso-diario .section--home .section--home__text-group h2 {
+  font-size: 12px;
+  line-height: 15px;
+}
+.section--tecnologias {
+  height: 100%;
+  /*! text-align: center; */
+  background-color: var(--branco-1);
+}
+.main-tech .section--tecnologias .proxima-secao {
+  position: absolute;
+  bottom: 0;
+}
+
+.section--tecnologias .card-group .content {
+  width: 100%;
+  position: relative;
+  height: fit-content;
+  padding: 25px 10px;
+  align-items: center;
+}
+
+.section--tecnologias .card-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0px 25px;
+}
+
+.section--tecnologias .card-group .card {
+  align-self: center;
+  background-color: var(--branco);
+  width: 90vw;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
+}
+
+.main-problema .section--home .section--home__text-group h1 {
+  font-size: 70px;
+}
+.main-tech .section--home .section--home__text-group h1 {
+  font-size: 40px;
+  line-height: 34px;
+}
+
 .section--home__cta {
   display: flex;
   flex-direction: column;
@@ -306,16 +351,32 @@ footer .footer-bg {
 /* ========================= */
 /*           VIDEO           */
 /* ========================= */
+.main-problema .content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  background-color: var(--branco-1);
+  width: 300px;
+  height: 245px;
+  border-radius: 10px;
+}
+
 .section--video {
   width: 100%;
   background-color: var(--preto-1);
   position: relative;
+  overflow: hidden;
 }
 .section--video__bg {
   opacity: 0.35;
   min-width: fit-content;
   width: 100%;
   height: 100vh;
+  aspect-ratio: 16/9;
+  position: absolute;
+  left: -100%;
 }
 .section--video__text-group {
   display: flex;
@@ -360,10 +421,11 @@ footer .footer-bg {
   background-color: var(--cinza-escuro);
 }
 .section--descricao-problema__bg {
-  width: 100%;
+  width: fit-content;
   height: 100vh;
   opacity: 0.6;
   position: absolute;
+  left: -175%;
   bottom: 0;
 }
 .slide {
@@ -374,17 +436,6 @@ footer .footer-bg {
 }
 .problem-content {
   height: 100%;
-}
-.content {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 15px;
-  background-color: var(--branco-1);
-  width: 300px;
-  height: 245px;
-  border-radius: 10px;
 }
 .subtitulo {
   font-size: 24px;
@@ -413,6 +464,7 @@ footer .footer-bg {
   align-self: center;
 }
 .slide-status p {
+  font-weight: bold;
   font-size: 16px;
 }
 .slide-nav img {
@@ -425,247 +477,147 @@ footer .footer-bg {
 }
 
 /* ========================= */
-/*           OTHERS          */
-/* ========================= */
-.others {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
-  padding: 50px 15px 50px;
-  text-align: center;
-  background-color: var(--branco-1);
-}
-.others .content {
-  width: 100%;
-  position: relative;
-  height: fit-content;
-  padding: 25px 10px;
-  align-items: center;
-}
-.others .card-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 35px;
-  align-items: center;
-  justify-content: center;
-}
-.others .card-group .card {
-  align-self: center;
-  background-color: var(--branco);
-  width: 90vw;
-  height: 300px;
-  border-radius: 10px;
-  box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
-}
-
-/* ========================= */
 /*        TECNOLOGIAS        */
 /* ========================= */
 /* Exemplo para .section--tecnologias se quiser rolagem:*/
-.section--tecnologias {
-  padding: 0 15px;
+.section--tecnologias .section--tecnologias__bg {
+  height: 33vh;
+  width: 100vw;
+  background-color: var(--cinza-escuro);
+  border: none;
+  order: 1;
 }
-.card-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+.section--tecnologias .content {
+  width: 100vw;
   align-items: center;
-  justify-content: center;
+  padding: 25px;
   height: fit-content;
-  padding: 50px 0 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  order: 2;
 }
-.card {
-  width: 90vw;
-  height: 23vh;
-  background-color: var(--branco-1);
-  border: 1px solid var(--cinza-claro);
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  /* Ajuste livre se desejar */
+.section--tecnologias .content .content-text {
+  font-size: 16px;
+}
+.section--tecnologias .content .content-text p:nth-child(1) {
+  text-align: left;
+  margin-bottom: 15px;
+}
+.section--tecnologias .content .content-text p:nth-child(2) {
+  text-align: right;
 }
 
 /* ========================= */
-/*         OBJETIVOS         */
+/*        OBJETIVOS       */
 /* ========================= */
-.objetivos .home > .home-bg {
-  bottom: 40%;
-  transform: translateY(40%);
+.main-objetivos .section--home .section--home__bg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 350px;
   height: 350px;
 }
-.objetivos-main {
+.main-objetivos .section--objetivos .slide-card-container {
   background-color: var(--branco-1);
-  height: 100%;
-}
-.objetivos-main .content {
-  position: relative;
-  background-color: transparent;
-  height: fit-content;
-}
-.slide-card-container {
+  padding: 100px 25px 25px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  margin-top: 25px;
+  gap: 30px;
 }
-.slide-card {
-  background-color: var(--branco);
-  height: 125px;
-  width: 90vw;
+.main-objetivos .section--objetivos .slide-card-container .content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.main-objetivos .section--objetivos .slide-card-container .content-text {
+  font-size: 16px;
+}
+.main-objetivos .section--objetivos .slide-card-container .slide-card {
   box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  background-color: var(--branco);
+  max-width: 100vw;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
 }
-.slide-card:nth-child(odd) {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+.main-publico-alvo .section--tecnologias:nth-child(odd) {
+  background-color: var(--branco);
+}
+.main-objetivos .section--objetivos .slide-card-container .slide-card:nth-child(odd) {
   align-self: flex-end;
-}
-.slide-card:nth-child(even) {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-.objetivos-main .proxima-secao {
-  margin: 30px 0;
-  bottom: 0;
+  width: 100%;
 }
 
 /* ========================= */
-/*       PÚBLICO-ALVO        */
+/*        PÚBLICO-ALVO       */
 /* ========================= */
-.publico-alvo .home-text-group {
-  width: 250px;
+.main-publico-alvo .section--home .section--home__text-group h1 {
+  width: 185px;
 }
-.publico-alvo .home-text-group > h1 {
-  font-size: 40px;
-  text-align: center;
-  line-height: 35px;
-}
-.pb-alvo-content {
-  height: fit-content;
-  padding-top: 100px;
-  padding-bottom: 60px;
+.main-publico-alvo .section--tecnologias {
+  padding: 50px 0;
   display: flex;
   align-items: center;
-  background-color: var(--branco-1);
+  height: 100vh;
+  text-align: left;
   overflow: hidden;
 }
-.pb-alvo-image {
+.main-publico-alvo .section--tecnologias .section--tecnologias__bg {
+  height: 100%;
+  max-width: 45vw;
+  width: 100%;
+  border-radius: 10px;
   position: relative;
   left: -10px;
-  height: 80vh;
-  width: 160px;
-  border-radius: 10px;
-  background-color: var(--cinza-escuro);
-  aspect-ratio: 16/9;
 }
-.pb-alvo-content .content {
-  position: relative;
-  background-color: transparent;
-  border-radius: 0;
-  width: 80%;
+.main-publico-alvo .section--tecnologias .content .subtitulo {
+  min-width: max-content;
 }
-.pb-alvo-content:nth-child(3) {
-  background-color: var(--branco);
+.main-publico-alvo .section--tecnologias:nth-child(odd) .content {
+  order: 0;
 }
-.pb-alvo-image:nth-child(2) {
+.main-publico-alvo .section--tecnologias:nth-child(odd) .section--tecnologias__bg {
   left: 10px;
 }
-.pb-alvo-content:nth-child(2) .content {
-  padding-left: 15px;
+.main-publico-alvo .section--tecnologias .content .content-text p:nth-child(2) {
+  text-align: left;
 }
-.pb-alvo-content .proxima-secao {
-  position: absolute;
-  bottom: 65px;
-  left: 55%;
+.main-publico-alvo .section--tecnologias:nth-child(4) .content {
+  height: 100%;
 }
-
-/* ========================= */
-/*        BENEFÍCIOS         */
-/* ========================= */
-.beneficios .home-text-group > h1 {
-  font-size: 40px;
-  text-align: center;
-}
-.beneficios .home-text-group > h2 {
-  width: 160px;
-}
-.beneficios .home > .home-bg {
-  bottom: 40%;
-  transform: translateY(40%);
-  height: 350px;
-}
-.beneficios .others {
-  background-color: var(--branco-1);
-}
-.beneficios .proxima-secao {
-  bottom: -25px;
-  left: 20%;
+.main-publico-alvo .section--tecnologias .content .proxima-secao {
+  bottom: -40%;
 }
 
 /* ========================= */
-/*        USO DIÁRIO         */
+/*        BENEFÍCIOS       */
 /* ========================= */
-.uso-diario .home-text-group > h1 {
-  width: 150px;
-  line-height: 40px;
-  font-size: 40px;
-  text-align: center;
+.main-beneficios .section--home .section--home__bg {
+  width: 355px;
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
 }
-.uso-diario .home-text-group > h2 {
-  margin-top: 5px;
-  width: 160px;
+
+/* ========================= */
+/*        BENEFÍCIOS       */
+/* ========================= */
+.main-uso-diario .section--home .section--home__bg {
+  width: 320px;
+  height: 320px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.uso-diario .home > .home-bg {
-  bottom: 40%;
-  transform: translateY(40%);
-  height: 350px;
-}
-.uso-diario .proxima-secao {
-  position: relative;
-  top: -65px;
-  left: -50px;
-  /* bottom: -15px; */
+.main-uso-diario .section--home .section--home__text-group h2{
+  width: 130px;
 }
 
 /* ========================= */
 /*         MEDIA QUERY       */
 /* ========================= */
-/* SCROLL SNAP APENAS PARA MOBILE */
-@media (max-width: 767px) {
-  main.main-problema {
-    display: flex;
-    flex-direction: column;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    min-height: fit-content;
-    -webkit-overflow-scrolling: touch;
-  }
-  main.main-problema section.sec {
-    scroll-snap-align: start;
-    min-height: 100vh;
-    height: 100%;
-    overflow: hidden;
-  }
-  html,
-  body {
-    /*! height: 100%; */
-    /*! overflow: hidden; */ /* Se quiser scroll normal, use "auto" ou "scroll" aqui */
-    /*! position: fixed; */ /* Remover esta linha */
-    width: 100%;
-  }
-  .tracker {
-    pointer-events: none;
-  }
-  main.main-problema {
-    scroll-behavior: smooth;
-  }
-  main.main-problema {
-    scroll-snap-stop: always;
-  }
-}
-
-/* Mantenha comportamento normal para desktop */
 @media (min-width: 768px) {
   html,
   body {
@@ -685,10 +637,10 @@ footer .footer-bg {
   .header__logo {
     font-size: 32px;
   }
-  .header__list-item--active{
+  .header__list-item--active {
     padding: 10px 15px;
   }
-  .header__right .header__nav{
+  .header__right .header__nav {
     margin-right: 25px;
   }
   .header__right a,
@@ -710,6 +662,33 @@ footer .footer-bg {
   }
 
   /* REUTILIZACAO============================================================= */
+  .section--home .section--home__cta {
+    position: relative;
+    bottom: -50%;
+  }
+
+  .proxima-secao {
+    font-size: 24px;
+  }
+
+  .main-tech .section--home .section--home__text-group h2,
+  .main-objetivos .section--home .section--home__text-group h2,
+  .main-publico-alvo .section--home .section--home__text-group h2,
+  .main-beneficios .section--home .section--home__text-group h2,
+  .main-uso-diario .section--home .section--home__text-group h2 {
+    font-size: 20px;
+    line-height: normal;
+  }
+
+  .main-tech .section--home .section--home__text-group h1,
+  .main-objetivos .section--home .section--home__text-group h1,
+  .main-publico-alvo .section--home .section--home__text-group h1,
+  .main-beneficios .section--home .section--home__text-group h1,
+  .main-uso-diario .section--home .section--home__text-group h1 {
+    font-size: 96px;
+    line-height: 83px;
+  }
+
   .tecnologias .proxima-secao,
   .objetivos .proxima-secao,
   .publico-alvo .proxima-secao,
@@ -728,36 +707,38 @@ footer .footer-bg {
   }
 
   /* CARDS--------------------------------------- */
-  .section--tecnologias .card-group .card{
+  .section--tecnologias .card-group .card {
     width: 40vw;
     height: 40vh;
   }
-  .section--tecnologias .proxima-secao{
+  .section--tecnologias .proxima-secao {
     padding-right: 75px;
   }
-  .section--tecnologias .proxima-secao p{
+  .section--tecnologias .proxima-secao p {
     font-size: 22px;
   }
-  .section--tecnologias .proxima-secao img{
+  .section--tecnologias .proxima-secao img {
     width: 40px;
     height: auto;
   }
 
   /* LEAD=========================================================================== */
-  .main-problema .section--home {
-    display: flex;
-    flex-direction: column;
+  .section--home {
+    display: grid;
     justify-content: center;
     background-color: white;
   }
-  .main-problema .section--home__text-group {
+  main .section--home__text-group {
     position: relative;
     background-color: white;
   }
-  .main-problema .section--home__text-group h1 {
+
+  /* HOME=========================================================================== */
+
+  .main-problema .section--home .section--home__text-group h1 {
     font-size: 225px;
   }
-  .main-problema .section--home__text-group h2 {
+  .main-problema .section--home .section--home__text-group h2 {
     color: white;
     position: absolute;
     top: 50%;
@@ -767,7 +748,6 @@ footer .footer-bg {
     font-weight: bold;
     mix-blend-mode: difference;
   }
-
   .section--home__cta {
     font-size: 16px;
   }
@@ -776,10 +756,10 @@ footer .footer-bg {
     width: 110px;
   }
 
-  .section--video__text-group{
+  .section--video__text-group {
     padding: 75px;
   }
-  .section--video__text-1{
+  .section--video__text-1 {
     font-size: 48px;
     align-self: flex-start;
   }
@@ -787,18 +767,22 @@ footer .footer-bg {
     width: fit-content;
     align-self: flex-end;
   }
-  .section--video__inner-texts .section--video__text-2{
+  .section--video__inner-texts .section--video__text-2 {
     font-size: 96px;
   }
-  .section--video__inner-texts .section--video__text-3{
+  .section--video__inner-texts .section--video__text-3 {
     font-size: 38px;
   }
-  .section--video__inner-texts .section--video__text-4{
+  .section--video__inner-texts .section--video__text-4 {
     font-size: 25px;
   }
-
-
-
+  .section--video__bg {
+    left: 0;
+  }
+  .section--descricao-problema__bg {
+    width: 100%;
+    left: 0;
+  }
   .section--descricao-problema .slide {
     padding: 50px;
   }
@@ -820,5 +804,164 @@ footer .footer-bg {
   }
   .problem-content .content-text p {
     font-size: 22px;
+  }
+
+  /* TECH =========================================================================== */
+  .main-tech .section--home .section--home__text-group h1 {
+    font-size: 96px;
+    width: 715px;
+    line-height: 82px;
+  }
+  .main-tech .section--home .section--home__text-group h2 {
+    font-size: 20px;
+    width: 405px;
+  }
+  .main-tech .section--tecnologias {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 50px;
+  }
+  .main-tech .section--tecnologias:nth-child(odd) {
+    background-color: var(--branco);
+  }
+  .main-tech .section--tecnologias:nth-child(odd) .content {
+    order: 0;
+  }
+  .main-tech .section--tecnologias .section--tecnologias__bg {
+    width: 50vw;
+    height: 100vh;
+    border-radius: 10px;
+    box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
+  }
+  .main-tech .section--tecnologias .content {
+    width: 45vw;
+    height: 100%;
+    align-self: center;
+    justify-self: end;
+    padding: 50px;
+  }
+  .section--tecnologias .content .subtitulo {
+    font-size: 36px;
+    align-self: flex-start;
+  }
+  .section--tecnologias .content .content-text p:nth-child(1),
+  .section--tecnologias .content .content-text p:nth-child(2) {
+    text-align: left;
+    font-size: 24px;
+  }
+  .section--tecnologias .content .proxima-secao {
+    right: 0;
+  }
+
+  /* OBJETIVOS =========================================================================== */
+  .main-objetivos .section--home__text-group h1 {
+    width: 565px;
+  }
+  .main-objetivos .section--home__text-group h2 {
+    width: 405px;
+  }
+  .main-objetivos .section--home .section--home__bg {
+    width: 630px;
+    height: auto;
+    justify-self: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .main-objetivos .section--objetivos .slide-card-container {
+    padding: 100px 50px 25px;
+    gap: 50px;
+  }
+  .main-objetivos .section--objetivos .slide-card-container .subtitulo {
+    font-size: 48px;
+  }
+  .main-objetivos .section--objetivos .slide-card-container .content-text {
+    font-size: 24px;
+    max-width: 525px;
+  }
+  .main-objetivos .section--objetivos .slide-card-container .slide-card {
+    height: 250px;
+    max-width: 75vw;
+  }
+
+  /* PÚBLICO-ALVO =========================================================================== */
+  .main-publico-alvo .section--home .section--home__bg {
+    width: fit-content;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .main-publico-alvo .section--home .section--home__text-group h1 {
+    width: 430px;
+  }
+  .main-publico-alvo .section--home .section--home__text-group h2 {
+    width: 405px;
+  }
+  .main-publico-alvo .section--tecnologias {
+    display: flex;
+    justify-content: space-between;
+  }
+  .main-publico-alvo .section--tecnologias .content {
+    max-width: 550px;
+    padding: 50px;
+  }
+  .main-publico-alvo .section--tecnologias:nth-child(even) .content .subtitulo {
+    align-self: flex-end;
+  }
+  .main-publico-alvo .section--tecnologias:nth-child(even) .content .content-text p {
+    text-align: right;
+  }
+  .main-publico-alvo .section--tecnologias .content .proxima-secao {
+    bottom: -35%;
+    left: 20%;
+  }
+
+  /* BENEFÍCIOS =========================================================================== */
+  .main-beneficios .section--home .section--home__bg {
+    width: 605px;
+    height: auto;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+  }
+  .main-beneficios .section--home .section--home__text-group h2 {
+    width: 225px;
+  }
+
+  /* USO-DIÁRIO =========================================================================== */
+  .main-uso-diario .section--home .section--home__bg {
+    width: 620px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .main-uso-diario .section--home .section--home__text-group h2 {
+    width: 405px;
+  }
+  .main-uso-diario .section--tecnologias {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 50px;
+  }
+  .main-uso-diario .section--tecnologias:nth-child(odd) {
+    background-color: var(--branco);
+  }
+  .main-uso-diario .section--tecnologias:nth-child(odd) .content {
+    order: 0;
+  }
+  .main-uso-diario .section--tecnologias .section--tecnologias__bg {
+    width: 50vw;
+    height: 100vh;
+    border-radius: 10px;
+    box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.26);
+  }
+  .main-uso-diario .section--tecnologias .content {
+    width: 45vw;
+    height: 100%;
+    align-self: center;
+    justify-self: end;
+    padding: 50px;
   }
 }

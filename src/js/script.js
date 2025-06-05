@@ -1,158 +1,201 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Seleciona todas as linhas que devem ser animadas
-  const linhas = document.querySelectorAll(".linha");
-  const marca_texto = document.querySelectorAll(".marca-texto");
+  // Pegar todos os mains do documento
+  const allMains = document.querySelectorAll("main");
 
-  // Configuração do Intersection Observer
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Quando a linha entra na viewport, adiciona a classe animate
-          entry.target.classList.add("animate");
+  // Criar dots para navegação
+  const tracker = document.createElement("div");
+  tracker.className = "tracker";
+  document.body.appendChild(tracker);
 
-          // Opcional: para observar apenas uma vez
-          observer.unobserve(entry.target);
+  // Criar dots baseados no número de seções no primeiro main
+  const firstMainSections = allMains[0].querySelectorAll("section");
+  const dots = [];
+
+  for (let i = 0; i < firstMainSections.length; i++) {
+    const dot = document.createElement("div");
+    dot.className = "dot";
+    tracker.appendChild(dot);
+    dots.push(dot);
+  }
+
+  // Função para atualizar os dots baseada apenas no main ativo
+  function updatePageDots() {
+    // Limpar todos os dots ativos primeiro
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    // Encontrar o main ativo
+    const activeMain = document.querySelector('main[style*="display: flex"]') || allMains[0];
+
+    // Obter todas as seções visíveis do main ativo
+    const visibleSections = Array.from(activeMain.querySelectorAll("section"));
+
+    // Determinar qual seção está visível na viewport
+    visibleSections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      // Se a seção estiver pelo menos 50% visível
+      if (rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
+        // Ativar o dot correspondente (se existir)
+        if (dots[index]) {
+          dots[index].classList.add("active");
         }
-      });
-    },
-    {
-      threshold: 0.5, // Quando 50% do elemento estiver visível
-    }
-  );
-
-  // Observa cada linha
-  linhas.forEach((linha) => {
-    observer.observe(linha);
-  });
-  marca_texto.forEach((marca) => {
-    observer.observe(marca);
-  });
-
-  // Seleciona todos os elementos com classe home-bg
-  const homeBgs = document.querySelectorAll(".home-bg");
-  // Seleciona todos os elementos com classe home-text-group
-  const homeTextGroups = document.querySelectorAll(".home-text-group");
-
-  // Configurações do parallax
-  const parallaxSettings = {
-    homeBg: {
-      speed: 0.5, // Velocidade mais rápida (rola mais devagar que o conteúdo)
-    },
-    homeText: {
-      speed: 0.3, // Velocidade mais lenta (rola mais rápido que o background)
-    },
-  };
-
-  // Função de parallax
-  function applyParallax() {
-    const scrollPosition = window.pageYOffset;
-
-    // Aplica parallax aos backgrounds
-    homeBgs.forEach((bg) => {
-      const offset = scrollPosition * parallaxSettings.homeBg.speed;
-      bg.style.transform = `translateY(-${offset}px)`;
-    });
-
-    // Aplica parallax aos textos
-    homeTextGroups.forEach((textGroup) => {
-      const offset = scrollPosition * parallaxSettings.homeText.speed;
-      textGroup.style.transform = `translateY(${offset}px)`;
+      }
     });
   }
 
-  // Adiciona o event listener para scroll
-  window.addEventListener("scroll", applyParallax);
-
-  // Executa uma vez ao carregar para posicionar corretamente
-  applyParallax();
-});
-
-const sections = document.querySelectorAll("section");
-const tracker = document.querySelector(".tracker");
-
-// Cria os dots uma vez só com base nas seções
-sections.forEach(() => {
-  const span = document.createElement("span");
-  span.classList.add("dot"); // Corrigido aqui
-  tracker.appendChild(span);
-});
-
-const dots = document.querySelectorAll(".dot");
-
-window.addEventListener("scroll", () => {
-  let current = 0;
-
-  sections.forEach((section, index) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-
-    if (window.scrollY >= sectionTop - sectionHeight / 2) {
-      current = index;
+  // Inicialmente mostrar apenas o primeiro main e esconder os outros
+  allMains.forEach((main, index) => {
+    if (index === 0) {
+      main.style.display = "flex"; // Mantém o primeiro visível
+    } else {
+      main.style.display = "none"; // Esconde os outros
     }
   });
 
-  dots.forEach((dot) => dot.classList.remove("active"));
-  if (dots[current]) {
-    dots[current].classList.add("active");
+  // Variável para rastrear qual main está ativo
+  let currentMainIndex = 0;
+
+  // Adicionar eventos de clique em todos os elementos .proxima-secao
+  const nextButtons = document.querySelectorAll(".proxima-secao");
+  nextButtons.forEach((button) => {
+    button.style.cursor = "pointer";
+
+    button.addEventListener("click", function () {
+      // Obter o main atual e o próximo
+      const currentMain = allMains[currentMainIndex];
+
+      // Adicionar classe para animar a saída
+      currentMain.classList.add("main-exiting");
+
+      // Aguardar a animação terminar antes de trocar
+      setTimeout(() => {
+        // Esconder o main atual
+        currentMain.style.display = "none";
+        currentMain.classList.remove("main-exiting");
+
+        // Calcular o próximo índice (com loop circular)
+        currentMainIndex = (currentMainIndex + 1) % allMains.length;
+
+        // Rolar para o topo com animação suave
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+
+        // Obter o próximo main
+        const nextMain = allMains[currentMainIndex];
+
+        // Preparar o próximo main para animação
+        nextMain.classList.add("main-entering");
+        nextMain.style.display = "flex";
+
+        // Forçar um reflow para garantir que a transição ocorra
+        void nextMain.offsetHeight;
+
+        // Remover a classe para animar a entrada
+        requestAnimationFrame(() => {
+          nextMain.classList.remove("main-entering");
+        });
+
+        // Atualizar dots para o novo main
+        updateDotsForCurrentMain();
+
+        // Configurar o IntersectionObserver para o novo main
+        setupIntersectionObserver();
+      }, 300); // Metade da duração da transição para um efeito suave
+    });
+  });
+
+  // Função para atualizar dots baseado no número de seções do main atual
+  function updateDotsForCurrentMain() {
+    // Limpar dots existentes
+    tracker.innerHTML = "";
+    dots.length = 0;
+
+    // Criar novos dots baseados no número de seções no main atual
+    const currentMainSections = allMains[currentMainIndex].querySelectorAll("section");
+
+    for (let i = 0; i < currentMainSections.length; i++) {
+      const dot = document.createElement("div");
+      dot.className = "dot";
+      tracker.appendChild(dot);
+      dots.push(dot);
+    }
+
+    // Atualizar o estado dos dots
+    updatePageDots();
   }
 
-  // if (window.innerWidth <= 767) {
-  //   let isScrolling = false;
-  //   let startY = 0;
-  //   let currentY = 0;
+  // Ajustar evento de clique nas setas home para funcionar com o novo sistema
+  const homeArrows = document.querySelectorAll(".section--home__cta img");
+  homeArrows.forEach((arrow) => {
+    arrow.style.cursor = "pointer";
 
-  //   const main = document.querySelector(".main-problema");
+    arrow.addEventListener("click", function () {
+      // Encontra a seção pai atual
+      const currentSection = this.closest("section");
 
-  //   main.addEventListener("scroll", function (e) {
-  //     if (!isScrolling) return;
+      // Encontra a próxima seção dentro do mesmo main
+      const nextSection = currentSection.nextElementSibling;
 
-  //     currentY = main.scrollTop;
-  //     const scrollHeight = main.scrollHeight;
-  //     const clientHeight = main.clientHeight;
-  //     const currentSection = Math.round(main.scrollTop / clientHeight);
-  //     const scrollPercentage = (currentY % clientHeight) / clientHeight;
+      if (nextSection) {
+        // Scroll suave para a próxima seção
+        nextSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
 
-  //     // Se o scroll passar de 40% da seção, forçar o snap para a próxima/anterior
-  //     if (scrollPercentage > 0.2 && scrollPercentage < 0.6) {
-  //       const direction = currentY > startY ? 1 : -1;
-  //       const targetSection = currentSection + direction;
+  // Atualizar os dots conforme o scroll
+  window.addEventListener("scroll", updatePageDots);
 
-  //       if (targetSection >= 0 && targetSection < main.children.length) {
-  //         main.scrollTo({
-  //           top: targetSection * clientHeight,
-  //           behavior: "smooth",
-  //         });
-  //       }
-  //     }
+  // Configurar o IntersectionObserver para animar elementos quando ficarem visíveis
+  function setupIntersectionObserver() {
+    // Limpar observadores existentes
+    if (window.currentObserver) {
+      window.currentObserver.disconnect();
+    }
 
-  //     startY = currentY;
-  //   });
+    // Encontrar o main ativo
+    const activeMain = allMains[currentMainIndex];
 
-  //   main.addEventListener("touchstart", function (e) {
-  //     isScrolling = true;
-  //     startY = main.scrollTop;
-  //   });
+    // Selecionar elementos a serem animados
+    const linhas = activeMain.querySelectorAll(".linha");
+    const marca_texto = activeMain.querySelectorAll(".marca-texto");
 
-  //   main.addEventListener("touchend", function () {
-  //     isScrolling = false;
-  //   });
-  // }
+    // Configurar o observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    // Observar os elementos
+    linhas.forEach((linha) => observer.observe(linha));
+
+    if (marca_texto.length > 0) {
+      marca_texto.forEach((marca) => observer.observe(marca));
+    }
+
+    // Armazenar o observer para limpeza futura
+    window.currentObserver = observer;
+  }
+
+  // Inicialização
+  allMains.forEach((main, index) => {
+    if (index === 0) {
+      // Primeiro main já visível, remover qualquer classe de transição
+      main.classList.remove("main-entering");
+      main.style.display = "flex";
+    } else {
+      // Outros mains escondidos
+      main.style.display = "none";
+    }
+  });
+  updateDotsForCurrentMain();
+  setupIntersectionObserver();
 });
-
-// const container = document.querySelector('.tecnologias');
-// let timeout;
-
-// container.addEventListener('scroll', () => {
-//   clearTimeout(timeout);
-//   timeout = setTimeout(() => {
-//     const scrollTop = container.scrollTop;
-//     const viewportHeight = window.innerHeight;
-//     const nearestSection = Math.round(scrollTop / viewportHeight);
-
-//     container.scrollTo({
-//       top: nearestSection * viewportHeight,
-//       behavior: 'smooth'
-//     });
-//   }, 80); // Pequeno delay após parar de scrollar
-// });

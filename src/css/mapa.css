@@ -104,6 +104,42 @@
   width: 100%;
 }
 
+/* Proteção do mapa contra modo escuro */
+#map {
+  /* Isola o mapa das alterações de cor do modo escuro */
+  isolation: isolate;
+  z-index: 1;
+}
+
+/* Garante que elementos do Leaflet mantenham suas cores originais */
+.dark-mode #map,
+.dark-mode .leaflet-container,
+.dark-mode .leaflet-control,
+.dark-mode .leaflet-popup,
+.dark-mode .leaflet-marker-icon {
+  /* Anular qualquer filtro ou inversão que possa ser aplicado no modo escuro */
+  filter: none !important;
+  color-scheme: normal !important;
+  color: initial !important;
+  background-color: initial !important;
+}
+
+/* Adaptações para section--mapa no modo escuro */
+.dark-mode .main-mapa .section--mapa {
+  color: var(--branco-1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .main-mapa .content .content-text {
+  color: var(--branco-1);
+}
+
+/* Garantir que o container do mapa tenha bordas visíveis no modo escuro */
+.dark-mode .section--mapa__visualization {
+  border: 1px solid var(--cinza-escuro);
+  background-color: transparent;
+}
+
 .legend {
   padding: 10px 15px;
   background: rgba(255, 255, 255, 0.9);
@@ -132,4 +168,3 @@
   margin-right: 8px;
   display: inline-block;
 }
-

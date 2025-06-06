@@ -48,19 +48,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
       currentMainIndex = index;
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-
       const nextMain = allMains[currentMainIndex];
       nextMain.classList.add("main-entering");
       nextMain.style.display = "flex";
 
       void nextMain.offsetHeight;
 
+      // Aguarda a main estar visível antes de rolar para o topo
       requestAnimationFrame(() => {
         nextMain.classList.remove("main-entering");
+
+        // Move o scrollTo para depois da main estar visível
+        setTimeout(() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "instant", // Alterado para instant para garantir rolagem imediata
+          });
+        }, 10);
       });
 
       updateDotsForCurrentMain();

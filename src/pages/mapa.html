@@ -9,48 +9,49 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/mapa.css">
   <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
+
+  <!-- Adicione os links para a biblioteca Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   <title>Mapa de Enchentes</title>
 </head>
 
 <body>
-  <header>
-    <p class="logo">DRYCITY</p>
+  <header class="header">
+    <a href="../../index.html" class="header__logo">DRYCITY</a>
 
-    <div class="header-right">
-      <nav class="menu-hamb">
-        <ul>
-          <li class="menu-opt active">HOME</li>
-          <li class="menu-opt inactive">TECNOLOGIAS</li>
-          <li class="menu-opt inactive">OBJETIVOS</li>
-          <li class="menu-opt inactive">PÚBLICO-ALVO</li>
-          <li class="menu-opt inactive">BENEFÍCIOS</li>
-          <li class="menu-opt inactive">USO DIÁRIO</li>
-        </ul>
-      </nav>
-
+    <div class="header__right">
       <a href="../pages/cadastro.html">
-        <img class="avatar" src="../assets/images/avatar.svg" alt="Avatar de Usuário">
+        <img class="header__avatar" src="../assets/images/avatar.svg" alt="Avatar de Usuário">
       </a>
     </div>
   </header>
-  <main>
-    <div class="sobre">
-      <div class="subtitulo">
-        <h3>MAPA DE ENCHENTES</h3>
-        <span class="linha"></span>
+
+  <main class="main-mapa">
+    <section class="section section--mapa">
+      <div class="content">
+        <div class="subtitulo">
+          <h3>MAPA DE ENCHENTES</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Monitoramento em tempo real de áreas de risco de enchentes. Os dados são atualizados periodicamente com informações de satélite e estações de monitoramento.</p>
+        </div>
       </div>
-      <div class="sobre-text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
+      <div class="section--mapa__visualization">
+        <div id="map"></div>
       </div>
-    </div>
-    <div class="mapa"></div>
+    </section>
   </main>
 
   <footer>
+    <div class="footer-content"></div>
     <img class="footer-bg" src="../assets/images/DRYCITY-footer.png" alt="">
   </footer>
 
+
+  <script src="../js/script.js"></script>
   <script src="../js/mapa.js"></script>
 </body>
-
 </html>

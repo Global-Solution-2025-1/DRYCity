@@ -1,26 +1,135 @@
 @import "../css/style.css";
 
-main{
+.main-mapa {
   padding: 100px 15px 15px 15px;
+  background-color: var(--branco-1);
 }
 
-.sobre{
+.section--mapa {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.content {
   display: flex;
   flex-direction: column;
   gap: 15px;
   background-color: transparent;
 }
-.sobre-text{
+
+.content-text {
   display: flex;
   flex-direction: column;
   font-size: 14px;
   gap: 15px;
   color: var(--cinza-escuro);
 }
-.mapa{
+
+.section--mapa__visualization {
   margin-top: 25px;
   height: 690px;
   border: 2px solid var(--azul);
   border-radius: 10px;
   background-color: rgba(35, 35, 37, 5%);
 }
+
+/* Estilos responsivos para desktop */
+@media screen and (min-width: 768px) {
+  .main-mapa {
+    padding: 120px 40px 40px 40px;
+  }
+
+  .section--mapa {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .content-text {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .main-mapa {
+    padding: 140px 60px 60px 60px;
+  }
+
+  .section--mapa {
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 15px;
+  }
+  .content .subtitulo {
+    font-size: 32px;
+  }
+  .content .content-text {
+    font-size: 24px;
+  }
+
+  .section--mapa__visualization {
+    width: 100%;
+    height: 70vh; /* Ajuste a altura conforme necessário */
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .main-mapa {
+    padding: 160px 80px 80px 80px;
+  }
+
+  .section--mapa__visualization {
+    height: 75vh;
+  }
+}
+
+/* Estilos adicionais para o mapa */
+.section--mapa__visualization {
+  height: 75vh;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.legend {
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+.legend h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.legend-color {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: inline-block;
+}
+

@@ -282,6 +282,7 @@ nav.header__nav.active {
     font-size: 0.75rem;
     padding: 0.5rem 0;
     min-width: 6.2rem;
+
   }
 
   .header__list-item--active::after {

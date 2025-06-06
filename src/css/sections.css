@@ -1,8 +1,6 @@
 @import "./base.css";
 
-/* ========================= */
-/*    SEÇÃO PROBLEMA HOME    */
-/* ========================= */
+/* SEÇÃO PROBLEMA HOME */
 .main-problema .section--home .section--home__text-group h1 {
   font-size: 4.375rem;
 }
@@ -19,9 +17,7 @@
   border-radius: 0.625rem;
 }
 
-/* ========================= */
-/*     SEÇÃO VÍDEO HOME      */
-/* ========================= */
+/* SEÇÃO VÍDEO HOME */
 .section--video {
   width: 100%;
   height: 100vh;
@@ -78,9 +74,7 @@
   letter-spacing: 0.01875rem;
 }
 
-/* ========================= */
-/*    DESCRIÇÃO PROBLEMA     */
-/* ========================= */
+/* DESCRIÇÃO PROBLEMA */
 .section--descricao-problema {
   background-color: var(--cinza-escuro);
   overflow: hidden;
@@ -137,10 +131,8 @@
   rotate: 180deg;
 }
 
-/* ========================= */
-/*    SEÇÃO TECNOLOGIAS      */
-/* ========================= */
-.main-tech .section--tecnologias{
+/* SEÇÃO TECNOLOGIAS */
+.main-tech .section--tecnologias {
   height: 100vh;
 }
 
@@ -150,7 +142,7 @@
 }
 
 .section--tecnologias .section--tecnologias__bg {
-  height: 33vh;
+  height: fit-content;
   width: 100vw;
   background-color: var(--cinza-escuro);
   border: none;
@@ -196,9 +188,7 @@
   bottom: 0;
 }
 
-/* ========================= */
-/*        OBJETIVOS          */
-/* ========================= */
+/* OBJETIVOS */
 .main-objetivos .section--home .section--home__bg {
   position: absolute;
   top: 50%;
@@ -239,10 +229,12 @@
   align-self: flex-end;
   width: 100%;
 }
+.main-objetivos .section--objetivos .slide-card-container .slide-card:nth-child(odd) .slide-card-content h4,
+.main-objetivos .section--objetivos .slide-card-container .slide-card:nth-child(odd) .slide-card-content p {
+  text-align: right;
+}
 
-/* ========================= */
-/*       PÚBLICO-ALVO        */
-/* ========================= */
+/* PÚBLICO-ALVO */
 .main-publico-alvo .section--home .section--home__bg {
   position: absolute;
   top: 50%;
@@ -261,51 +253,19 @@
   padding: 3.125rem 0;
   display: flex;
   align-items: center;
-  height: 100vh;
   text-align: left;
   overflow: hidden;
-}
-
-.main-publico-alvo .section--tecnologias .section--tecnologias__bg {
-  height: 100%;
-  max-width: 45vw;
-  width: 100%;
-  border-radius: 0.625rem;
-  position: relative;
-  left: -0.625rem;
-}
-
-.main-publico-alvo .section--tecnologias .content .subtitulo {
-  min-width: max-content;
-}
-
-.main-publico-alvo .section--tecnologias:nth-child(odd) {
-  background-color: var(--branco);
-}
-
-.main-publico-alvo .section--tecnologias:nth-child(odd) .content {
-  order: 0;
-}
-
-.main-publico-alvo .section--tecnologias:nth-child(odd) .section--tecnologias__bg {
-  left: 0.625rem;
 }
 
 .main-publico-alvo .section--tecnologias .content .content-text p:nth-child(2) {
   text-align: left;
 }
 
-.main-publico-alvo .section--tecnologias:nth-child(4) .content {
-  height: 100%;
-}
-
 .main-publico-alvo .section--tecnologias .content .proxima-secao {
   bottom: -40%;
 }
 
-/* ========================= */
-/*        BENEFÍCIOS         */
-/* ========================= */
+/* BENEFÍCIOS */
 .main-beneficios .section--home .section--home__bg {
   width: 22.1875rem;
   height: auto;
@@ -313,9 +273,7 @@
   transform: translateY(-50%);
 }
 
-/* ========================= */
-/*        USO DIÁRIO         */
-/* ========================= */
+/* USO DIÁRIO */
 .main-uso-diario .section--home .section--home__bg {
   width: 20rem;
   height: 20rem;
@@ -328,7 +286,6 @@
   width: 8.125rem;
 }
 
-/* Correção da seção tecnologias dentro do uso diário para ter o mesmo comportamento */
 .main-uso-diario .section--tecnologias {
   display: flex;
   justify-content: space-between;
@@ -347,36 +304,35 @@
   order: 0;
 }
 
-.main-uso-diario .section--tecnologias .section--tecnologias__bg {
-  width: 50vw;
-  height: 100%;
-  border-radius: 0.625rem;
-  box-shadow: 0.625rem 0.625rem 1.1875rem 0rem rgba(0, 0, 0, 0.26);
-  max-width: none;
-  position: relative;
-  left: auto;
-  order: 1;
-}
-
 .main-uso-diario .section--tecnologias .content {
-  width: 45vw;
+  width: 100%;
   height: 100%;
   align-self: center;
   justify-self: end;
-  padding: 3.125rem;
   display: flex;
   flex-direction: column;
   gap: 2.1875rem;
   order: 2;
+  text-align: center;
 }
 
-.main-uso-diario .section--tecnologias .content .proxima-secao {
-  position: relative;
-  bottom: auto;
-  right: 0;
+.main-uso-diario .section--tecnologias .subtitulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
 
-/* Correção para cabeçalhos h1 e h2 em uso diário */
+.main-uso-diario .section--tecnologias .subtitulo .linha {
+  margin: 0 auto;
+}
+
+.main-uso-diario .section--tecnologias .content-text p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .main-uso-diario .section--home .section--home__text-group h1 {
   width: auto;
   font-size: 2.5rem;
@@ -394,7 +350,6 @@
   text-transform: uppercase;
 }
 
-/* Correção para versão responsiva dos cabeçalhos */
 @media (min-width: 48rem) {
   .main-uso-diario .section--home .section--home__text-group h1 {
     font-size: 6rem;
@@ -408,107 +363,19 @@
   }
 }
 
-/* Manter consistência com main-uso_diario */
-.main-uso_diario .section--home .section--home__text-group h1 {
-  width: auto;
-  font-size: 2.5rem;
-  line-height: 2.125rem;
-  text-align: center;
-  font-weight: 900;
-}
-
-.main-uso_diario .section--home .section--home__text-group h2 {
-  width: 8.125rem;
-  font-size: 0.75rem;
-  line-height: 0.9375rem;
-  text-align: center;
-  font-weight: normal;
-  text-transform: uppercase;
-}
-
-@media (min-width: 48rem) {
-  .main-uso_diario .section--home .section--home__text-group h1 {
-    font-size: 6rem;
-    line-height: 5.1875rem;
-  }
-
-  .main-uso_diario .section--home .section--home__text-group h2 {
-    font-size: 1.25rem;
-    line-height: normal;
-    width: 25.3125rem;
-  }
-}
-
-/* Correção para seções em público-alvo */
-.main-publico-alvo .section--publico-alvo {
-  padding: 3.125rem 0;
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  text-align: left;
-  overflow: hidden;
-}
-
-.main-publico-alvo .section--publico-alvo .section--publico-alvo__bg {
-  height: 100%;
-  max-width: 45vw;
-  width: 100%;
-  border-radius: 0.625rem;
-  position: relative;
-  left: -0.625rem;
-}
-
-.main-publico-alvo .section--publico-alvo .section--publico-alvo__content {
-  width: 100vw;
-  padding: 1.5625rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2.1875rem;
-  order: 2;
-}
-
-.main-publico-alvo .section--publico-alvo .section--publico-alvo__content .content-text p:nth-child(2) {
-  text-align: left;
-}
-
-.main-publico-alvo .section--publico-alvo:nth-child(odd) {
-  background-color: var(--branco);
-}
-
-.main-publico-alvo .section--publico-alvo:nth-child(odd) .section--publico-alvo__content {
-  order: 0;
-}
-
-.main-publico-alvo .section--publico-alvo:nth-child(odd) .section--publico-alvo__bg {
-  left: 0.625rem;
-}
-
-.main-publico-alvo .section--publico-alvo:nth-child(4) .section--publico-alvo__content {
-  height: 100%;
-}
-
-.main-publico-alvo .section--publico-alvo .section--publico-alvo__content .proxima-secao {
-  bottom: -40%;
-}
-
-/* ========================= */
-/*      MOBILE HEADINGS      */
-/* ========================= */
 @media (max-width: 767px) {
-  /* Aplicar tamanho de fonte de 2.5rem (40px) para títulos h1 em todas as seções exceto a principal */
   .main-tech .section--home__text-group h1,
   .main-objetivos .section--home__text-group h1,
   .main-publico-alvo .section--home__text-group h1,
   .main-beneficios .section--home__text-group h1,
   .main-uso-diario .section--home__text-group h1 {
     font-size: 2.5rem;
-    line-height: 2rem;/* Metade da altura total aproximada do elemento */
+    line-height: 2rem;
   }
 
-  /* Aplicar tamanho de fonte de 0.75rem (12px) para títulos h2 em todas as seções exceto a principal */
   .main-tech .section--home__text-group h2,
   .main-objetivos .section--home__text-group h2,
-  .main-publico-alvo .section--home__text-group h2,
+  .main-publico_alvo .section--home__text-group h2,
   .main-beneficios .section--home__text-group h2,
   .main-uso-diario .section--home__text-group h2 {
     font-size: 0.75rem;

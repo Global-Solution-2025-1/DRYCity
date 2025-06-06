@@ -122,7 +122,6 @@
 
 /* Adaptações para seção uso-diário no modo escuro */
 .dark-mode .main-uso-diario .section--tecnologias {
-  height: 100vh;
   background-color: var(--preto-1);
   color: var(--branco-1);
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -140,7 +139,6 @@
 @media (max-width: 767px) {
   .dark-mode .main-uso-diario .section--tecnologias {
     padding: 1.5625rem 1rem;
-    height: 100vh;
   }
 
   .dark-mode .main-uso-diario .section--tecnologias .content {

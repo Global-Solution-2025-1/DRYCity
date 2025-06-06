@@ -243,3 +243,36 @@ button:hover {
     max-width: 1000px;
   }
 }
+
+/* Ajuste para inputs radio e checkbox no dark mode */
+.dark-mode input[type="radio"],
+.dark-mode input[type="checkbox"] {
+  accent-color: var(--azul-claro, #4fc3f7);
+  border-color: #666;
+  background-color: #333;
+}
+
+/* Estilo para o texto associado aos inputs no dark mode */
+.dark-mode .text-group p,
+.dark-mode fieldset legend,
+.dark-mode label {
+  color: var(--branco-1, #f5f5f5);
+}
+
+/* Melhoria no contraste para os fieldsets no dark mode */
+.dark-mode fieldset {
+  border-color: #666;
+}
+
+/* Efeito hover para melhorar feedback visual no dark mode */
+.dark-mode input[type="radio"]:hover,
+.dark-mode input[type="checkbox"]:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.3);
+}
+
+/* Ajuste para inputs selecionados no dark mode */
+.dark-mode input[type="radio"]:checked::before,
+.dark-mode input[type="checkbox"]:checked::before {
+  background-color: var(--azul-claro, #4fc3f7);
+}

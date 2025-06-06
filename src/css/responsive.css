@@ -243,9 +243,10 @@
   .main-tech .section--tecnologias .section--tecnologias__bg,
   .main-uso_diario .section--tecnologias .section--tecnologias__bg {
     width: 50vw;
-    height: 100%;
+    height: fit-content;
     border-radius: 0.625rem;
     box-shadow: 0.625rem 0.625rem 1.1875rem 0rem rgba(0, 0, 0, 0.26);
+    align-self: center;
   }
 
   .main-tech .section--tecnologias .content,
@@ -301,24 +302,22 @@
 
   .main-objetivos .section--objetivos .slide-card-container .slide-card {
     height: 15.625rem;
-    max-width: 75vw;
+    max-width: fit-content;
   }
 
   .main-publico-alvo .section--tecnologias .content,
   .main-publico_alvo .section--tecnologias .content {
-    max-width: 34.375rem;
     padding: 3.125rem;
   }
 
   .main-publico-alvo .section--tecnologias:nth-child(even) .content .subtitulo,
   .main-publico_alvo .section--tecnologias:nth-child(even) .content .subtitulo {
-    align-self: flex-end;
+    align-self: flex-start;
   }
 
   .main-publico-alvo .section--tecnologias .content .proxima-secao,
   .main-publico_alvo .section--tecnologias .content .proxima-secao {
     bottom: -35%;
-    left: 20%;
   }
 
   .main-beneficios .section--home .section--home__bg {

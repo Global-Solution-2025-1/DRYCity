@@ -1,66 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/cadastro.css">
+  <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
   <title>Cadastro</title>
 </head>
 
 <body>
-  <header>
-    <p class="logo">DRYCITY</p>
-
-    <div class="header-right">
-      <nav class="menu-hamb">
-        <ul>
-          <li class="menu-opt active">HOME</li>
-          <li class="menu-opt inactive">TECNOLOGIAS</li>
-          <li class="menu-opt inactive">OBJETIVOS</li>
-          <li class="menu-opt inactive">PÚBLICO-ALVO</li>
-          <li class="menu-opt inactive">BENEFÍCIOS</li>
-          <li class="menu-opt inactive">USO DIÁRIO</li>
-        </ul>
-      </nav>
-    </div>
+  <header class="header">
+    <a href="../../index.html" class="header__logo">DRYCITY</a>
   </header>
 
-  <main>
+  <main class="cadastro">
     <h1>CADASTRE-SE</h1>
 
     <form action="">
-      <label for="name">
-        SEILA1
-        <input id="name" name="name" type="text" placeholder="PLACEHOLDER">
+      <label for="email">
+        EMAIL
+        <input id="email" name="email" type="email" placeholder="Ex. nome@email.com">
       </label>
 
-      <label for="email">
-        SEILA2
-        <input id="email" name="email" type="text" placeholder="PLACEHOLDER">
+      <label for="name">
+        NOME COMPLETO
+        <input id="name" name="name" type="text" placeholder="Ex. Jorge Henrique Santos">
+      </label>
+
+      <label for="cep">
+        CEP (APENAS OS 8 DÍGITOS)
+        <input id="cep" name="cep" type="number" placeholder="Ex. 12345678">
+      </label>
+
+      <label for="tel">
+        TELEFONE (COM DDD)
+        <input id="tel" name="tel" type="number" placeholder="Ex. 11999999999">
+      </label>
+
+      <label for="estado">
+        ESTADO RESIDENTE
+        <select name="estado" id="estado">
+          <option value="">-- Selecione --</option>
+          <option value="AC">Acre (AC)</option>
+          <option value="AL">Alagoas (AL)</option>
+          <option value="AP">Amapá (AP)</option>
+          <option value="AM">Amazonas (AM)</option>
+          <option value="BA">Bahia (BA)</option>
+          <option value="CE">Ceará (CE)</option>
+          <option value="DF">Distrito Federal (DF)</option>
+          <option value="ES">Espírito Santo (ES)</option>
+          <option value="GO">Goiás (GO)</option>
+          <option value="MA">Maranhão (MA)</option>
+          <option value="MT">Mato Grosso (MT)</option>
+          <option value="MS">Mato Grosso do Sul (MS)</option>
+          <option value="MG">Minas Gerais (MG)</option>
+          <option value="PA">Pará (PA)</option>
+          <option value="PB">Paraíba (PB)</option>
+          <option value="PR">Paraná (PR)</option>
+          <option value="PE">Pernambuco (PE)</option>
+          <option value="PI">Piauí (PI)</option>
+          <option value="RJ">Rio de Janeiro (RJ)</option>
+          <option value="RN">Rio Grande do Norte (RN)</option>
+          <option value="RS">Rio Grande do Sul (RS)</option>
+          <option value="RO">Rondônia (RO)</option>
+          <option value="RR">Roraima (RR)</option>
+          <option value="SC">Santa Catarina (SC)</option>
+          <option value="SP">São Paulo (SP)</option>
+          <option value="SE">Sergipe (SE)</option>
+          <option value="TO">Tocantins (TO)</option>
+        </select>
+      </label>
+
+      <label for="senha">
+        SENHA
+        <input id="senha" name="senha" type="password" placeholder="Digite sua senha">
+      </label>
+      <label for="confirma-senha">
+        CONFIRME SUA SENHA
+        <input id="confirma-senha" name="confirma-senha" type="password" placeholder="Digite novamente sua senha">
       </label>
 
       <fieldset>
-        <caption>SEILA3</caption>
+        <legend>TIPO DE CADASTRO</legend>
 
-        <label for="dia">
-          COISA1
-          <input id="dia" name="dia" type="number" placeholder="PLACEHOLDER">
+        <label for="tipo-informativo">
+          INFORMATIVO
+          <div class="text-group">
+            <input id="tipo-informativo" name="tipo" type="radio" value="informativo">
+            <p>Desejo receber alertas e me informar sobre enchentes</p>
+          </div>
         </label>
-        <label for="mes">
-          COISA1
-          <input id="mes" name="mes" type="number" placeholder="PLACEHOLDER">
+        <label for="tipo-resgate">
+          RESGATE
+          <div class="text-group">
+            <input id="tipo-resgate" name="tipo" type="radio" value="resgate">
+            <p>Desejo ser voluntário em missões de resgate ou doar alimentos/roupas</p>
+          </div>
         </label>
-        <label for="mes">
-          COISA1
-          <input id="mes" name="mes" type="number" placeholder="PLACEHOLDER">
+        <label for="tipo-doador">
+          DOADOR
+          <div class="text-group">
+            <input id="tipo-doador" name="tipo" type="radio" value="doador">
+            <p>Desejo ser voluntário/doador e também receber alertas de enchentes</p>
+          </div>
         </label>
       </fieldset>
-      
+
+      <fieldset class="notf">
+        <legend>TIPO DE NOTIFICAÇÃO</legend>
+        <label for="msg-sms">
+          <div class="text-group">
+            <input id="msg-sms" name="msg" type="radio" value="sms">
+          </div>
+          SMS
+        </label>
+        <label for="msg-email">
+          <div class="text-group">
+            <input id="msg-email" name="msg" type="radio" value="email">
+          </div>
+          Email
+        </label>
+      </fieldset>
+
+      <button type="submit">Finalizar Cadastro</button>
     </form>
   </main>
 
-  <script src="../js/script.js"></script>
+  <footer>
+    <div class="footer-content"></div>
+    <img draggable="false" class="footer-bg" src="../assets/images/DRYCITY-footer.png" alt="">
+  </footer>
+
+  <script src="../js/cadastro.js"></script>
 </body>
 
 </html>

@@ -61,6 +61,10 @@
     align-self: center;
   }
 
+  .header__nav.active .header__list{
+    top: 6.5rem;
+  }
+
   .header__right a,
   .header__avatar {
     width: 40px;
@@ -332,5 +336,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  footer .footer-bg{
+    height: 33%;
   }
 }

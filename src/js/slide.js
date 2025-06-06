@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
   slideNavNext.addEventListener('click', nextSlide);
 
   // Adicionar transição suave para a imagem
-  slideImg.style.transition = 'opacity 0.3s ease';
+  slideImg.style.transition = 'opacity 0.15s ease';
 
   // Iniciar slideshow
   resetAutoSlide();

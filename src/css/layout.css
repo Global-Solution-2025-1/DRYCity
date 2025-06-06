@@ -333,7 +333,7 @@
   border-radius: 0.3125rem;
   font-weight: normal;
   cursor: pointer;
-  min-width: fit-content;
+  min-width: 135px;
   text-align: center;
 }
 
@@ -430,30 +430,113 @@ footer {
   justify-content: end;
 }
 
-footer .footer-bg {
+.footer-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 3rem 2rem 1.5rem;
+  color: var(--preto);
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-logo h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-logo p {
+  font-size: 0.875rem;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--preto);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--azul);
+  text-decoration: underline;
+}
+
+.footer-contact p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.875rem;
+  /*! align-self: end; */
+  width: 100%;
+}
+
+.footer-bg {
+  position: absolute;
+  bottom: 0;
   width: 100%;
   color: var(--preto);
   opacity: 0.05;
-  bottom: 0;
   height: 10%;
+  z-index: 1;
 }
 
-/* Responsividade para botão dark mode */
-@media (max-width: 47.9375rem) {
-  .dark-mode-toggle {
-    width: 35px;
-    height: 35px;
-    margin-right: 0.5rem;
+/* Dark mode para o footer */
+.dark-mode footer {
+  background-color: var(--preto-1);
+}
+
+.dark-mode .footer-content {
+  color: var(--branco-1);
+}
+
+.dark-mode .footer-links a {
+  color: var(--branco-1);
+}
+
+.dark-mode .footer-links a:hover {
+  color: var(--azul-claro);
+}
+
+.dark-mode .footer-copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsividade do footer */
+@media (max-width: 768px) {
+  .footer-nav {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  .theme-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .theme-menu {
-    width: 35px;
-    height: 35px;
-    top: 40px;
+  .footer-content {
+    padding: 2rem 1rem 1rem;
   }
 }

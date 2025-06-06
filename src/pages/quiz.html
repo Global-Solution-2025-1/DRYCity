@@ -21,16 +21,6 @@
         <span class="light-icon">☀️</span>
         <span class="dark-icon">🌙</span>
       </div>
-      <nav class="header__nav">
-        <ul class="header__list">
-          <li class="header__list-item--active">HOME</li>
-          <li class="header__list-item">TECNOLOGIAS</li>
-          <li class="header__list-item">OBJETIVOS</li>
-          <li class="header__list-item">PÚBLICO-ALVO</li>
-          <li class="header__list-item">BENEFÍCIOS</li>
-          <li class="header__list-item">USO DIÁRIO</li>
-        </ul>
-      </nav>
 
       <a href="../pages/cadastro.html" class="header__avatar-link">
         <img class="header__avatar" src="../assets/images/avatar.svg" alt="Avatar de Usuário">
@@ -482,8 +472,16 @@
           </div>
         </fieldset>
 
-        <button class="section--quiz__button">Ver Resultado</button>
+        <button class="section--quiz__button" type="button" id="submitQuiz">Ver Resultado</button>
       </form>
+
+      <!-- Tela de Resultado (inicialmente oculta) -->
+      <div class="quiz-resultado" id="quizResultado" style="display: none;">
+        <h2 class="resultado-titulo">RESULTADO</h2>
+        <p class="resultado-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
+        <p class="resultado-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
+        <button class="resultado-button" id="reiniciarQuiz">Realizar o quiz novamente</button>
+      </div>
     </section>
   </main>
 

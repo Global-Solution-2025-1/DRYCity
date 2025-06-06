@@ -8,6 +8,11 @@
 @import "./responsive.css";
 @import "./animations.css";
 
+
+.tracker {
+  display: flex;
+}
+
 /* Estilos para o slideshow */
 .section--descricao-problema {
   overflow: hidden;
@@ -46,4 +51,89 @@
 
 .nav-dot.active {
   background: white;
+}
+
+/* Ajuste do shade dos cards para um tom mais claro */
+.section--tecnologias .card-group .card {
+  background-color: #444444; /* Tom de preto mais claro */
+  box-shadow: 0.625rem 0.625rem 1.1875rem 0rem rgba(60, 60, 60, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Versão para dark mode */
+.dark-mode .section--tecnologias .card-group .card {
+  background-color: #333333;
+  box-shadow: 0.625rem 0.625rem 1.1875rem 0rem rgba(20, 20, 20, 0.4);
+}
+
+/* Efeito hover para os cards na seção tecnologias */
+.section--tecnologias .card-group .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section--tecnologias .card-group .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0.75rem 0.75rem 1.4375rem 0rem rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+/* Versão para dark mode */
+.dark-mode .section--tecnologias .card-group .card:hover {
+  box-shadow: 0.75rem 0.75rem 1.4375rem 0rem rgba(0, 0, 0, 0.5);
+}
+
+/* Efeito hover para os slide-cards na seção de objetivos */
+.main-objetivos .section--objetivos .slide-card-container .slide-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-objetivos .section--objetivos .slide-card-container .slide-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0.75rem 0.75rem 1.4375rem 0rem rgba(0, 0, 0, 0.35);
+}
+
+/* Versão para dark mode */
+.dark-mode .main-objetivos .section--objetivos .slide-card-container .slide-card:hover {
+  box-shadow: 0.75rem 0.75rem 1.4375rem 0rem rgba(0, 0, 0, 0.5);
+}
+
+/* Efeito de parallax para seção de tecnologias - implementação corrigida */
+.main-tech .sticky-page {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-tech .section--tecnologias.sticky-page {
+  transition: transform 0.3s ease;
+}
+
+/* Empilhamento com base no z-index */
+.main-tech .section--tecnologias[style*="--z:1"] {
+  z-index: 10;
+}
+
+.main-tech .section--tecnologias[style*="--z:2"] {
+  z-index: 20;
+}
+
+.main-tech .section--tecnologias[style*="--z:3"] {
+  z-index: 30;
+}
+
+/* Para resolver conflitos com outras regras */
+.main-tech .section--tecnologias {
+  transform: none !important;
+}
+
+/* Responsividade para o efeito */
+@media (max-width: 768px) {
+  .main-tech .section--tecnologias .content {
+    transition: transform 0.2s ease;
+  }
+
+  .main-tech .section--tecnologias:hover .content {
+    transform: translateY(-3px);
+  }
 }

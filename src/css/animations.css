@@ -1,0 +1,49 @@
+@import "./base.css";
+
+/* ========================= */
+/*       ANIMAÇÕES           */
+/* ========================= */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.625rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-0.625rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section--home__cta img {
+  position: relative;
+  animation: float 2s ease-in-out infinite;
+  cursor: pointer;
+}
+
+/* Transições de Páginas */
+.main-entering,
+.main-exiting {
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.main-entering {
+  opacity: 0;
+  transform: translateY(6.25rem);
+}
+
+.main-exiting {
+  opacity: 0;
+  transform: translateY(-3.125rem);
+}

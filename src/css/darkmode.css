@@ -1,0 +1,231 @@
+@import "./base.css";
+
+/* Dark Mode Variables */
+body.dark-mode {
+  /* Cores para modo escuro */
+  --bg-primary: var(--preto-3);
+  --bg-secondary: var(--preto-2);
+  --bg-tertiary: var(--preto-1);
+  --text-primary: var(--branco);
+  --text-secondary: var(--cinza-claro);
+  --border-color: var(--cinza-claro);
+  --card-bg: var(--preto-2);
+  --highlight-color: var(--azul);
+  --highlight-text: var(--branco);
+
+  /* Scrollbar para modo escuro */
+  --sb-track-color: var(--preto-2);
+  --sb-thumb-color: var(--azul);
+}
+
+/* ========================= */
+/*          DARK MODE        */
+/* ========================= */
+.dark-mode-toggle {
+  position: relative;
+  /*! width: 3rem; */
+  /*! height: 1.5rem; */
+  border-radius: 15px;
+  background-color: var(--bg-tertiary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.25rem;
+  order: 0;
+}
+
+.dark-mode-toggle::before {
+  /*! content: ""; */
+  /*! position: absolute; */
+  left: 0.25rem;
+  /*! width: 1rem; */
+  /*! height: 1rem; */
+  /*! border-radius: 50%; */
+  /*! background-color: var(--branco); */
+  /*! transition: transform 0.3s ease; */
+}
+
+.dark-mode .dark-mode-toggle {
+  /*! background-color: var(--highlight-color); */
+}
+
+.dark-mode .dark-mode-toggle::before {
+  transform: translateX(1.5rem);
+}
+
+.dark-mode-toggle .light-icon,
+.dark-mode-toggle .dark-icon {
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  font-size: 0.75rem;
+  /*! align-items: center; */
+  /*! display: flex; */
+}
+
+.dark-mode-toggle .light-icon {
+  color: var(--preto-1);
+}
+
+.dark-mode-toggle .dark-icon {
+  color: var(--branco-1);
+}
+
+/* Estilos específicos para o modo escuro */
+.dark-mode {
+  /* Backgrounds */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark-mode main,
+.dark-mode section,
+.dark-mode .section--home,
+.dark-mode .main-quiz,
+.dark-mode .main-mapa,
+.dark-mode .cadastro,
+.dark-mode .main-tech,
+.dark-mode .main-problema,
+.dark-mode .main-objetivos,
+.dark-mode .main-publico-alvo,
+.dark-mode .main-publico_alvo,
+.dark-mode .main-beneficios,
+.dark-mode .main-uso-diario,
+.dark-mode .main-uso_diario {
+  background-color: var(--bg-primary);
+}
+
+.dark-mode .section--tecnologias {
+  background-color: var(--bg-secondary);
+}
+
+.dark-mode .section--tecnologias .card-group {
+  background-color: var(--bg-secondary);
+}
+
+.dark-mode .section--descricao-problema {
+  background-color: var(--preto);
+}
+
+/* Textos */
+.dark-mode .content-text,
+.dark-mode .subtitulo,
+.dark-mode .proxima-secao,
+.dark-mode .section--home__text-group h1,
+.dark-mode .section--home__text-group h2,
+.dark-mode .section--home__cta,
+.dark-mode .section--quiz__pergunta-texto,
+.dark-mode .section--mapa__pergunta-texto {
+  color: var(--text-primary);
+}
+
+/* Elementos */
+.dark-mode .card,
+.dark-mode .slide-card,
+.dark-mode .section--quiz__opcoes label {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  box-shadow: 0.625rem 0.625rem 1.1875rem 0rem rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .section--mapa__visualization,
+.dark-mode form > label > input,
+.dark-mode form > label > select {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-mode .section--quiz__opcoes label:has(input:checked) {
+  background-color: var(--highlight-color);
+  color: var(--highlight-text);
+}
+
+.dark-mode input::placeholder {
+  color: var(--text-secondary);
+}
+
+.dark-mode .section--tecnologias .section--tecnologias__bg {
+  background-color: var(--preto);
+}
+
+.dark-mode footer {
+  background-color: var(--bg-primary);
+}
+
+.dark-mode footer .footer-bg {
+  opacity: 0.2;
+}
+
+.dark-mode .header__logo {
+  color: var(--text-primary);
+  mix-blend-mode: normal;
+}
+
+.dark-mode .header__nav.active .header__list {
+  background-color: var(--bg-secondary);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .header__list-item {
+  color: var(--text-primary);
+}
+
+.dark-mode .header__list-item--active {
+  background-color: var(--highlight-color);
+  color: var(--highlight-text);
+}
+
+.dark-mode button,
+.dark-mode .section--quiz__button {
+  background-color: var(--highlight-color);
+  color: var(--highlight-text);
+}
+
+.dark-mode button:hover,
+.dark-mode .section--quiz__button:hover {
+  background-color: var(--azul-escuro);
+}
+
+/* Ajustes para elementos específicos em modo escuro */
+.dark-mode main .section--home__text-group {
+  background-color: var(--preto-3);
+}
+
+.dark-mode .section--home {
+  background-color: var(--preto-3);
+}
+
+.dark-mode .main-problema .content {
+  background-color: var(--preto-2);
+}
+
+.dark-mode .dot.active {
+  background: var(--branco);
+}
+
+.dark-mode .dot {
+  background: var(--cinza-escuro);
+}
+
+/* Corrigir texto em media queries */
+@media (min-width: 48rem) {
+  .dark-mode .section--home {
+    background-color: var(--bg-primary) !important;
+  }
+
+  .dark-mode main .section--home__text-group {
+    background-color: var(--bg-primary) !important;
+  }
+
+  .dark-mode .main-problema .section--home .section--home__text-group h2 {
+    color: var(--text-primary);
+    mix-blend-mode: difference;
+  }
+}
+
+
+
+

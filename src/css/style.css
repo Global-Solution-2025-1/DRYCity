@@ -1,15 +1,413 @@
-:root{
-  --preto: #000;
-  --preto-1: #242325;
-  --preto-2: #1E1E1E;
-  --branco: #fff;
-  --branco-1: #F5F4F5;
-  --cinza-claro: #D9D9D9;
-  --cinza-escuro: #6C6C6C;
-  --azul: #4190C8;
+/* Arquivo principal que importa todos os outros arquivos CSS */
+
+@import "./base.css";
+@import "./components.css";
+@import "./layout.css";
+@import "./sections.css";
+@import "./darkmode.css";
+@import "./responsive.css";
+@import "./animations.css";
+
+.tracker {
+  display: flex;
 }
-*{
+
+/* Estilos para o slideshow */
+.section--descricao-problema {
+  overflow: hidden;
+  position: relative;
+}
+
+.slides-wrapper {
+  display: flex;
+  width: 300%; /* Ajuste conforme o número de slides (100% * número de slides) */
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide-item {
+  width: 33.333%; /* 100% dividido pelo número de slides */
+  min-width: 33.333%;
+  position: relative;
+}
+
+.navigation-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.nav-dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nav-dot.active {
+  background: white;
+}
+
+/* Ajuste do shade dos cards para um tom mais claro */
+.section--tecnologias .card-group .card {
+  background-color: #444444; /* Tom de preto mais claro */
+  box-shadow: 0.625rem 0.625rem 1.1875rem 0rem rgba(60, 60, 60, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Versão para dark mode */
+.dark-mode .section--tecnologias .card-group .card {
+  background-color: #333333;
+  box-shadow: 0.625rem 0.625rem 1.1875rem 0rem rgba(20, 20, 20, 0.4);
+}
+
+/* Efeito hover para os cards na seção tecnologias */
+.section--tecnologias .card-group .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section--tecnologias .card-group .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0.75rem 0.75rem 1.4375rem 0rem rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+/* Versão para dark mode */
+.dark-mode .section--tecnologias .card-group .card:hover {
+  box-shadow: 0.75rem 0.75rem 1.4375rem 0rem rgba(0, 0, 0, 0.5);
+}
+
+/* Efeito hover para os slide-cards na seção de objetivos */
+.main-objetivos .section--objetivos .slide-card-container .slide-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-objetivos .section--objetivos .slide-card-container .slide-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0.75rem 0.75rem 1.4375rem 0rem rgba(0, 0, 0, 0.35);
+}
+
+/* Versão para dark mode */
+.dark-mode .main-objetivos .section--objetivos .slide-card-container .slide-card:hover {
+  box-shadow: 0.75rem 0.75rem 1.4375rem 0rem rgba(0, 0, 0, 0.5);
+}
+
+/* Efeito de parallax para seção de tecnologias - implementação corrigida */
+.main-tech .sticky-page {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-tech .section--tecnologias.sticky-page {
+  transition: transform 0.3s ease;
+}
+
+/* Empilhamento com base no z-index */
+.main-tech .section--tecnologias[style*="--z:1"] {
+  z-index: 10;
+}
+
+.main-tech .section--tecnologias[style*="--z:2"] {
+  z-index: 20;
+}
+
+.main-tech .section--tecnologias[style*="--z:3"] {
+  z-index: 30;
+}
+
+/* Para resolver conflitos com outras regras */
+.main-tech .section--tecnologias {
+  transform: none !important;
+}
+
+/* Responsividade para o efeito */
+@media (max-width: 768px) {
+  .main-tech .section--tecnologias .content {
+    transition: transform 0.2s ease;
+  }
+
+  .main-tech .section--tecnologias:hover .content {
+    transform: translateY(-3px);
+  }
+}
+
+/* Estilo para o conteúdo dos slide-cards */
+.slide-card-content {
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--branco-1);
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.slide-card h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  color: var(--azul);
+}
+
+.slide-card p {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Animação para os slide-cards */
+.slide-card {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.3s ease;
+}
+
+.slide-card.animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Reset da transformação no hover após animação */
+.slide-card.animate:hover {
+  transform: scale(1.02);
+}
+
+/* Ajustes para desktop */
+@media (min-width: 992px) {
+  .slide-card.animate:hover {
+    transform: scale(1.05);
+  }
+
+  .slide-card-content {
+    padding: 2.5rem;
+    text-align: left;
+  }
+
+  .slide-card h4 {
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .slide-card p {
+    font-size: 1.375rem;
+    text-align: left;
+    line-height: 1.6;
+  }
+
+  .slide-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .slide-card-container .content {
+    grid-column: 1 / -1;
+    margin-bottom: 1rem;
+  }
+
+  .slide-card-container .proxima-secao {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+  }
+}
+
+/* Ajustes para desktop nos cards de benefícios */
+@media (min-width: 992px) {
+  .section--tecnologias .card-group .card .card-content {
+    padding: 2.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .section--tecnologias .card-group .card h4 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .section--tecnologias .card-group .card p {
+    font-size: 1.375rem;
+    line-height: 1.6;
+  }
+}
+
+/* Estilo base para cards de benefícios em mobile */
+.section--tecnologias .card-group .card .card-content {
+  padding: 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--branco-1);
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo para os links dentro dos cards */
+.card .card-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Garantir que o conteúdo dos cards seja visível */
+.section--tecnologias .card-group .card .card-content {
+  border-radius: 10px;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 1.25rem;
+  text-align: center;
+  color: var(--preto);
+  background-color: var(--branco);
+  transition: background-color 0.3s ease;
+}
+
+/* Efeito hover no conteúdo do card */
+.section--tecnologias .card-group .card:hover .card-content {
+  background-color: var(--branco-1);
+}
+
+/* Versão dark mode para o conteúdo do card */
+.dark-mode .section--tecnologias .card-group .card .card-content {
+  background-color: var(--preto-1);
+  color: var(--branco-1);
+}
+
+.dark-mode .section--tecnologias .card-group .card:hover .card-content {
+  background-color: var(--preto-1);
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+  .section--tecnologias .card-group .card .card-content {
+    padding: 1rem;
+  }
+
+  .section--tecnologias .card-group .card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section--tecnologias .card-group .card p {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+}
+
+.dark-mode .section--tecnologias .card-group .card h4 {
+  color: var(--azul-claro);
+}
+
+/* Estilo para os links dos cards na seção inicial */
+.card-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+}
+
+/* Garantir que cards dentro de links mantenham seu estilo */
+.main-problema .section--tecnologias .card-group .card-link .card {
+  width: 100%;
+  height: 100%;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-problema .section--tecnologias .card-group .card-link:hover .card {
+  transform: scale(1.05);
+  box-shadow: 0.75rem 0.75rem 1.4375rem 0rem rgba(0, 0, 0, 0.35);
+}
+
+/* Fazer conteúdo do card sempre visível */
+.main-problema .section--tecnologias .card-group .card .card-content {
+  opacity: 1;
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+}
+
+/* .main-problema .section--tecnologias .card-group .card:hover .card-content {
+  background-color: var(--branco-1);
+} */
+
+/* Remover estilização padrão dos links de card */
+.card-group a.card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Garantir que os links de card se comportem como os cards originais */
+.card-group a.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0.75rem 0.75rem 1.4375rem 0rem rgba(0, 0, 0, 0.35);
+}
+
+.dark-mode .card-group a.card:hover {
+  box-shadow: 0.75rem 0.75rem 1.4375rem 0rem rgba(0, 0, 0, 0.5);
+}
+
+/* Centralização dos textos na seção uso-diário */
+.main-uso-diario .content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-uso-diario .subtitulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-uso-diario .content-text {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.main-uso-diario .content-text p {
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .main-uso-diario .content-text {
+    max-width: 80%;
+  }
 }

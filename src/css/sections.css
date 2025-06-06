@@ -1,0 +1,384 @@
+@import "./base.css";
+
+/* SEÇÃO PROBLEMA HOME */
+.main-problema .section--home .section--home__text-group h1 {
+  font-size: 4.375rem;
+}
+
+.main-problema .content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9375rem;
+  padding: 0.9375rem;
+  background-color: var(--branco-1);
+  width: 18.75rem;
+  height: 15.3125rem;
+  border-radius: 0.625rem;
+}
+
+/* SEÇÃO VÍDEO HOME */
+.section--video {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--preto-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.section--video__bg {
+  opacity: 0.35;
+  min-width: fit-content;
+  width: 100%;
+  height: 100vh;
+  aspect-ratio: 16/9;
+  position: absolute;
+  left: -100%;
+}
+
+.section--video__text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 9.375rem 2rem 5rem;
+  position: absolute;
+  top: 0;
+  mix-blend-mode: difference;
+  text-align: center;
+  font-weight: bold;
+  color: #e2dfe2;
+}
+
+.section--video__text-1 {
+  font-size: 2rem;
+}
+
+.section--video__inner-texts {
+  width: 19.5rem;
+}
+
+.section--video__text-2 {
+  letter-spacing: 0.0625rem;
+  font-size: 3rem;
+}
+
+.section--video__text-3 {
+  font-size: 1.1875rem;
+}
+
+.section--video__text-4 {
+  font-size: 0.75rem;
+  letter-spacing: 0.01875rem;
+}
+
+/* DESCRIÇÃO PROBLEMA */
+.section--descricao-problema {
+  background-color: var(--cinza-escuro);
+  overflow: hidden;
+}
+
+.section--descricao-problema__bg {
+  width: fit-content;
+  max-height: 100vh;
+  height: 100%;
+  opacity: 0.6;
+  position: absolute;
+  left: -175%;
+  bottom: 0;
+}
+
+.slide {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5625rem;
+}
+
+.problem-content {
+  height: 100%;
+}
+
+.slide-nav {
+  position: relative;
+  color: var(--branco-1);
+  display: flex;
+  gap: 1.5625rem;
+  width: fit-content;
+  align-self: center;
+}
+
+.slide-status {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.slide-status p {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.slide-nav img {
+  cursor: pointer;
+  width: 0.9375rem;
+  height: 1.25rem;
+}
+
+.slide-nav img:nth-child(1) {
+  rotate: 180deg;
+}
+
+/* SEÇÃO TECNOLOGIAS */
+.main-tech .section--tecnologias {
+  height: 100vh;
+}
+
+.section--tecnologias {
+  height: fit-content;
+  background-color: var(--branco-1);
+}
+
+.section--tecnologias .section--tecnologias__bg {
+  height: fit-content;
+  width: 100vw;
+  background-color: var(--cinza-escuro);
+  border: none;
+  order: 1;
+}
+
+.section--tecnologias .content {
+  width: 100vw;
+  padding: 1.5625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.1875rem;
+  order: 2;
+}
+
+.section--tecnologias .content .content-text {
+  font-size: 1rem;
+}
+
+.section--tecnologias .content .content-text p:nth-child(1) {
+  text-align: left;
+  margin-bottom: 0.9375rem;
+}
+
+.section--tecnologias .content .content-text p:nth-child(2) {
+  text-align: right;
+}
+
+.section--tecnologias .card-group {
+  background-color: var(--branco-1);
+}
+
+.section--tecnologias .card-group .content {
+  width: 100%;
+  position: relative;
+  height: fit-content;
+  padding: 1.5625rem 0.625rem;
+  align-items: center;
+}
+
+.main-tech .section--tecnologias .proxima-secao {
+  position: absolute;
+  bottom: 0;
+}
+
+/* OBJETIVOS */
+.main-objetivos .section--home .section--home__bg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 21.875rem;
+  height: 21.875rem;
+}
+
+.main-objetivos .section--objetivos .slide-card-container {
+  background-color: var(--branco-1);
+  padding: 6.25rem 1.5625rem 1.5625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+}
+
+.main-objetivos .section--objetivos .slide-card-container .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5625rem;
+}
+
+.main-objetivos .section--objetivos .slide-card-container .content-text {
+  font-size: 1rem;
+}
+
+.main-objetivos .section--objetivos .slide-card-container .slide-card {
+  box-shadow: 0.625rem 0.625rem 1.1875rem 0rem rgba(0, 0, 0, 0.26);
+  border-radius: 0.625rem;
+  background-color: var(--branco);
+  max-width: 100vw;
+  height: 7.8125rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-objetivos .section--objetivos .slide-card-container .slide-card:nth-child(odd) {
+  align-self: flex-end;
+  width: 100%;
+}
+.main-objetivos .section--objetivos .slide-card-container .slide-card:nth-child(odd) .slide-card-content h4,
+.main-objetivos .section--objetivos .slide-card-container .slide-card:nth-child(odd) .slide-card-content p {
+  text-align: right;
+}
+
+/* PÚBLICO-ALVO */
+.main-publico-alvo .section--home .section--home__bg {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 21.875rem;
+  height: 100%;
+  max-height: 100vh;
+  left: 50%;
+}
+
+.main-publico-alvo .section--home .section--home__text-group h1 {
+  width: auto;
+}
+
+.main-publico-alvo .section--tecnologias {
+  padding: 3.125rem 0;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  overflow: hidden;
+}
+
+.main-publico-alvo .section--tecnologias .content .content-text p:nth-child(2) {
+  text-align: left;
+}
+
+.main-publico-alvo .section--tecnologias .content .proxima-secao {
+  bottom: -40%;
+}
+
+/* BENEFÍCIOS */
+.main-beneficios .section--home .section--home__bg {
+  width: 22.1875rem;
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* USO DIÁRIO */
+.main-uso-diario .section--home .section--home__bg {
+  width: 20rem;
+  height: 20rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-uso-diario .section--home .section--home__text-group h2 {
+  width: 8.125rem;
+}
+
+.main-uso-diario .section--tecnologias {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 3.125rem;
+  height: auto;
+  background-color: var(--branco-1);
+  overflow: visible;
+}
+
+.main-uso-diario .section--tecnologias:nth-child(odd) {
+  background-color: var(--branco);
+}
+
+.main-uso-diario .section--tecnologias:nth-child(odd) .content {
+  order: 0;
+}
+
+.main-uso-diario .section--tecnologias .content {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 2.1875rem;
+  order: 2;
+  text-align: center;
+}
+
+.main-uso-diario .section--tecnologias .subtitulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.main-uso-diario .section--tecnologias .subtitulo .linha {
+  margin: 0 auto;
+}
+
+.main-uso-diario .section--tecnologias .content-text p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-uso-diario .section--home .section--home__text-group h1 {
+  width: auto;
+  font-size: 2.5rem;
+  line-height: 2.125rem;
+  text-align: center;
+  font-weight: 900;
+}
+
+.main-uso-diario .section--home .section--home__text-group h2 {
+  width: 8.125rem;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  text-align: center;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+@media (min-width: 48rem) {
+  .main-uso-diario .section--home .section--home__text-group h1 {
+    font-size: 6rem;
+    line-height: 5.1875rem;
+  }
+
+  .main-uso-diario .section--home .section--home__text-group h2 {
+    font-size: 1.25rem;
+    line-height: normal;
+    width: 25.3125rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-tech .section--home__text-group h1,
+  .main-objetivos .section--home__text-group h1,
+  .main-publico-alvo .section--home__text-group h1,
+  .main-beneficios .section--home__text-group h1,
+  .main-uso-diario .section--home__text-group h1 {
+    font-size: 2.5rem;
+    line-height: 2rem;
+  }
+
+  .main-tech .section--home__text-group h2,
+  .main-objetivos .section--home__text-group h2,
+  .main-publico_alvo .section--home__text-group h2,
+  .main-beneficios .section--home__text-group h2,
+  .main-uso-diario .section--home__text-group h2 {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}

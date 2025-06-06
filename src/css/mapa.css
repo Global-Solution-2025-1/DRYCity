@@ -1,0 +1,170 @@
+@import "../css/style.css";
+
+.main-mapa {
+  padding: 100px 15px 15px 15px;
+  background-color: var(--branco-1);
+}
+
+.section--mapa {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: transparent;
+}
+
+.content-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 15px;
+  color: var(--cinza-escuro);
+}
+
+.section--mapa__visualization {
+  margin-top: 25px;
+  height: 690px;
+  border: 2px solid var(--azul);
+  border-radius: 10px;
+  background-color: rgba(35, 35, 37, 5%);
+}
+
+/* Estilos responsivos para desktop */
+@media screen and (min-width: 768px) {
+  .main-mapa {
+    padding: 120px 40px 40px 40px;
+  }
+
+  .section--mapa {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .content-text {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .main-mapa {
+    padding: 140px 60px 60px 60px;
+  }
+
+  .section--mapa {
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 15px;
+  }
+  .content .subtitulo {
+    font-size: 32px;
+  }
+  .content .content-text {
+    font-size: 24px;
+  }
+
+  .section--mapa__visualization {
+    width: 100%;
+    height: 70vh; /* Ajuste a altura conforme necessário */
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .main-mapa {
+    padding: 160px 80px 80px 80px;
+  }
+
+  .section--mapa__visualization {
+    height: 75vh;
+  }
+}
+
+/* Estilos adicionais para o mapa */
+.section--mapa__visualization {
+  height: 75vh;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+/* Proteção do mapa contra modo escuro */
+#map {
+  /* Isola o mapa das alterações de cor do modo escuro */
+  isolation: isolate;
+  z-index: 1;
+}
+
+/* Garante que elementos do Leaflet mantenham suas cores originais */
+.dark-mode #map,
+.dark-mode .leaflet-container,
+.dark-mode .leaflet-control,
+.dark-mode .leaflet-popup,
+.dark-mode .leaflet-marker-icon {
+  /* Anular qualquer filtro ou inversão que possa ser aplicado no modo escuro */
+  filter: none !important;
+  color-scheme: normal !important;
+  color: initial !important;
+  background-color: initial !important;
+}
+
+/* Adaptações para section--mapa no modo escuro */
+.dark-mode .main-mapa .section--mapa {
+  color: var(--branco-1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .main-mapa .content .content-text {
+  color: var(--branco-1);
+}
+
+/* Garantir que o container do mapa tenha bordas visíveis no modo escuro */
+.dark-mode .section--mapa__visualization {
+  border: 1px solid var(--cinza-escuro);
+  background-color: transparent;
+}
+
+.legend {
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+.legend h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.legend-color {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: inline-block;
+}

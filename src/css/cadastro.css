@@ -1,0 +1,278 @@
+@import "../css/style.css";
+
+.cadastro {
+  justify-content: flex-start;
+  padding: 120px 15px 15px 15px;
+  background-color: var(--branco-1);
+}
+form > fieldset {
+  border: none;
+  margin: 0;
+}
+form,
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 33px;
+}
+form > fieldset > label {
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+form > label,
+form > fieldset > legend {
+  position: relative;
+  font-size: 16px;
+  font-weight: bold;
+}
+form > fieldset > legend {
+  margin-bottom: 15px;
+}
+form > label > input,
+form > label > select,
+form > fieldset > label > input {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background-color: rgba(35, 35, 37, 5%);
+  border-radius: 10px;
+  border: none;
+  border-bottom: 1px solid var(--preto-1);
+  outline: none;
+  margin-top: 10px;
+  padding: 20px 15px;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 16px;
+}
+form > label > select {
+  padding: 0 15px;
+  color: rgba(0, 0, 0, 25%);
+}
+option:first-child {
+  color: var(--cinza-escuro);
+}
+input::placeholder,
+option {
+  color: var(--preto);
+  opacity: 0.25;
+}
+
+button {
+  padding: 20px;
+  border: none;
+  background-color: var(--preto-1);
+  color: var(--branco-1);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background: var(--azul);
+}
+.text-group {
+  display: flex;
+  gap: 15px;
+  font-weight: normal;
+  font-size: 14px;
+}
+.text-group input {
+  appearance: none;
+  min-width: 30px;
+  max-height: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Opcional: adicionar um ícone de check */
+.text-group input:checked::after {
+  content: "✓";
+  position: absolute;
+  color: var(--azul);
+  font-size: 25px;
+  font-weight: bolder;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.notf {
+  flex-direction: row;
+}
+.notf label {
+  flex-direction: row;
+  align-items: center;
+}
+#msg-sms,
+#msg-email {
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+#msg-sms:checked::after,
+#msg-email:checked::after {
+  padding: 10px;
+  background-color: var(--azul);
+  content: "";
+  border-radius: 50px;
+}
+
+/* Estilos para mensagens de erro da validação */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Responsividade para tablet */
+@media screen and (min-width: 768px) {
+  .cadastro {
+    padding: 140px 40px 40px 40px;
+  }
+
+  form {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  form > label,
+  form > fieldset > legend {
+    font-size: 18px;
+  }
+
+  form > fieldset > label {
+    font-size: 18px;
+  }
+
+  form > label > input,
+  form > label > select {
+    height: 50px;
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 18px;
+  }
+
+  .text-group {
+    font-size: 16px;
+  }
+}
+
+/* Responsividade para desktop */
+@media screen and (min-width: 1024px) {
+  .cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 160px 60px 60px 60px;
+  }
+
+  .cadastro h1 {
+    font-size: 2.5rem;
+  }
+
+  form {
+    max-width: 800px;
+    width: 100%;
+    gap: 30px;
+  }
+
+  form > label,
+  form > fieldset > legend {
+    font-size: 20px;
+  }
+
+  form > fieldset > label {
+    font-size: 20px;
+  }
+
+  form > label > input,
+  form > label > select,
+  form > fieldset > label > input {
+    height: 60px;
+    padding: 25px 20px;
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  button {
+    padding: 25px;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+  .text-group {
+    font-size: 18px;
+    gap: 20px;
+  }
+
+  .text-group input {
+    min-width: 35px;
+    max-height: 35px;
+  }
+
+  .notf {
+    justify-content: flex-start;
+    gap: 40px;
+  }
+
+  #msg-sms,
+  #msg-email {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Para telas muito grandes */
+@media screen and (min-width: 1440px) {
+  .cadastro {
+    padding-top: 180px;
+  }
+
+  form {
+    max-width: 1000px;
+  }
+}
+
+/* Ajuste para inputs radio e checkbox no dark mode */
+.dark-mode input[type="radio"],
+.dark-mode input[type="checkbox"] {
+  accent-color: var(--azul-claro, #4fc3f7);
+  border-color: #666;
+  background-color: #333;
+}
+
+/* Estilo para o texto associado aos inputs no dark mode */
+.dark-mode .text-group p,
+.dark-mode fieldset legend,
+.dark-mode label {
+  color: var(--branco-1, #f5f5f5);
+}
+
+/* Melhoria no contraste para os fieldsets no dark mode */
+.dark-mode fieldset {
+  border-color: #666;
+}
+
+/* Efeito hover para melhorar feedback visual no dark mode */
+.dark-mode input[type="radio"]:hover,
+.dark-mode input[type="checkbox"]:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.3);
+}
+
+/* Ajuste para inputs selecionados no dark mode */
+.dark-mode input[type="radio"]:checked::before,
+.dark-mode input[type="checkbox"]:checked::before {
+  background-color: var(--azul-claro, #4fc3f7);
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/mapa.css">
+  <link rel="shortcut icon" href="../assets/images/logos/logo.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <title>Mapa de Enchentes</title>
+</head>
+
+<body>
+  <header class="header">
+    <a href="../../index.html" class="header__logo">DRYCITY</a>
+
+    <div class="header__right">
+      <div class="dark-mode-container">
+        <div class="dark-mode-toggle" aria-label="Alternar modo escuro">
+          <!-- Os ícones serão inseridos pelo JavaScript -->
+        </div>
+        <!-- O menu de temas será inserido pelo JavaScript -->
+      </div>
+
+      <a href="../pages/cadastro.html">
+        <img class="header__avatar" src="../assets/images/ui/avatar.svg" alt="Avatar de Usuário">
+      </a>
+    </div>
+  </header>
+
+  <main class="main-mapa">
+    <section class="section section--mapa">
+      <div class="content">
+        <div class="subtitulo">
+          <h3>MAPA DE ENCHENTES (SIMULAÇÃO)</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Monitoramento em tempo real de áreas de risco de enchentes. Os dados são atualizados periodicamente com informações de satélite e estações de monitoramento.</p>
+        </div>
+      </div>
+      <div class="section--mapa__visualization">
+        <div id="map"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-nav">
+        <div class="footer-logo">
+          <h2>DRYCITY</h2>
+          <p>Prevenção contra enchentes</p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Navegação</h3>
+          <ul>
+            <li><a target="_blank" href="./cadastro.html">Cadastro</a></li>
+            <li><a target="_blank" href="./mapa.html">Mapa de Enchentes</a></li>
+            <li><a target="_blank" href="./quiz.html">Quiz de Conhecimentos</a></li>
+            <li><a target="_blank" href="./portal.html">Portal Educacional</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contato</h3>
+          <p>contato@drycity.com.br</p>
+          <p>(11) 99999-9999</p>
+        </div>
+      </div>
+
+      <div class="footer-copyright">
+        <p>&copy; DRYCity, 2025. - Todos os direitos reservados.</p>
+      </div>
+    </div>
+    <img draggable="false" class="footer-bg" src="../assets/images/backgrounds/DRYCITY-footer.png" alt="Imagem decorativa do rodapé DRYCity">
+  </footer>
+
+
+  <script src="../js/script.js"></script>
+  <script src="../js/darkmode.js"></script>
+  <script src="../js/mapa.js"></script>
+</body>
+
+</html>

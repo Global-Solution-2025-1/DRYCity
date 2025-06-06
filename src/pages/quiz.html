@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/quiz.css">
+  <link rel="shortcut icon" href="../assets/images/logos/logo.png" type="image/x-icon">
+  <title>Quiz de Conhecimentos</title>
+</head>
+
+<body>
+  <header class="header">
+    <a href="../../index.html" class="header__logo">DRYCITY</a>
+
+    <div class="header__right">
+      <div class="dark-mode-toggle" aria-label="Alternar modo escuro">
+        <span class="light-icon">☀️</span>
+        <span class="dark-icon">🌙</span>
+      </div>
+
+      <a href="../pages/cadastro.html" class="header__avatar-link">
+        <img class="header__avatar" src="../assets/images/ui/avatar.svg" alt="Avatar de Usuário">
+      </a>
+    </div>
+  </header>
+
+  <main class="main-quiz">
+    <section class="section section--quiz">
+      <div class="content">
+        <div class="subtitulo">
+          <h3>QUIZ DE CONHECIMENTOS</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Uma forma de avaliar suas dores e os sistemas da cidade</p>
+        </div>
+      </div>
+
+      <form class="section--quiz__form">
+        <fieldset class="section--quiz__pergunta">
+          <legend class="section--quiz__pergunta-texto">
+            <b>1.</b>Como você avalia a comunicação da sua cidade em casos de enchente?
+          </legend>
+
+          <div class="section--quiz__opcoes">
+            <label for="opcao1-1">
+              <div class="section--quiz__opcao-texto">
+                <p>1</p>
+                <p>Muito Pouco</p>
+              </div>
+              <input id="opcao1-1" name="opcao1" type="radio">
+            </label>
+            <label for="opcao1-2">
+              <div class="section--quiz__opcao-texto">
+                <p>2</p>
+                <p>Pouco</p>
+              </div>
+              <input id="opcao1-2" name="opcao1" type="radio">
+            </label>
+            <label for="opcao1-3">
+              <div class="section--quiz__opcao-texto">
+                <p>3</p>
+                <p>Mais ou Menos</p>
+              </div>
+              <input id="opcao1-3" name="opcao1" type="radio">
+            </label>
+            <label for="opcao1-4">
+              <div class="section--quiz__opcao-texto">
+                <p>4</p>
+                <p>Sei</p>
+              </div>
+              <input id="opcao1-4" name="opcao1" type="radio">
+            </label>
+            <label for="opcao1-5">
+              <div class="section--quiz__opcao-texto">
+                <p>5</p>
+                <p>Sei Bastante</p>
+              </div>
+              <input id="opcao1-5" name="opcao1" type="radio">
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="section--quiz__pergunta">
+          <legend class="section--quiz__pergunta-texto">
+            <b>2. </b>De 1 a 5, como você avalia a eficácia dos serviços públicos na prevenção de enchentes na sua região?
+          </legend>
+
+          <div class="section--quiz__opcoes">
+            <label for="opcao2-1">
+              <div class="section--quiz__opcao-texto">
+                <p>1</p>
+                <p>Muito Pouco</p>
+              </div>
+              <input id="opcao2-1" name="opcao2" type="radio">
+            </label>
+            <label for="opcao2-2">
+              <div class="section--quiz__opcao-texto">
+                <p>2</p>
+                <p>Pouco</p>
+              </div>
+              <input id="opcao2-2" name="opcao2" type="radio">
+            </label>
+            <label for="opcao2-3">
+              <div class="section--quiz__opcao-texto">
+                <p>3</p>
+                <p>Mais ou Menos</p>
+              </div>
+              <input id="opcao2-3" name="opcao2" type="radio">
+            </label>
+            <label for="opcao2-4">
+              <div class="section--quiz__opcao-texto">
+                <p>4</p>
+                <p>Sei</p>
+              </div>
+              <input id="opcao2-4" name="opcao2" type="radio">
+            </label>
+            <label for="opcao2-5">
+              <div class="section--quiz__opcao-texto">
+                <p>5</p>
+                <p>Sei Bastante</p>
+              </div>
+              <input id="opcao2-5" name="opcao2" type="radio">
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="section--quiz__pergunta">
+          <legend class="section--quiz__pergunta-texto">
+            <b>3. </b>Quão preparado(a) você se sente para lidar com uma situação de enchente?
+          </legend>
+
+          <div class="section--quiz__opcoes">
+            <label for="opcao3-1">
+              <div class="section--quiz__opcao-texto">
+                <p>1</p>
+                <p>Muito Pouco</p>
+              </div>
+              <input id="opcao3-1" name="opcao3" type="radio">
+            </label>
+            <label for="opcao3-2">
+              <div class="section--quiz__opcao-texto">
+                <p>2</p>
+                <p>Pouco</p>
+              </div>
+              <input id="opcao3-2" name="opcao3" type="radio">
+            </label>
+            <label for="opcao3-3">
+              <div class="section--quiz__opcao-texto">
+                <p>3</p>
+                <p>Mais ou Menos</p>
+              </div>
+              <input id="opcao3-3" name="opcao3" type="radio">
+            </label>
+            <label for="opcao3-4">
+              <div class="section--quiz__opcao-texto">
+                <p>4</p>
+                <p>Sei</p>
+              </div>
+              <input id="opcao3-4" name="opcao3" type="radio">
+            </label>
+            <label for="opcao3-5">
+              <div class="section--quiz__opcao-texto">
+                <p>5</p>
+                <p>Sei Bastante</p>
+              </div>
+              <input id="opcao3-5" name="opcao3" type="radio">
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="section--quiz__pergunta">
+          <legend class="section--quiz__pergunta-texto">
+            <b>4. </b>De 1 a 5, como você avalia a frequência das enchentes na sua região nos últimos anos?
+          </legend>
+
+          <div class="section--quiz__opcoes">
+            <label for="opcao4-1">
+              <div class="section--quiz__opcao-texto">
+                <p>1</p>
+                <p>Muito Pouco</p>
+              </div>
+              <input id="opcao4-1" name="opcao4" type="radio">
+            </label>
+            <label for="opcao4-2">
+              <div class="section--quiz__opcao-texto">
+                <p>2</p>
+                <p>Pouco</p>
+              </div>
+              <input id="opcao4-2" name="opcao4" type="radio">
+            </label>
+            <label for="opcao4-3">
+              <div class="section--quiz__opcao-texto">
+                <p>3</p>
+                <p>Mais ou Menos</p>
+              </div>
+              <input id="opcao4-3" name="opcao4" type="radio">
+            </label>
+            <label for="opcao4-4">
+              <div class="section--quiz__opcao-texto">
+                <p>4</p>
+                <p>Sei</p>
+              </div>
+              <input id="opcao4-4" name="opcao4" type="radio">
+            </label>
+            <label for="opcao4-5">
+              <div class="section--quiz__opcao-texto">
+                <p>5</p>
+                <p>Sei Bastante</p>
+              </div>
+              <input id="opcao4-5" name="opcao4" type="radio">
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="section--quiz__pergunta">
+          <legend class="section--quiz__pergunta-texto">
+            <b>5. </b>Como você avalia a infraestrutura (bueiros, drenagem, limpeza urbana) da sua cidade para prevenir enchentes?
+          </legend>
+
+          <div class="section--quiz__opcoes">
+            <label for="opcao5-1">
+              <div class="section--quiz__opcao-texto">
+                <p>1</p>
+                <p>Muito Pouco</p>
+              </div>
+              <input id="opcao5-1" name="opcao5" type="radio">
+            </label>
+            <label for="opcao5-2">
+              <div class="section--quiz__opcao-texto">
+                <p>2</p>
+                <p>Pouco</p>
+              </div>
+              <input id="opcao5-2" name="opcao5" type="radio">
+            </label>
+            <label for="opcao5-3">
+              <div class="section--quiz__opcao-texto">
+                <p>3</p>
+                <p>Mais ou Menos</p>
+              </div>
+              <input id="opcao5-3" name="opcao5" type="radio">
+            </label>
+            <label for="opcao5-4">
+              <div class="section--quiz__opcao-texto">
+                <p>4</p>
+                <p>Sei</p>
+              </div>
+              <input id="opcao5-4" name="opcao5" type="radio">
+            </label>
+            <label for="opcao5-5">
+              <div class="section--quiz__opcao-texto">
+                <p>5</p>
+                <p>Sei Bastante</p>
+              </div>
+              <input id="opcao5-5" name="opcao5" type="radio">
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="section--quiz__pergunta">
+          <legend class="section--quiz__pergunta-texto">
+            <b>6. </b>Em uma situação de enchente, quão seguro(a) você se sente em sua casa?
+          </legend>
+
+          <div class="section--quiz__opcoes">
+            <label for="opcao6-1">
+              <div class="section--quiz__opcao-texto">
+                <p>1</p>
+                <p>Muito Pouco</p>
+              </div>
+              <input id="opcao6-1" name="opcao6" type="radio">
+            </label>
+            <label for="opcao6-2">
+              <div class="section--quiz__opcao-texto">
+                <p>2</p>
+                <p>Pouco</p>
+              </div>
+              <input id="opcao6-2" name="opcao6" type="radio">
+            </label>
+            <label for="opcao6-3">
+              <div class="section--quiz__opcao-texto">
+                <p>3</p>
+                <p>Mais ou Menos</p>
+              </div>
+              <input id="opcao6-3" name="opcao6" type="radio">
+            </label>
+            <label for="opcao6-4">
+              <div class="section--quiz__opcao-texto">
+                <p>4</p>
+                <p>Sei</p>
+              </div>
+              <input id="opcao6-4" name="opcao6" type="radio">
+            </label>
+            <label for="opcao6-5">
+              <div class="section--quiz__opcao-texto">
+                <p>5</p>
+                <p>Sei Bastante</p>
+              </div>
+              <input id="opcao6-5" name="opcao6" type="radio">
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="section--quiz__pergunta">
+          <legend class="section--quiz__pergunta-texto">
+            <b>7. </b>De 1 a 5, qual o seu nível de preocupação com o risco de enchentes afetarem você ou sua família?
+          </legend>
+
+          <div class="section--quiz__opcoes">
+            <label for="opcao7-1">
+              <div class="section--quiz__opcao-texto">
+                <p>1</p>
+                <p>Muito Pouco</p>
+              </div>
+              <input id="opcao7-1" name="opcao7" type="radio">
+            </label>
+            <label for="opcao7-2">
+              <div class="section--quiz__opcao-texto">
+                <p>2</p>
+                <p>Pouco</p>
+              </div>
+              <input id="opcao7-2" name="opcao7" type="radio">
+            </label>
+            <label for="opcao7-3">
+              <div class="section--quiz__opcao-texto">
+                <p>3</p>
+                <p>Mais ou Menos</p>
+              </div>
+              <input id="opcao7-3" name="opcao7" type="radio">
+            </label>
+            <label for="opcao7-4">
+              <div class="section--quiz__opcao-texto">
+                <p>4</p>
+                <p>Sei</p>
+              </div>
+              <input id="opcao7-4" name="opcao7" type="radio">
+            </label>
+            <label for="opcao7-5">
+              <div class="section--quiz__opcao-texto">
+                <p>5</p>
+                <p>Sei Bastante</p>
+              </div>
+              <input id="opcao7-5" name="opcao7" type="radio">
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="section--quiz__pergunta">
+          <legend class="section--quiz__pergunta-texto">
+            <b>8. </b>Quando há alerta de enchente, como você se sente emocionalmente?
+          </legend>
+
+          <div class="section--quiz__opcoes">
+            <label for="opcao8-1">
+              <div class="section--quiz__opcao-texto">
+                <p>1</p>
+                <p>Muito Pouco</p>
+              </div>
+              <input id="opcao8-1" name="opcao8" type="radio">
+            </label>
+            <label for="opcao8-2">
+              <div class="section--quiz__opcao-texto">
+                <p>2</p>
+                <p>Pouco</p>
+              </div>
+              <input id="opcao8-2" name="opcao8" type="radio">
+            </label>
+            <label for="opcao8-3">
+              <div class="section--quiz__opcao-texto">
+                <p>3</p>
+                <p>Mais ou Menos</p>
+              </div>
+              <input id="opcao8-3" name="opcao8" type="radio">
+            </label>
+            <label for="opcao8-4">
+              <div class="section--quiz__opcao-texto">
+                <p>4</p>
+                <p>Sei</p>
+              </div>
+              <input id="opcao8-4" name="opcao8" type="radio">
+            </label>
+            <label for="opcao8-5">
+              <div class="section--quiz__opcao-texto">
+                <p>5</p>
+                <p>Sei Bastante</p>
+              </div>
+              <input id="opcao8-5" name="opcao8" type="radio">
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="section--quiz__pergunta">
+          <legend class="section--quiz__pergunta-texto">
+            <b>9. </b>Se você já vivenciou uma enchente, como avalia o suporte recebido (da comunidade, vizinhos ou autoridades)?
+          </legend>
+
+          <div class="section--quiz__opcoes">
+            <label for="opcao9-1">
+              <div class="section--quiz__opcao-texto">
+                <p>1</p>
+                <p>Muito Pouco</p>
+              </div>
+              <input id="opcao9-1" name="opcao9" type="radio">
+            </label>
+            <label for="opcao9-2">
+              <div class="section--quiz__opcao-texto">
+                <p>2</p>
+                <p>Pouco</p>
+              </div>
+              <input id="opcao9-2" name="opcao9" type="radio">
+            </label>
+            <label for="opcao9-3">
+              <div class="section--quiz__opcao-texto">
+                <p>3</p>
+                <p>Mais ou Menos</p>
+              </div>
+              <input id="opcao9-3" name="opcao9" type="radio">
+            </label>
+            <label for="opcao9-4">
+              <div class="section--quiz__opcao-texto">
+                <p>4</p>
+                <p>Sei</p>
+              </div>
+              <input id="opcao9-4" name="opcao9" type="radio">
+            </label>
+            <label for="opcao9-5">
+              <div class="section--quiz__opcao-texto">
+                <p>5</p>
+                <p>Sei Bastante</p>
+              </div>
+              <input id="opcao9-5" name="opcao9" type="radio">
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="section--quiz__pergunta">
+          <legend class="section--quiz__pergunta-texto">
+            <b>10. </b>De 1 a 5, quanto você acredita que sua comunidade está engajada em ações de prevenção e ajuda mútua durante enchentes?
+          </legend>
+
+          <div class="section--quiz__opcoes">
+            <label for="opcao10-1">
+              <div class="section--quiz__opcao-texto">
+                <p>1</p>
+                <p>Muito Pouco</p>
+              </div>
+              <input id="opcao10-1" name="opcao10" type="radio">
+            </label>
+            <label for="opcao10-2">
+              <div class="section--quiz__opcao-texto">
+                <p>2</p>
+                <p>Pouco</p>
+              </div>
+              <input id="opcao10-2" name="opcao10" type="radio">
+            </label>
+            <label for="opcao10-3">
+              <div class="section--quiz__opcao-texto">
+                <p>3</p>
+                <p>Mais ou Menos</p>
+              </div>
+              <input id="opcao10-3" name="opcao10" type="radio">
+            </label>
+            <label for="opcao10-4">
+              <div class="section--quiz__opcao-texto">
+                <p>4</p>
+                <p>Sei</p>
+              </div>
+              <input id="opcao10-4" name="opcao10" type="radio">
+            </label>
+            <label for="opcao10-5">
+              <div class="section--quiz__opcao-texto">
+                <p>5</p>
+                <p>Sei Bastante</p>
+              </div>
+              <input id="opcao10-5" name="opcao10" type="radio">
+            </label>
+          </div>
+        </fieldset>
+
+        <button class="section--quiz__button" type="button" id="submitQuiz">Ver Resultado</button>
+      </form>
+
+      <!-- Tela de Resultado (inicialmente oculta) -->
+      <div class="quiz-resultado" id="quizResultado" style="display: none;" role="region" aria-live="polite">
+        <h2 class="resultado-titulo">RESULTADO</h2>
+        <p class="resultado-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
+        <p class="resultado-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in felis finibus, bibendum leo eget, condimentum eros. Duis nec lobortis.</p>
+        <button class="resultado-button" id="reiniciarQuiz">Realizar o quiz novamente</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-nav">
+        <div class="footer-logo">
+          <h2>DRYCITY</h2>
+          <p>Prevenção contra enchentes</p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Navegação</h3>
+          <ul>
+            <li><a href="./cadastro.html" rel="noopener">Cadastro</a></li>
+            <li><a href="./mapa.html" rel="noopener">Mapa de Enchentes</a></li>
+            <li><a href="./quiz.html" rel="noopener">Quiz de Conhecimentos</a></li>
+            <li><a href="./portal.html" rel="noopener">Portal Educacional</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contato</h3>
+          <p>contato@drycity.com.br</p>
+          <p>(11) 99999-9999</p>
+        </div>
+      </div>
+
+      <div class="footer-copyright">
+        <p>&copy; DRYCity, 2025. - Todos os direitos reservados.</p>
+      </div>
+    </div>
+    <img draggable="false" class="footer-bg" src="../assets/images/backgrounds/DRYCITY-footer.png" alt="Imagem decorativa do rodapé DRYCity">
+  </footer>
+
+  <script src="../js/darkmode.js"></script>
+  <script src="../js/quiz.js"></script>
+</body>
+
+</html>

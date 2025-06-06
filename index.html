@@ -1,13 +1,465 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./src/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/css/style.css" />
+  <link rel="shortcut icon" href="./src/assets/images/logos/logo.png" type="image/x-icon" />
   <title>DRYCity</title>
 </head>
-<body>
 
+<body>
+  <header class="header">
+    <div class="header__logo">DRYCITY</div>
+    <div class="header__right">
+      <div class="dark-mode-container">
+        <div class="dark-mode-toggle" aria-label="Alternar modo escuro">
+          <!-- Os ícones serão inseridos pelo JavaScript -->
+        </div>
+        <!-- O menu de temas será inserido pelo JavaScript -->
+      </div>
+      <a href="./src/pages/cadastro.html" target="_blank" class="header__avatar-link"><img src="./src/assets/images/ui/avatar.svg" alt="" class="header__avatar"></a>
+      <nav class="header__nav">
+        <ul class="header__list">
+          <li class="header__list-item--active">HOME</li>
+          <li class="header__list-item">TECNOLOGIAS</li>
+          <li class="header__list-item">OBJETIVOS</li>
+          <li class="header__list-item">PÚBLICO-ALVO</li>
+          <li class="header__list-item">BENEFÍCIOS</li>
+          <li class="header__list-item">USO-DIÁRIO</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="tracker"></div>
+
+  <main class="main-problema">
+    <section class="section section--home">
+      <img draggable="false" class="section--home__bg" src="./src/assets/images/backgrounds/home-bg-desktop.png" alt="" />
+
+      <div class="section--home__text-group">
+        <h2>Salvando e transformando o mundo por meio da tecnologia</h2>
+        <h1>DRYCITY</h1>
+      </div>
+
+      <div class="section--home__cta">
+        <p>SAIBA MAIS</p>
+        <img draggable="false" src="./src/assets/images/icons/arrow.svg" alt="" />
+      </div>
+    </section>
+
+    <section class="section section--video">
+      <video draggable="false" class="section--video__bg" autoplay muted loop src="./src/assets/videos/video.mp4"></video>
+
+      <div class="section--video__text-group">
+        <p class="section--video__text-1">MAIS DE</p>
+        <div class="section--video__inner-texts">
+          <p class="section--video__text-2">110 MILHÕES</p>
+          <p class="section--video__text-3">DE PESSOAS FORAM AFETADAS</p>
+          <p class="section--video__text-4">POR ENCHENTES NO BRASIL ENTRE 1991 E 2022</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--descricao-problema">
+      <img draggable="false" class="section--descricao-problema__bg" src="./src/assets/images/home/slide1.png" alt="" />
+      <div class="slide">
+        <div class="problem-content">
+          <div class="content">
+            <div class="subtitulo">
+              <h3>A CRISE DAS ENCHENTES</h3>
+              <span class="linha"></span>
+            </div>
+            <div class="content-text">
+              <p>
+                Enchentes urbanas afetam milhões de pessoas no Brasil, causando perdas e danos severos.
+              </p>
+              <p>
+                A DRYCity oferece alertas, orientação e medidas preventivas para áreas de risco.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-nav">
+          <img draggable="false" src="./src/assets/images/icons/slide-nav.svg" alt="" />
+          <div class="slide-status">
+            <p>1</p>
+            <p>/</p>
+            <p>3</p>
+          </div>
+          <img draggable="false" src="./src/assets/images/icons/slide-nav.svg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tecnologias">
+      <div class="card-group">
+        <a href="./src/pages/cadastro.html" target="_blank" class="card">
+          <div class="card-content">
+            <h4>CADASTRO</h4>
+            <p>Registre-se para receber alertas personalizados sobre riscos de enchentes em sua região.</p>
+          </div>
+        </a>
+        <a href="./src/pages/mapa.html" target="_blank" class="card">
+          <div class="card-content">
+            <h4>MAPA DE ENCHENTES</h4>
+            <p>Visualize em tempo real as áreas com risco de inundação e rotas de evacuação seguras.</p>
+          </div>
+        </a>
+        <a href="./src/pages/quiz.html" target="_blank" class="card">
+          <div class="card-content">
+            <h4>QUIZ DE CONHECIMENTOS</h4>
+            <p>Teste seus conhecimentos sobre prevenção de enchentes e aprenda medidas de segurança.</p>
+          </div>
+        </a>
+        <a href="./src/pages/portal.html" target="_blank" class="card">
+          <div class="card-content">
+            <h4>PORTAL EDUCACIONAL</h4>
+            <p>Acesse artigos e recursos educativos sobre prevenção e resposta a situações de enchente.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="proxima-secao">
+        <p>TECNOLOGIAS</p>
+        <img draggable="false" src="./src/assets/images/icons/arrow.svg" alt="" />
+      </div>
+    </section>
+  </main>
+
+  <main class="main-tech">
+    <section class="section section--home sec sticky-page" style="--z:0">
+      <img draggable="false" class="section--home__bg" src="./src/assets/images/backgrounds/linhas-tecnologicas-mobile.png" alt="">
+
+      <div class="section--home__text-group">
+        <h1>TECNOLOGIAS UTILIZADAS</h1>
+        <h2>saiba mais sobre o que nos torna diferenciados</h2>
+      </div>
+
+      <div class="section--home__cta">
+        <p>SAIBA MAIS</p>
+        <img src="./src/assets/images/icons/arrow.svg" alt="">
+      </div>
+    </section>
+
+    <section class="section section--tecnologias sec sticky-page" style="--z:1">
+      <video muted autoplay loop src="./src/assets/videos/arduino.mp4" class="section--tecnologias__bg"></video>
+
+      <div class="content">
+        <div class="subtitulo">
+          <h3>MONITORAMENTO INTELIGENTE</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Nossa plataforma utiliza sensores IoT (Internet das Coisas) distribuídos estrategicamente em áreas críticas para monitorar em tempo real o nível de águas, acúmulo de chuvas e condições de drenagem urbana.</p>
+          <p>Os dados coletados são transmitidos instantaneamente para nossa central e processados por algoritmos de IA, permitindo a detecção precoce de situações de risco antes que se tornem crises.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tecnologias sec sticky-page" style="--z:2">
+      <video muted autoplay loop src="./src/assets/videos/site.mp4" class="section--tecnologias__bg"></video>
+
+      <div class="content">
+        <div class="subtitulo">
+          <h3>TECNOLOGIAS WEB</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Desenvolvemos nossa plataforma com HTML5, CSS3 e JavaScript moderno para garantir experiência responsiva e acessível.</p>
+          <p>Utilizamos técnicas de otimização e design adaptativo para funcionar em qualquer dispositivo, mesmo com conectividade limitada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tecnologias sec sticky-page" style="--z:3">
+      <video muted autoplay loop src="./src/assets/videos/mapa.mp4" class="section--tecnologias__bg"></video>
+
+
+      <div class="content">
+        <div class="subtitulo">
+          <h3>MAPEAMENTO DE RISCO</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Utilizamos tecnologia de sensoriamento remoto e imagens de satélite combinadas com machine learning para criar mapas de vulnerabilidade atualizados constantemente, identificando áreas propensas a enchentes.</p>
+          <p>Nossa plataforma integra dados históricos, topográficos e meteorológicos para gerar simulações precisas que permitem o planejamento urbano mais eficiente e o direcionamento adequado de recursos de prevenção.</p>
+        </div>
+        <div class="proxima-secao">
+          <p>OBJETIVOS</p>
+          <img draggable="false" src="./src/assets/images/icons/arrow.svg" alt="" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main class="main-objetivos">
+    <section class="section section--home sec">
+      <img class="section--home__bg" src="./src/assets/images/backgrounds/objetivos-bg.png" alt="">
+
+      <div class="section--home__text-group">
+        <h1>NOSSOS OBJETIVOS</h1>
+        <h2>saiba mais sobre os nossos propósitos</h2>
+      </div>
+
+      <div class="section--home__cta">
+        <p>SAIBA MAIS</p>
+        <img src="./src/assets/images/icons/arrow.svg" alt="">
+      </div>
+    </section>
+
+    <section class="section section--objetivos sec objetivos-main">
+      <div class="slide-card-container">
+        <div class="content">
+          <div class="subtitulo">
+            <h3>SALVANDO VIDAS E PROTEGENDO COMUNIDADES</h3>
+            <span class="linha"></span>
+          </div>
+          <div class="content-text">
+            <p>
+              Nosso principal objetivo é reduzir o número de vítimas de enchentes em 85% nas áreas onde atuamos, através de tecnologia de ponta para alertas precoces, educação comunitária e suporte às políticas públicas de prevenção de desastres.
+            </p>
+          </div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-card-content">
+            <h4>REDUÇÃO DE DANOS</h4>
+            <p>Nosso objetivo é diminuir em 70% os danos causados por enchentes nas áreas monitoradas.</p>
+          </div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-card-content">
+            <h4>ALERTA PRECOCE</h4>
+            <p>Emitir alertas com até 72 horas de antecedência para permitir evacuações seguras.</p>
+          </div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-card-content">
+            <h4>EDUCAÇÃO PREVENTIVA</h4>
+            <p>Capacitar comunidades através de informação e treinamento para enfrentar situações de risco.</p>
+          </div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-card-content">
+            <h4>MAPEAMENTO PRECISO</h4>
+            <p>Identificar todas as áreas de risco no Brasil e desenvolver planos específicos para cada região.</p>
+          </div>
+        </div>
+
+        <div class="proxima-secao">
+          <p>PÚBLICO-ALVO</p>
+          <img src="./src/assets/images/icons/arrow.svg" alt="">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main class="main-publico-alvo">
+    <section class="section section--home sec" style="--z:0">
+      <img class="section--home__bg" src="./src/assets/images/backgrounds/pb-alvo-mobile.png" alt="" />
+
+      <div class="section--home__text-group">
+        <h1>PÚBLICO ALVO</h1>
+        <h2>saiba a quem nossas propostas atingem</h2>
+      </div>
+
+      <div class="section--home__cta">
+        <p>SAIBA MAIS</p>
+        <img src="./src/assets/images/icons/arrow.svg" alt="" />
+      </div>
+    </section>
+
+    <section class="section section--tecnologias sec sticky-page" style="--z:1">
+      <div class="content">
+        <div class="subtitulo">
+          <h3>RESIDENTES DE ÁREAS DE RISCO</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Focamos em comunidades localizadas em áreas vulneráveis a enchentes. Oferecemos ferramentas de alerta específicas.</p>
+          <p>Nossa plataforma tem interface simples, funciona em dispositivos básicos com conectividade limitada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tecnologias sec sticky-page" style="--z:2">
+      <div class="content">
+        <div class="subtitulo">
+          <h3>GESTORES PÚBLICOS</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Fornecemos ferramentas avançadas com painéis de monitoramento e mapas de vulnerabilidade.</p>
+          <p>Nossa plataforma facilita decisões baseadas em dados e alocação eficiente de recursos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tecnologias sec sticky-page" style="--z:3">
+      <div class="content">
+        <div class="subtitulo">
+          <h3>PLANEJADORES URBANOS</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Desenvolvemos ferramentas para arquitetos e planejadores urbanos com insights baseados em dados.</p>
+          <p>Permitimos simulações urbanas e identificamos soluções como drenagem sustentável e parques pluviais.</p>
+        </div>
+        <div class="proxima-secao">
+          <p>BENEFÍCIOS</p>
+          <img draggable="false" src="./src/assets/images/icons/arrow.svg" alt="" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main class="main-beneficios">
+    <section class="section section--home sec">
+      <img class="section--home__bg" src="./src/assets/images/backgrounds/beneficios-bg-mobile.png" alt="" />
+
+      <div class="section--home__text-group">
+        <h1>BENEFÍCIOS</h1>
+        <h2>saiba o que temos a oferecer</h2>
+      </div>
+
+      <div class="section--home__cta">
+        <p>SAIBA MAIS</p>
+        <img src="./src/assets/images/icons/arrow.svg" alt="" />
+      </div>
+    </section>
+
+    <section class="section section--tecnologias">
+      <div class="card-group">
+        <div class="card">
+          <div class="card-content">
+            <h4>ALERTAS EM TEMPO REAL</h4>
+            <p>Receba notificações imediatas sobre riscos de enchentes em sua região.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h4>MAPEAMENTO INTELIGENTE</h4>
+            <p>Visualize áreas de risco e rotas de evacuação de forma interativa.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h4>EDUCAÇÃO PREVENTIVA</h4>
+            <p>Acesse conteúdos educativos sobre como se preparar para eventos climáticos extremos.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h4>SUPORTE COMUNITÁRIO</h4>
+            <p>Conecte-se com sua comunidade para ações de prevenção e resposta coordenadas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="proxima-secao">
+        <p>USO-DIÁRIO</p>
+        <img draggable="false" src="./src/assets/images/icons/arrow.svg" alt="" />
+      </div>
+    </section>
+  </main>
+
+  <main class="main-uso-diario">
+    <section class="section section--home sec" style="--z:0">
+      <img class="section--home__bg" src="./src/assets/images/backgrounds/uso-diario-bg.png" alt="" />
+
+      <div class="section--home__text-group">
+        <h1>USO DIÁRIO</h1>
+        <h2>como nos fazemos presentes no seu dia-a-dia</h2>
+      </div>
+
+      <div class="section--home__cta">
+        <p>SAIBA MAIS</p>
+        <img src="./src/assets/images/icons/arrow.svg" alt="" />
+      </div>
+    </section>
+
+    <section class="section section--tecnologias sec sticky-page" style="--z:1">
+
+      <div class="content">
+        <div class="subtitulo">
+          <h3>PREVENÇÃO EFICIENTE</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Nosso sistema reduz danos em 70% e permite medidas preventivas antecipadas.</p>
+          <p>Identificamos riscos 72 horas antes, salvando vidas e protegendo patrimônios.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tecnologias sec sticky-page" style="--z:2">
+
+      <div class="content">
+        <div class="subtitulo">
+          <h3>RESILIÊNCIA COMUNITÁRIA</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Nosso portal capacita comunidades e cria redes de solidariedade entre moradores.</p>
+          <p>Comunidades reportam 85% mais segurança para enfrentar eventos climáticos extremos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tecnologias sec sticky-page" style="--z:3">
+
+      <div class="content">
+        <div class="subtitulo">
+          <h3>IMPACTO ECONÔMICO</h3>
+          <span class="linha"></span>
+        </div>
+        <div class="content-text">
+          <p>Municípios obtêm retorno de 8:1, reduzindo gastos com reconstrução após desastres.</p>
+          <p>Cada R$1 economiza R$8 e preserva o desenvolvimento econômico local.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-nav">
+        <div class="footer-logo">
+          <h2>DRYCITY</h2>
+          <p>Prevenção contra enchentes</p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Navegação</h3>
+          <ul>
+            <li><a target="_blank" href="./src/pages/cadastro.html" rel="noopener">Cadastro</a></li>
+            <li><a target="_blank" href="./src/pages/mapa.html" rel="noopener">Mapa de Enchentes</a></li>
+            <li><a target="_blank" href="./src/pages/quiz.html" rel="noopener">Quiz de Conhecimentos</a></li>
+            <li><a target="_blank" href="./src/pages/portal.html" rel="noopener">Portal Educacional</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contato</h3>
+          <p>contato@drycity.com.br</p>
+          <p>(11) 99999-9999</p>
+        </div>
+      </div>
+
+      <div class="footer-copyright">
+        <p>&copy; DRYCity, 2025. - Todos os direitos reservados.</p>
+      </div>
+    </div>
+    <img draggable="false" class="footer-bg" src="./src/assets/images/backgrounds/DRYCITY-footer.png" alt="Imagem decorativa do rodapé DRYCity">
+  </footer>
+  <script src="./src/js/darkmode.js"></script>
+  <script src="./src/js/slide.js"></script>
   <script src="./src/js/script.js"></script>
 </body>
+
 </html>

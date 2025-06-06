@@ -1,0 +1,540 @@
+@import "./base.css";
+
+/* ========================= */
+/*     BOTÃO DARK MODE       */
+/* ========================= */
+.dark-mode-container {
+  position: relative;
+  order: 1;
+}
+
+.dark-mode-toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /*! background-color: var(--bg-tertiary); */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .dark-mode-toggle {
+  /*! background-color: var(--highlight-color); */
+}
+
+/* Removendo o pseudo-elemento que era usado como o "interruptor" */
+.dark-mode-toggle::before {
+  content: none;
+}
+
+.theme-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode .theme-icon {
+  color: var(--branco);
+}
+
+/* No modo claro, mostre o ícone do sol no toggle */
+.light-icon {
+  display: flex;
+}
+
+.dark-icon {
+  display: none;
+}
+
+/* No modo escuro, mostre o ícone da lua no toggle */
+.dark-mode .light-icon {
+  display: none;
+}
+
+.dark-mode .dark-icon {
+  display: flex;
+}
+
+/* Avatar no modo escuro */
+.dark-mode .header__avatar {
+  filter: brightness(0) invert(1); /* Converte a imagem para branco */
+  transition: filter 0.3s ease;
+}
+
+/* Inverter cores dos traçados em modo escuro */
+.section--home__bg {
+  transition: filter 0.3s ease; /* Adiciona transição suave */
+}
+
+.dark-mode .section--home__bg {
+  filter: invert(1) brightness(0.8) contrast(1.2);
+}
+
+/* Adaptações para slide-card-container no modo escuro */
+.dark-mode .main-objetivos .section--objetivos .slide-card-container {
+  background-color: var(--preto-1);
+  color: var(--branco-1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .main-objetivos .section--objetivos .slide-card-container .slide-card {
+  background-color: var(--cinza-escuro);
+  box-shadow: 0.625rem 0.625rem 1.1875rem 0rem rgba(0, 0, 0, 0.5);
+}
+
+/* Adaptações para seção público-alvo no modo escuro */
+.dark-mode .main-publico-alvo .section--tecnologias {
+  background-color: var(--preto-1);
+  color: var(--branco-1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .main-publico-alvo .section--tecnologias:nth-child(odd) {
+  background-color: var(--cinza-escuro);
+}
+
+.dark-mode .main-publico-alvo .section--tecnologias .content {
+  color: var(--branco-1);
+}
+
+/* Adaptações para seção tecnologias no modo escuro */
+.dark-mode .main-tech .section--tecnologias {
+  background-color: var(--preto-1);
+  color: var(--branco-1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .main-tech .section--tecnologias:nth-child(odd) {
+  background-color: var(--cinza-escuro);
+}
+
+.dark-mode .main-tech .section--tecnologias .content {
+  color: var(--branco-1);
+}
+
+/* Adaptações para seção uso-diário no modo escuro */
+.dark-mode .main-uso-diario .section--tecnologias {
+  background-color: var(--preto-1);
+  color: var(--branco-1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .main-uso-diario .section--tecnologias:nth-child(odd) {
+  background-color: var(--cinza-escuro);
+}
+
+.dark-mode .main-uso-diario .section--tecnologias .content {
+  color: var(--branco-1);
+}
+
+/* Correções de padding para modo escuro em mobile */
+@media (max-width: 767px) {
+  .dark-mode .main-uso-diario .section--tecnologias {
+    padding: 1.5625rem 1rem;
+  }
+
+  .dark-mode .main-uso-diario .section--tecnologias .content {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .dark-mode .main-uso-diario .section--tecnologias .section--tecnologias__bg {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Menu de temas */
+.theme-menu {
+  display: none;
+  position: absolute;
+  top: 45px;
+  /*! right: 10px; */
+  background-color: var(--bg-tertiary);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 40px;
+  height: 40px;
+  z-index: 999;
+  animation: fadeIn 0.3s ease forwards;
+
+  /* Criar conexão visual com o botão */
+  &::before {
+    /*! content: ""; */
+    position: absolute;
+    top: -5px;
+    right: 15px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--bg-tertiary);
+    transform: rotate(45deg);
+  }
+}
+
+.dark-mode .theme-menu {
+  background-color: var(--highlight-color);
+
+  &::before {
+    background-color: var(--highlight-color);
+  }
+}
+
+.dark-mode-container.active .theme-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.theme-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* No modo claro, mostre apenas a opção do modo escuro no menu */
+.theme-item[data-theme="light"] {
+  display: none;
+}
+
+.dark-mode .theme-item[data-theme="light"] {
+  display: flex;
+}
+
+/* No modo escuro, mostre apenas a opção do modo claro no menu */
+.theme-item[data-theme="dark"] {
+  display: flex;
+  background-color: var(--highlight-color);
+  color: white;
+}
+
+.dark-mode .theme-item[data-theme="dark"] {
+  display: none;
+}
+
+/* Responsividade para botão dark mode */
+@media (max-width: 47.9375rem) {
+  .dark-mode-toggle {
+    width: 35px;
+    height: 35px;
+    margin-right: 0.5rem;
+  }
+
+  .theme-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .theme-menu {
+    width: 35px;
+    height: 35px;
+    top: 40px;
+  }
+}
+
+/* ========================= */
+/*          HEADER           */
+/* ========================= */
+.header {
+  position: fixed;
+  width: 100%;
+  height: 5rem;
+  padding: 0 1.875rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+}
+
+.header__logo {
+  color: black;
+  text-decoration: none;
+  mix-blend-mode: difference;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Ajustes para alinhar elementos do header */
+.header__nav {
+  order: 2; /* Alterado para 2 */
+}
+
+.header__avatar-link {
+  order: 3; /* Alterado para 3 */
+}
+
+.header__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+  z-index: 1000;
+}
+
+/* Corrigir problema do menu hover/active */
+.header__nav.active .header__list {
+  position: relative;
+  top: 5.5rem;
+  background-color: rgba(217, 217, 217, 0.8);
+  border-radius: 0.3125rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.header__list-item {
+  display: none;
+  color: #000;
+  padding: 0.625rem 0.9375rem;
+  border-radius: 0.3125rem;
+  font-weight: normal;
+  font-size: 0.875rem;
+  cursor: pointer;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Mostrar itens de menu quando o nav estiver ativo */
+.header__nav.active .header__list-item {
+  display: block;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.header__list-item--active {
+  display: block;
+  background-color: var(--cinza-escuro);
+  color: var(--branco-1);
+  padding: 0.625rem 0.9375rem;
+  border-radius: 0.3125rem;
+  font-weight: normal;
+  cursor: pointer;
+  min-width: 135px;
+  text-align: center;
+}
+
+/* ========================= */
+/*       NAVEGAÇÃO           */
+/* ========================= */
+.tracker {
+  position: fixed;
+  top: 50%;
+  left: 0.625rem;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  z-index: 1000;
+}
+
+/* ========================= */
+/*     SEÇÃO HOME (COMUM)    */
+/* ========================= */
+.section--home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 9.375rem;
+  padding-bottom: 5rem;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.section--home__bg {
+  position: absolute;
+  bottom: 0;
+  min-width: max-content;
+  width: 100%;
+  height: 100%;
+  opacity: 0.25;
+  z-index: 999;
+}
+
+.section--home__text-group {
+  position: relative;
+  z-index: 998;
+  max-width: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section--home__text-group h2 {
+  font-size: 0.625rem;
+  font-weight: normal;
+  width: 10.625rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.section--home__text-group h1 {
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 0.3125rem;
+}
+
+.section--home__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.75rem;
+  color: var(--cinza-escuro);
+  z-index: 999;
+}
+
+.section--home__cta img {
+  position: relative;
+  animation: float 2s ease-in-out infinite;
+}
+
+/* ========================= */
+/*          FOOTER           */
+/* ========================= */
+footer {
+  position: relative;
+  background-color: var(--branco);
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  height: 100%;
+  align-items: flex-end;
+  justify-content: end;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 3rem 2rem 1.5rem;
+  color: var(--preto);
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-logo h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-logo p {
+  font-size: 0.875rem;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--preto);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--azul);
+  text-decoration: underline;
+}
+
+.footer-contact p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.875rem;
+  /*! align-self: end; */
+  width: 100%;
+}
+
+.footer-bg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: var(--preto);
+  opacity: 0.05;
+  height: 10%;
+  z-index: 1;
+}
+
+/* Dark mode para o footer */
+.dark-mode footer {
+  background-color: var(--preto-1);
+}
+
+.dark-mode .footer-content {
+  color: var(--branco-1);
+}
+
+.dark-mode .footer-links a {
+  color: var(--branco-1);
+}
+
+.dark-mode .footer-links a:hover {
+  color: var(--azul-claro);
+}
+
+.dark-mode .footer-copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsividade do footer */
+@media (max-width: 768px) {
+  .footer-nav {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-content {
+    padding: 2rem 1rem 1rem;
+  }
+}

@@ -1,0 +1,236 @@
+@import "./style.css";
+
+.main-quiz {
+  justify-content: start;
+  padding: 100px 15px 15px 15px;
+  background-color: var(--branco-1);
+}
+
+/* Centralizando conteúdo para desktop */
+@media (min-width: 992px) {
+  .main-quiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 0;
+  }
+
+  .section--quiz {
+    max-width: 900px;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .section--quiz__form {
+    max-width: 800px;
+    margin: 25px auto 0;
+  }
+
+  /* Aumentando tamanhos de fonte para desktop */
+  .section--quiz__pergunta-texto {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .section--quiz__opcoes {
+    height: 60px;
+    font-size: 14px;
+  }
+
+  .section--quiz__opcao-texto {
+    font-size: 14px;
+  }
+
+  .section--quiz__opcao-texto p:first-child {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .section--quiz__button {
+    font-size: 18px;
+    padding: 18px;
+  }
+
+  .content-text p {
+    font-size: 18px;
+  }
+
+  .subtitulo h3 {
+    font-size: 24px;
+  }
+}
+
+.section--quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.section--quiz__form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 25px;
+}
+
+.section--quiz__pergunta {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border: none;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.section--quiz__pergunta-texto {
+  gap: 5px;
+  display: flex;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.section--quiz__opcoes {
+  display: flex;
+  height: 50px;
+  text-align: center;
+  font-size: 10px;
+  color: var(--preto-2);
+}
+
+.section--quiz__opcao-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section--quiz__opcoes label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--preto-2);
+  height: 100%;
+  width: 100%;
+  background-color: var(--cinza-claro);
+}
+
+.section--quiz__opcoes label:nth-child(1) {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.section--quiz__opcoes label:nth-child(5) {
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.section--quiz__opcoes label > input {
+  appearance: none;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.section--quiz__opcoes label:has(input:checked) {
+  font-weight: bold;
+  color: var(--cinza-claro);
+  background-color: var(--azul);
+}
+
+.section--quiz__button {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--branco);
+  background-color: var(--preto);
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.section--quiz__button:hover {
+  background-color: var(--azul);
+  color: var(--preto-2);
+}
+
+/* Estilos para a tela de resultado - ajuste de tamanho e dark mode */
+.quiz-resultado {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 800px; /* Aumentado para dar mais espaço */
+  width: 90%;
+  margin: 40px auto;
+  text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Mantém o estilo de conteúdo original */
+.resultado-titulo {
+  font-size: 28px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.resultado-texto {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.resultado-button {
+  display: block;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.resultado-button:hover {
+  background-color: #555;
+}
+
+/* Suporte para dark mode */
+.dark-mode .quiz-resultado {
+  background-color: #222;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .resultado-titulo {
+  color: #f5f5f5;
+}
+
+.dark-mode .resultado-texto {
+  color: #ddd;
+}
+
+.dark-mode .resultado-button {
+  background-color: #444;
+}
+
+.dark-mode .resultado-button:hover {
+  background-color: #666;
+}
+
+/* Responsividade para a tela de resultado */
+@media (max-width: 768px) {
+  .quiz-resultado {
+    padding: 30px;
+    max-width: 95%;
+  }
+}

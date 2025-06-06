@@ -1,42 +1,54 @@
 @import "../css/style.css";
-@import "../css/mapa.css";
 
-h3{
-  font-size: 24px;
+.main-quiz {
+  padding: 100px 15px 15px 15px;
+  background-color: var(--branco-1);
 }
-form{
+
+.section--quiz {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  margin-top: 25px;
 }
-b{
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-.pergunta{
+
+.section--quiz__form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  border: none;
-  height: 80px;
+  gap: 40px;
+  margin-top: 25px;
 }
-.pergunta-texto{
+
+.section--quiz__pergunta {
   display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border: none;
+  height: auto;
+  min-height: 100px;
+  margin-bottom: 10px;
 }
-.opcoes-grupo{
+
+.section--quiz__pergunta-texto {
+  display: flex;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.section--quiz__opcoes {
   display: flex;
   height: 50px;
   text-align: center;
   font-size: 10px;
   color: var(--preto-2);
 }
-.opcoes-text{
+
+.section--quiz__opcao-texto {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-label{
+
+.section--quiz__opcoes label {
   position: relative;
   display: flex;
   align-items: center;
@@ -46,16 +58,19 @@ label{
   width: 100%;
   background-color: var(--cinza-claro);
 }
-label:nth-child(1){
+
+.section--quiz__opcoes label:nth-child(1) {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-label:nth-child(5){
+
+.section--quiz__opcoes label:nth-child(5) {
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-label > input{
+
+.section--quiz__opcoes label > input {
   appearance: none;
   position: absolute;
   display: flex;
@@ -63,13 +78,14 @@ label > input{
   height: 100%;
   cursor: pointer;
 }
-label:has(input:checked){
+
+.section--quiz__opcoes label:has(input:checked) {
   font-weight: bold;
   color: var(--cinza-claro);
   background-color: var(--azul);
 }
 
-button{
+.section--quiz__button {
   font-size: 16px;
   font-weight: bold;
   color: var(--branco);
@@ -78,7 +94,57 @@ button{
   padding: 15px;
   border-radius: 5px;
 }
-button:hover{
+
+.section--quiz__button:hover {
   background-color: var(--azul);
   color: var(--preto-2);
+}
+
+@media screen and (min-width: 768px) {
+  .main-quiz {
+    padding: 120px 40px 40px 40px;
+  }
+
+  .section--quiz {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section--quiz__form {
+    gap: 30px;
+  }
+
+  .section--quiz__pergunta {
+    gap: 20px;
+    height: auto;
+    min-height: 100px;
+  }
+
+  .section--quiz__pergunta-texto {
+    font-size: 18px;
+  }
+
+  .section--quiz__opcao-texto {
+    font-size: 14px;
+  }
+
+  .section--quiz__button {
+    font-size: 18px;
+    max-width: 300px;
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .main-quiz {
+    padding: 140px 60px 60px 60px;
+  }
+
+  .section--quiz__pergunta {
+    height: 100px;
+  }
+
+  .section--quiz__opcoes {
+    height: 60px;
+  }
 }
